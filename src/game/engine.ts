@@ -388,8 +388,12 @@ export function spawnMidBoss() {
 }
 
 export function getSpawnType(): string {
-  const pool = currentMobPool;
-  return pool[Math.floor(Math.random() * pool.length)];
+  const t = gTimer, r = Math.random();
+  const p = currentMobPool;
+  if (t < 60) return p[0]; // 첫 번째 몹만
+  if (t < 150) return r < 0.5 ? p[0] : p[1]; // 두 종류
+  if (t < 300) return r < 0.3 ? p[0] : r < 0.6 ? p[1] : p[2]; // 세 종류
+  return r < 0.2 ? p[0] : r < 0.4 ? p[1] : r < 0.7 ? p[2] : p[3]; // 전부
 }
 
 // ── CORE UPDATES ─────────────────────────────────────────────────────
