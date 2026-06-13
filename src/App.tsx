@@ -69,8 +69,8 @@ export default function App() {
     const cos = getCosmetic(profile.equippedCosmetic);
     engine.setCosmeticDraw(cos?.draw ?? null);
     if (cos?.maple?.slot === 'Cap') {
-      const capAsset = spriteCache.mapleAssets[cos.maple.assetKey];
-      engine.setCosmeticCapVslot((capAsset?.info as any)?.vslot || '');
+      const vslot = cos.id === 'ninja' ? 'CpH1H2H5' : ((spriteCache.mapleAssets[cos.maple.assetKey]?.info as any)?.vslot || '');
+      engine.setCosmeticCapVslot(vslot);
     } else {
       engine.setCosmeticCapVslot('');
     }

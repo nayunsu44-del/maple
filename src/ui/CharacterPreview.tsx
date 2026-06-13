@@ -29,8 +29,11 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
 
   let capVslot = '';
   if (cos?.maple?.slot === 'Cap') {
-    const capAsset = spriteCache.mapleAssets[cos.maple.assetKey];
-    capVslot = (capAsset?.info as any)?.vslot || '';
+    if (cos.id === 'ninja') capVslot = 'CpH1H2H5';
+    else {
+      const capAsset = spriteCache.mapleAssets[cos.maple.assetKey];
+      capVslot = (capAsset?.info as any)?.vslot || '';
+    }
   }
 
   const hairVslotMap: Record<string, string> = {
