@@ -951,6 +951,7 @@ export function drawEnemies(ctx: CanvasRenderingContext2D) {
     const animationTime = (gTimer * 1000 + (e._id as number) * 100) % totalDuration;
     const frameIndex = Math.floor(animationTime / durationPerFrame) % stateFrames.length;
     const frame = stateFrames[frameIndex];
+    if (!frame) continue;
 
     const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
     const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
