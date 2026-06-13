@@ -363,7 +363,7 @@ export function spawnBoss() {
   }
   enemies.push({ type: currentBossType, def, x: bx, y: by, hp: def.hp, maxHp: def.hp, atk: def.atk, spd: def.spd, xp: def.xp, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
   doShake(15);
-  addFText(P.x, P.y - 120, i18n.t('boss_spawn'), '#ff4444', 30);
+  addFText(P.x, P.y - 120, i18n.t('boss_spawn').replace('{name}', i18n.mobName(currentBossType)), '#ff4444', 30);
   sfx('boss');
   for (let i = 0; i < 6; i++) addParts(P.x + rnd(-80, 80), P.y + rnd(-80, 80), '#ff4444', 4, 120, 0.9);
 }
