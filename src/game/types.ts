@@ -97,7 +97,7 @@ export interface Projectile {
 }
 
 export interface DropItem {
-  type: 'xp' | 'pot';
+  type: 'xp' | 'pot' | 'meso';
   x: number;
   y: number;
   v: number;

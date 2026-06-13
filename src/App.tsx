@@ -5,11 +5,23 @@ import { initAudio, sfx, isSoundOn, toggleSound } from './game/audio';
 import * as spriteCache from './game/spriteCache';
 import * as engine from './game/engine';
 import { t, setLang, skillName, mobName, currentLang, type Lang } from './game/i18n';
+import { computeLoadout, getCosmetic } from './game/catalog';
+import { getActiveProfile, saveProfile, unlockCosmetics, type Profile } from './game/profile';
+import HomeHub from './ui/HomeHub';
+import ChapterSelect from './ui/ChapterSelect';
+import EnhancePanel from './ui/EnhancePanel';
+import ProfileSelect from './ui/ProfileSelect';
+import Wardrobe from './ui/Wardrobe';
+
+type MenuView = 'home' | 'chapters' | 'enhance' | 'wardrobe' | 'profiles' | null;
 
 export default function App() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [lang, setLangState] = useState<Lang>('en');
+  const [menuView, setMenuView] = useState<MenuView>('home');
+  const menuViewRef = useRef<MenuView>('home');
+  const [activeProfile, setActiveProfileState] = useState<Profile>(() => getActiveProfile());
   const bestRef = useRef<{ score: number; grade: string; kills: number; lv: number } | null>(null);
   const soundRef = useRef(true);
   const [mapleLoaded, setMapleLoaded] = useState(false);
@@ -19,6 +31,88 @@ export default function App() {
   const keysRef = useRef<Set<string>>(new Set());
   const mouseRef = useRef({ mx: LW / 2, my: LH / 2, clicked: false });
   const joyRef = useRef({ on: false, bx: 0, by: 0, dx: 0, dy: 0, id: -1 });
+  const resultRecordedRef = useRef(false);
+  const activeChapterRef = useRef('ch1');
+
+  const refreshActiveProfile = () => {
+    const profile = getActiveProfile();
+    setActiveProfileState(profile);
+    return profile;
+  };
+
+  const showMenu = (view: Exclude<MenuView, null>) => {
+    menuViewRef.current = view;
+    setMenuView(view);
+    engine.setPhase('title');
+    keysRef.current.clear();
+    joyRef.current.on = false;
+    joyRef.current.dx = 0;
+    joyRef.current.dy = 0;
+    mouseRef.current.clicked = false;
+    refreshActiveProfile();
+  };
+
+  const startGame = (chapterId = activeChapterRef.current) => {
+    initAudio();
+    activeChapterRef.current = chapterId;
+    menuViewRef.current = null;
+    setMenuView(null);
+    keysRef.current.clear();
+    joyRef.current.on = false;
+    joyRef.current.dx = 0;
+    joyRef.current.dy = 0;
+    mouseRef.current.clicked = false;
+    resultRecordedRef.current = false;
+    const profile = getActiveProfile();
+    setActiveProfileState(profile);
+    engine.setLoadout(computeLoadout(profile.enhance));
+    engine.setCosmeticDraw(getCosmetic(profile.equippedCosmetic)?.draw ?? null);
+    engine.resetGameState();
+    engine.setPhase('skillpick');
+  };
+
+  const returnHome = () => {
+    engine.resetGameState();
+    showMenu('home');
+  };
+
+  const handleLangChange = (nextLang: Lang) => {
+    setLang(nextLang);
+    setLangState(nextLang);
+  };
+
+  const recordActiveProfileResult = (score: number, grade: string) => {
+    const profile = getActiveProfile();
+    const chapterId = activeChapterRef.current || 'ch1';
+    const prevChapter = profile.chapters[chapterId];
+    const isBest = !prevChapter || score > prevChapter.bestScore;
+    const nextProfile: Profile = unlockCosmetics({
+      ...profile,
+      mesos: profile.mesos + engine.runMesos,
+      chapters: {
+        ...profile.chapters,
+        [chapterId]: {
+          cleared: Boolean(prevChapter?.cleared || engine.bossCleared),
+          bestScore: isBest ? score : prevChapter.bestScore,
+          bestGrade: isBest ? grade : prevChapter.bestGrade,
+          bestTime: isBest ? Math.floor(engine.gTimer) : prevChapter.bestTime,
+        },
+      },
+      stats: {
+        ...profile.stats,
+        plays: profile.stats.plays + 1,
+        totalKills: profile.stats.totalKills + engine.kills,
+        bossKills: profile.stats.bossKills + (engine.bossCleared ? 1 : 0),
+        maxLevel: Math.max(profile.stats.maxLevel, engine.P.lv),
+        totalMesosEarned: profile.stats.totalMesosEarned + engine.runMesos,
+      },
+    });
+    setActiveProfileState(saveProfile(nextProfile));
+  };
+
+  useEffect(() => {
+    menuViewRef.current = menuView;
+  }, [menuView]);
 
   // Load High Score & Maple Story Assets
   useEffect(() => {
@@ -81,6 +175,13 @@ export default function App() {
 
     // Keyboard handlers
     const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target
+        && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable)
+      ) {
+        return;
+      }
       initAudio();
       keysRef.current.add(e.code);
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].includes(e.code) || e.key === ' ') {
@@ -117,7 +218,7 @@ export default function App() {
     };
 
     cv.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('click', handleMouseClick);
+    cv.addEventListener('click', handleMouseClick);
 
     // Touch joystick handlers
     const handleTouchStart = (e: TouchEvent) => {
@@ -196,6 +297,13 @@ export default function App() {
       // Local synced phases
       const currentPhase = engine.phase;
 
+      if (menuViewRef.current) {
+        lastT = ts;
+        ctx.clearRect(0, 0, LW, LH);
+        mouseRef.current.clicked = false;
+        return;
+      }
+
       if (currentPhase === 'playing' && engine.hitStop > 0) {
         dt *= 0.12;
       }
@@ -207,9 +315,8 @@ export default function App() {
 
       // ── MAIN STATE MACHINE ──────────────────────────────────────────
       if (currentPhase === 'title') {
-        engine.setResFade(engine.resFade + dt);
-        // Draw title under the HTML layout
-        drawTitleCanvas(ctx, ts);
+        ctx.fillStyle = '#101827';
+        ctx.fillRect(0, 0, LW, LH);
 
       } else if (currentPhase === 'skillpick') {
         drawSkillPickCanvas(ctx);
@@ -277,14 +384,17 @@ export default function App() {
 
         // Handle End Run Event
         const triggerEndRun = () => {
+          if (resultRecordedRef.current) return;
+          resultRecordedRef.current = true;
           engine.setPhase('result');
           sfx(engine.bossCleared ? 'clear' : 'over');
 
           try {
-            const b = localStorage.getItem('sr_best');
-            const parsed = b ? JSON.parse(b) : null;
             const s = calcScore(engine.kills, engine.P.lv, engine.gTimer, engine.bossCleared);
             const currentGrade = calcGrade(s);
+            recordActiveProfileResult(s, currentGrade);
+            const b = localStorage.getItem('sr_best');
+            const parsed = b ? JSON.parse(b) : null;
             const isNew = !parsed || s > parsed.score;
             if (isNew) {
               const rec = { score: s, grade: currentGrade, kills: engine.kills, lv: engine.P.lv };
@@ -445,7 +555,7 @@ export default function App() {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
       cv.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('click', handleMouseClick);
+      cv.removeEventListener('click', handleMouseClick);
       cv.removeEventListener('touchstart', handleTouchStart);
       cv.removeEventListener('touchmove', handleTouchMove);
       cv.removeEventListener('touchend', handleTouchEnd);
@@ -719,6 +829,17 @@ export default function App() {
     ctx.textAlign = 'right';
     ctx.fillText(`💀 ${engine.kills}`, LW - 12, 28);
 
+    // Run mesos
+    ctx.fillStyle = 'rgba(0,0,0,0.65)';
+    ctx.beginPath();
+    (ctx as any).roundRect(LW - 132, 42, 122, 28, 6);
+    ctx.fill();
+
+    ctx.fillStyle = '#ffd54f';
+    ctx.font = "bold 13px 'Segoe UI', sans-serif";
+    ctx.textAlign = 'right';
+    ctx.fillText(`${t('hud_mesos')} ${engine.runMesos.toLocaleString()}`, LW - 14, 61);
+
     // Skill Icons
     const skids = Object.keys(engine.P.skills);
     if (skids.length) {
@@ -957,10 +1078,10 @@ export default function App() {
     const isNewBestLocal = (() => { try { const b = localStorage.getItem('sr_best'); return !b || theScore > (JSON.parse(b)?.score || 0); } catch(e) { return false; } })();
     const STATS = [
       [t('result_score'), theScore.toLocaleString() + (isNewBestLocal ? `  ${t('result_newbest')}` : '')],
-      [t('result_kills'), `${engine.kills}${currentLang==='en'||currentLang==='ja'?'':currentLang==='zh'?'只':'마리'}`],
+      [t('result_kills'), `${engine.kills}${currentLang === 'en' ? '' : '마리'}`],
       [t('result_level'), `Lv.${engine.P.lv}`],
       [t('result_time'), timeStr],
-      [t('result_skills'), `${Object.keys(engine.P.skills).length}${currentLang==='en'||currentLang==='ja'?'':currentLang==='zh'?'种':'종'}`]
+      [t('result_skills'), `${Object.keys(engine.P.skills).length}${currentLang === 'en' ? '' : '종'}`]
     ];
 
     STATS.forEach(([k, v], i) => {
@@ -987,31 +1108,51 @@ export default function App() {
       });
     }
 
-    // Retry Button
-    const rbw = 214, rbh = 52, rbx = LW / 2 - 107, rby = py + 208;
-    
-    // 다시하기 버튼도 히트 박스 마진을 12px 넉넉하게 보강합니다.
-    const hovR = mouseRef.current.mx >= rbx - 12 && mouseRef.current.mx <= rbx + rbw + 12 && mouseRef.current.my >= rby - 12 && mouseRef.current.my <= rby + rbh + 12;
+    // Result buttons
+    const bw = 184, bh = 52, gap = 16, by = py + 208;
+    const retryX = LW / 2 - bw - gap / 2;
+    const homeX = LW / 2 + gap / 2;
+    const hit = (x: number) => (
+      mouseRef.current.mx >= x - 12
+      && mouseRef.current.mx <= x + bw + 12
+      && mouseRef.current.my >= by - 12
+      && mouseRef.current.my <= by + bh + 12
+    );
+    const hovRetry = hit(retryX);
+    const hovHome = hit(homeX);
 
-    ctx.save();
-    ctx.shadowColor = hovR ? '#ffd54f' : 'transparent';
-    ctx.shadowBlur = hovR ? 18 : 0;
-    ctx.fillStyle = hovR ? '#ffd54f' : '#ffb300';
-    ctx.beginPath();
-    (ctx as any).roundRect(rbx, rby, rbw, rbh, 26);
-    ctx.fill();
-    ctx.restore();
+    const drawButton = (x: number, label: string, hover: boolean, primary: boolean) => {
+      ctx.save();
+      ctx.shadowColor = hover ? '#ffd54f' : 'transparent';
+      ctx.shadowBlur = hover ? 18 : 0;
+      ctx.fillStyle = primary ? (hover ? '#ffd54f' : '#ffb300') : (hover ? 'rgba(255,255,255,0.16)' : 'rgba(255,255,255,0.08)');
+      ctx.beginPath();
+      (ctx as any).roundRect(x, by, bw, bh, 26);
+      ctx.fill();
+      if (!primary) {
+        ctx.strokeStyle = hover ? '#ffd54f' : 'rgba(255,255,255,0.18)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+      ctx.restore();
 
-    ctx.fillStyle = '#1a1a2e';
-    ctx.font = "bold 21px 'Segoe UI', sans-serif";
-    ctx.textAlign = 'center';
-    ctx.fillText(t('result_retry'), LW / 2, rby + 34);
+      ctx.fillStyle = primary ? '#1a1a2e' : '#fff';
+      ctx.font = "bold 19px 'Segoe UI', sans-serif";
+      ctx.textAlign = 'center';
+      ctx.fillText(label, x + bw / 2, by + 34);
+    };
 
-    // 즉시 재시작 실행
-    if (hovR && mouseRef.current.clicked) {
-      engine.resetGameState();
-      engine.setPhase('skillpick');
-      mouseRef.current.clicked = false;
+    drawButton(retryX, t('result_retry'), hovRetry, true);
+    drawButton(homeX, t('result_home'), hovHome, false);
+
+    if (mouseRef.current.clicked) {
+      if (hovRetry) {
+        startGame();
+        mouseRef.current.clicked = false;
+      } else if (hovHome) {
+        returnHome();
+        mouseRef.current.clicked = false;
+      }
     }
 
     ctx.restore();
@@ -1046,6 +1187,46 @@ export default function App() {
           height={LH}
           className="block touch-none"
         />
+
+        {menuView === 'home' && (
+          <HomeHub
+            profile={activeProfile}
+            lang={lang}
+            onLangChange={handleLangChange}
+            onOpenChapters={() => showMenu('chapters')}
+            onOpenEnhance={() => showMenu('enhance')}
+            onOpenWardrobe={() => showMenu('wardrobe')}
+            onOpenProfiles={() => showMenu('profiles')}
+          />
+        )}
+
+        {menuView === 'chapters' && (
+          <ChapterSelect
+            onBack={() => showMenu('home')}
+            onPlayChapter={startGame}
+          />
+        )}
+
+        {menuView === 'enhance' && (
+          <EnhancePanel
+            onBack={() => showMenu('home')}
+            onProfilesChange={refreshActiveProfile}
+          />
+        )}
+
+        {menuView === 'wardrobe' && (
+          <Wardrobe
+            onBack={() => showMenu('home')}
+            onProfilesChange={refreshActiveProfile}
+          />
+        )}
+
+        {menuView === 'profiles' && (
+          <ProfileSelect
+            onBack={() => showMenu('home')}
+            onProfilesChange={refreshActiveProfile}
+          />
+        )}
       </div>
     </div>
   );

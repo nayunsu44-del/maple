@@ -1,5 +1,11 @@
-import { PlayerState, Enemy, Projectile, DropItem, Particle, Nova, FText, Meteor, Lightning, PoisonCloud, Hawk } from './types';
-import { WW, WH, SD, ED, TILE, BOSS_AT, LW, LH, xpNext, calcScore, calcGrade } from './constants';
+import { PlayerState, Enemy, Projectile, DropItem, Particle, Nova, FText, Meteor, Lightning, LightningSeg, PoisonCloud, Hawk } from './types';
+import {
+  WW, WH, SD, ED, TILE, BOSS_AT, LW, LH,
+  MESO_TRASH_DROP_CHANCE, MESO_TRASH_MIN, MESO_TRASH_MAX,
+  MESO_MID_MIN, MESO_MID_MAX, MESO_BOSS_MIN, MESO_BOSS_MAX, CH1_CLEAR_BONUS,
+  xpNext, calcScore, calcGrade,
+} from './constants';
+import type { LoadoutBonus } from './catalog';
 import { sfx } from './audio';
 import * as spriteCache from './spriteCache';
 import * as i18n from './i18n';
@@ -57,6 +63,7 @@ export let phase: 'title' | 'skillpick' | 'playing' | 'paused' | 'levelup' | 're
 export let pickHover = -1;
 export let gTimer = 0;
 export let kills = 0;
+export let runMesos = 0;
 export let bossSpawned = false;
 export let bossCleared = false;
 export let spawnClock = 0;
@@ -72,6 +79,7 @@ export let awakenT = 0;
 export let awakenName = '';
 export let hurtT = 0;
 export let nextMid = 150;
+let currentLoadout: LoadoutBonus = { atkMulAdd: 0, hpAdd: 0, spdMulAdd: 0 };
 
 export const P: PlayerState = {
   x: WW / 2, y: WH / 2,
@@ -110,6 +118,9 @@ export let camX = 0, camY = 0, shakeX = 0, shakeY = 0;
 export const toSX = (wx: number) => wx - camX + shakeX;
 export const toSY = (wy: number) => wy - camY + shakeY;
 
+type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
+let cosmeticDraw: CosmeticDrawFn | null = null;
+
 export function doShake(pow = 6) {
   shakeT = 0.3;
   shakePow = pow;
@@ -139,10 +150,29 @@ export function addPot(x: number, y: number) {
   drops.push({ type: 'pot', x, y, v: 30, r: 7, life: 22 });
 }
 
+export function addMeso(x: number, y: number, v: number) {
+  if (drops.length > 240) drops.shift();
+  drops.push({ type: 'meso', x, y, v, r: 6, life: 22 });
+}
+
+export function setLoadout(loadout: LoadoutBonus) {
+  currentLoadout = { ...loadout };
+}
+
+export function setCosmeticDraw(fn: CosmeticDrawFn | null) {
+  cosmeticDraw = fn;
+}
+
+function drawCosmeticOverlay(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
+  if (cosmeticDraw) {
+    cosmeticDraw(ctx, x, y, facing, scale);
+  }
+}
+
 export function resetGameState() {
   phase = 'title';
   pickHover = -1;
-  gTimer = 0; kills = 0; bossSpawned = false; bossCleared = false; spawnClock = 0; resFade = 0;
+  gTimer = 0; kills = 0; runMesos = 0; bossSpawned = false; bossCleared = false; spawnClock = 0; resFade = 0;
   hitStop = 0; hitStopCd = 0; awakenT = 0; hurtT = 0; nextMid = 150;
   enemies = []; projs = []; drops = []; parts = []; novas = []; ftexts = [];
   orbEnts = []; meteors = []; lightnings = []; clouds = []; hawks = [];
@@ -165,6 +195,10 @@ export function resetGameState() {
     lv: 1, exp: 0, expMax: 40,
     skills: {}, face: 1, walk: 0
   });
+  P.atkM += currentLoadout.atkMulAdd;
+  P.maxHp += currentLoadout.hpAdd;
+  P.hp = P.maxHp;
+  P.spdM += currentLoadout.spdMulAdd;
 }
 
 // ── SKILL APPLY & LEVEL UP ───────────────────────────────────────────
@@ -230,6 +264,11 @@ export function killEnemy(e: Enemy, onEndRun: () => void) {
   addXP(e.x, e.y, e.xp);
   if (Math.random() < 0.01) addPot(e.x, e.y);
   if (e.isMid) {
+    addMeso(e.x, e.y, ri(MESO_MID_MIN, MESO_MID_MAX));
+  } else if (!e.isBoss && Math.random() < MESO_TRASH_DROP_CHANCE) {
+    addMeso(e.x, e.y, ri(MESO_TRASH_MIN, MESO_TRASH_MAX));
+  }
+  if (e.isMid) {
     hitStop = Math.max(hitStop, 0.12);
     doShake(12);
     addParts(e.x, e.y, '#ffd54f', 18, 150, 1.0);
@@ -250,6 +289,9 @@ export function killEnemy(e: Enemy, onEndRun: () => void) {
     doShake(22);
     addParts(e.x, e.y, '#ffd54f', 25, 150, 1.5);
     for (let i = 0; i < 5; i++) addXP(e.x + rnd(-35, 35), e.y + rnd(-35, 35), 50);
+    const mesoReward = ri(MESO_BOSS_MIN, MESO_BOSS_MAX) + CH1_CLEAR_BONUS;
+    runMesos += mesoReward;
+    addFText(e.x, e.y - 96, '+' + mesoReward + ' ' + i18n.t('hud_mesos'), '#ffd54f', 22);
     addFText(e.x, e.y - 60, i18n.t('boss_clear'), '#ffd54f', 32);
     bossCleared = true;
     resGrade = calcGrade(calcScore(kills, P.lv, gTimer, bossCleared));
@@ -300,7 +342,7 @@ export function spawnBoss() {
     addParts(e.x, e.y, '#90a4ae', 3, 70, 0.4);
     enemies.splice(i, 1);
   }
-  enemies.push({ type: 'BL', def, x: bx, y: by, hp: def.hp, maxHp: def.hp, atk: def.atk, spd: def.spd, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
+  enemies.push({ type: 'BL', def, x: bx, y: by, hp: def.hp, maxHp: def.hp, atk: def.atk, spd: def.spd, xp: def.xp, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
   doShake(15);
   addFText(P.x, P.y - 120, i18n.t('boss_spawn'), '#ff4444', 30);
   sfx('boss');
@@ -669,6 +711,10 @@ export function updDrops(dt: number) {
       if (d.type === 'xp') {
         P.exp += d.v;
         sfx('xp');
+      } else if (d.type === 'meso') {
+        runMesos += d.v;
+        sfx('xp');
+        addFText(P.x, P.y - 30, '+' + d.v + ' ' + i18n.t('hud_mesos'), '#ffd54f', 18);
       } else {
         sfx('heal');
         const heal = Math.max(1, Math.round(P.maxHp * 0.10));
@@ -778,6 +824,19 @@ export function drawDrops(ctx: CanvasRenderingContext2D) {
     if (sx < -20 || sx > LW + 20 || sy < -20 || sy > LH + 20) continue;
     if (d.type === 'xp') {
       ctx.drawImage(spriteCache.xpSprite, sx - 15, sy - 15);
+    } else if (d.type === 'meso') {
+      ctx.save();
+      ctx.fillStyle = '#ffca28';
+      ctx.beginPath(); ctx.arc(sx, sy, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#8d5f00';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(sx - 1, sy - 1, 3.5, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = '#fff8e1';
+      ctx.beginPath(); ctx.arc(sx - 2.5, sy - 2.5, 1.2, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
     } else {
       ctx.fillStyle = '#b71c1c'; ctx.fillRect(sx - 4, sy - 6, 8, 11);
       ctx.fillStyle = '#ef5350'; ctx.fillRect(sx - 3, sy - 5, 6, 9);
@@ -924,6 +983,7 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     // 로드 완료 전에는 기존 도형 캐릭터 대체 렌더링
     const sx = toSX(P.x), sy = toSY(P.y);
     ctx.fillStyle = '#1565c0'; ctx.fillRect(sx - 10, sy - 10, 20, 20);
+    drawCosmeticOverlay(ctx, sx, sy, P.face, 1);
     return;
   }
 
@@ -1005,6 +1065,7 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     // 메이플 이미지가 아직 로딩되지 않았으면 컬러 도형 폴백을 그립니다.
     ctx.fillStyle = '#1565c0'; ctx.fillRect(sx - 14, sy - 20, 28, 40);
     ctx.fillStyle = '#ffb74d'; ctx.beginPath(); ctx.arc(sx, sy - 24, 10, 0, Math.PI * 2); ctx.fill();
+    drawCosmeticOverlay(ctx, sx, sy, P.face, 1);
     return;
   }
 
@@ -1104,6 +1165,7 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
   });
 
   ctx.restore();
+  drawCosmeticOverlay(ctx, sx, sy, P.face, scale);
 }
 
 export function drawProjs(ctx: CanvasRenderingContext2D) {

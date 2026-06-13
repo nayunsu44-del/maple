@@ -8,6 +8,14 @@ export const BOSS_AT = 480; // 8분에 보스 등장
 export const LW = 800;
 export const LH = 600;
 export const JR = 55;
+export const MESO_TRASH_DROP_CHANCE = 0.30;
+export const MESO_TRASH_MIN = 5;
+export const MESO_TRASH_MAX = 10;
+export const MESO_MID_MIN = 40;
+export const MESO_MID_MAX = 80;
+export const MESO_BOSS_MIN = 300;
+export const MESO_BOSS_MAX = 500;
+export const CH1_CLEAR_BONUS = 100;
 
 export const SD: Record<string, SkillDef> = {
   POWER: {
