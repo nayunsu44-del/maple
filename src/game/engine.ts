@@ -920,7 +920,7 @@ export function drawEnemies(ctx: CanvasRenderingContext2D) {
     const sx = toSX(e.x), sy = toSY(e.y);
     if (sx < -100 || sx > LW + 100 || sy < -100 || sy > LH + 100) continue;
 
-    const scale = e.isMid ? 1.0 : (e.scale || 1.3); // 중간보스는 전용 에셋이 이미 큰 사이즈
+    const scale = e.isMid ? 2.4 : (e.scale || 1.3);
     const assetKey = getMobAssetKey(e);
     const asset = spriteCache.mapleAssets[assetKey];
 
@@ -966,6 +966,12 @@ export function drawEnemies(ctx: CanvasRenderingContext2D) {
     } else {
       ctx.save();
       ctx.translate(sx, sy);
+
+      // 중간보스 글로우 효과
+      if (e.isMid) {
+        ctx.shadowColor = '#ffa726';
+        ctx.shadowBlur = 16;
+      }
 
     // 몹들은 기본적으로 왼쪽을 바라봅니다. 플레이어 방향에 따라 플리핑(Flipping)을 적용합니다.
     const faceDirection = P.x > e.x ? 1 : -1;
