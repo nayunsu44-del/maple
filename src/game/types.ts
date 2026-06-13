@@ -62,6 +62,7 @@ export interface EnemyDef {
   r: number;
   col: string;
   isBoss?: boolean;
+  assetKey?: string;
 }
 
 export interface Enemy {

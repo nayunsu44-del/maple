@@ -886,6 +886,7 @@ function drawSkillSprite(ctx: CanvasRenderingContext2D, assetKey: string, state:
 
 // ── MAPLE MCP MOB DRAWING ───────────────────────────────────────────
 function getMobAssetKey(e: Enemy): string {
+  if (e.def.assetKey) return e.def.assetKey;
   if (e.isMid) {
     return e.type === 'MU' ? 'mob_MUSHMOM' : 'mob_ZMUSHMOM';
   }

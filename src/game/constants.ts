@@ -197,7 +197,10 @@ export const ED: Record<string, EnemyDef> = {
   BS: { nm: '파란달팽이', hp: 55, atk: 8, spd: 65, xp: 14, r: 18, col: '#90caf9' },
   MU: { nm: '주황버섯', hp: 110, atk: 12, spd: 70, xp: 22, r: 22, col: '#ef9a9a' },
   ZM: { nm: '좀비버섯', hp: 180, atk: 20, spd: 55, xp: 40, r: 24, col: '#a5d6a7' },
-  BL: { nm: '미니발록', hp: 12000, atk: 400, spd: 95, xp: 250, r: 44, col: '#ef9a9a', isBoss: true }
+  SP: { nm: '스포아', hp: 45, atk: 8, spd: 55, xp: 12, r: 18, col: '#ce93d8', assetKey: 'mob_SPORE' },
+  RS: { nm: '빨간달팽이', hp: 70, atk: 10, spd: 40, xp: 18, r: 18, col: '#ef5350', assetKey: 'mob_REDSNAIL' },
+  MA: { nm: '마노', hp: 8000, atk: 300, spd: 60, xp: 500, r: 48, col: '#8d6e63', isBoss: true, assetKey: 'mob_MANO' },
+  BL: { nm: '주니어발록', hp: 12000, atk: 400, spd: 95, xp: 250, r: 44, col: '#ef9a9a', isBoss: true }
 };
 
 export const xpNext = (lv: number) => Math.floor(40 * Math.pow(lv, 1.4));

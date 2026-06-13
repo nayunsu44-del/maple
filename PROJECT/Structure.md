@@ -28,6 +28,7 @@
 │           ├── cap_1002357.json          # Zakum Helmet (cap)
 │           ├── mob_100100.json           # Green Snail
 │           ├── mob_100101.json           # Blue Snail
+│           ├── mob_REDSNAIL.json         # Red Snail
 │           ├── mob_1210102.json          # Orange Mushroom
 │           ├── mob_2230101.json          # Zombie Mushroom
 │           ├── mob_8130100.json          # Jr. Balrog (boss)
@@ -115,6 +116,7 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 |------|-----|----|--------|
 | `data/maple/mob_100100.json` | Green Snail | 100100 | stand, move, hit1, die1 |
 | `data/maple/mob_100101.json` | Blue Snail | 100101 | stand, move, hit1, die1 |
+| `data/maple/mob_REDSNAIL.json` | Red Snail | 130101 | stand, move, hit1, die1 |
 | `data/maple/mob_1210102.json` | Orange Mushroom | 1210102 | stand, move, hit1, die1 |
 | `data/maple/mob_2230101.json` | Zombie Mushroom | 2230101 | stand, move, hit1, die1 |
 | `data/maple/mob_8130100.json` | Jr. Balrog | 8130100 | stand, move, hit1, die1 |

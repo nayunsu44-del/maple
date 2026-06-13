@@ -362,12 +362,14 @@ const MOB_NAMES: Record<string, Record<string, string>> = {
   en: {
     SN: 'Snail', BS: 'Blue Snail', MU: 'Orange Mushroom',
     ZM: 'Zombie Mushroom', BL: 'Jr. Balrog',
+    SP: 'Spore', RS: 'Red Snail', MA: 'Mano',
     Mushmom: 'Mushmom', 'Zombie Mushmom': 'Zombie Mushmom',
     Faust: 'Faust', Stumpy: 'Stumpy', Dyle: 'Dyle',
   },
   ko: {
     SN: '달팽이', BS: '파란달팽이', MU: '주황버섯',
     ZM: '좀비버섯', BL: '미니발록',
+    SP: '스포아', RS: '빨간 달팽이', MA: '마노',
     Mushmom: '머쉬맘', 'Zombie Mushmom': '좀비 머쉬맘',
     Faust: '파우스트', Stumpy: '스텀피', Dyle: '다일',
   },
