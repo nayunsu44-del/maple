@@ -16,13 +16,16 @@ interface PartToRender {
   map?: Record<string, { x: number; y: number }>;
 }
 
-function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anchorY: number, scale: number, flip: boolean) {
+function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anchorY: number, scale: number, flip: boolean, cosmeticId: string) {
   if (!spriteCache.isMapleLoaded) return;
 
   const equipmentKeys = [
     'body_2000', 'head_12000', 'face_20000', 'hair_30000',
     'weapon_STAFF', 'coat_1040004', 'pants_1060040', 'shoes_1072850'
   ];
+
+  const cos = getCosmetic(cosmeticId);
+  if (cos?.maple) equipmentKeys.push(cos.maple.assetKey);
 
   const partsToRender: PartToRender[] = [];
   const actionState = 'stand1';
@@ -34,9 +37,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
     const isFace = asset.type === 'face';
     const targetState = isFace ? 'default' : actionState;
     const stateFrames = asset.planByState[targetState] || [];
-    let frames = stateFrames.filter(f => f.frame === '0');
-
-    if (frames.length === 0) frames = stateFrames.filter(f => f.frame === '0');
+    const frames = stateFrames.filter(f => f.frame === '0');
 
     for (const frame of frames) {
       if (['highlefEar', 'humanEar', 'lefEar'].includes(frame.part)) continue;
@@ -131,8 +132,7 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
     const scale = size / 104;
     const flip = facing < 0;
 
-    drawMapleCharacter(ctx, anchorX, anchorY, scale, flip);
-    getCosmetic(cosmeticId)?.draw(ctx, anchorX, anchorY, facing, scale);
+    drawMapleCharacter(ctx, anchorX, anchorY, scale, flip, cosmeticId);
   }, [cosmeticId, facing, size]);
 
   return (
