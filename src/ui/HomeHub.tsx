@@ -61,10 +61,20 @@ export default function HomeHub({
 
   return (
     <div className="absolute inset-0 z-30 flex flex-col bg-[#101827] text-white">
-      <header className="flex items-center justify-between border-b border-white/10 px-8 py-5">
+      <div className="absolute inset-0 z-0 opacity-10">
+        <img
+          src="https://resource-static.msu.io/data/Map/Map/Map1/104000000/miniMap/canvas.png"
+          alt=""
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#101827]/60 via-transparent to-[#101827]/80" />
+      <header className="relative z-10 flex items-center justify-between border-b border-white/10 px-8 py-5">
         <div>
-          <h1 className="text-3xl font-black tracking-normal text-[#ffd54f]">{t('home_title')}</h1>
-          <p className="mt-1 text-sm font-medium text-slate-300">{t('home_subtitle')}</p>
+          <h1 className="text-3xl font-black tracking-normal text-[#ffd54f]">Survivor Rush</h1>
+          <p className="mt-1 text-xs font-semibold text-slate-500">MapleStory × Vampire Survivors</p>
         </div>
         <div className="flex items-center gap-2">
           {(['en', 'ko'] as Lang[]).map(code => (
@@ -84,7 +94,7 @@ export default function HomeHub({
         </div>
       </header>
 
-      <main className="grid min-h-0 flex-1 grid-cols-[1fr_240px] gap-6 px-8 py-6">
+      <main className="relative z-10 grid min-h-0 flex-1 grid-cols-[1fr_240px] gap-6 px-8 py-6">
         <section className="flex min-h-0 flex-col justify-center gap-5">
           <div className="flex items-center gap-5">
             <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl border border-[#ffd54f]/20 bg-[#0d1320] shadow-lg shadow-[#ffd54f]/5">
