@@ -1,0 +1,335 @@
+{
+  "id": "1102005",
+  "type": "cape",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "alert",
+    "fly",
+    "heal",
+    "jump",
+    "ladder",
+    "prone",
+    "proneStab",
+    "rope",
+    "shoot1",
+    "shoot2",
+    "shootF",
+    "sit",
+    "stabO1",
+    "stabO2",
+    "stabOF",
+    "stabT1",
+    "stabT2",
+    "stabTF",
+    "stand1",
+    "stand2",
+    "swingO1",
+    "swingO2",
+    "swingO3",
+    "swingOF",
+    "swingP1",
+    "swingP2",
+    "swingPF",
+    "swingT1",
+    "swingT2",
+    "swingT3",
+    "swingTF",
+    "walk1",
+    "walk2"
+  ],
+  "render_plan": [
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "cape",
+      "path": "Character/Cape/01102005/stand1/0/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_stand1_0_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": -4,
+          "y": 1
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "cape",
+      "path": "Character/Cape/01102005/stand1/1/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_stand1_1_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": -2,
+          "y": 2
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "cape",
+      "path": "Character/Cape/01102005/walk1/0/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_stand1_2_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": 1,
+          "y": 1
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "cape",
+      "path": "Character/Cape/01102005/walk1/0/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_walk1_0_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": 1,
+          "y": 2
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "cape",
+      "path": "Character/Cape/01102005/walk1/1/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_walk1_1_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 1
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "cape",
+      "path": "Character/Cape/01102005/walk1/0/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_walk1_2_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": 1,
+          "y": 2
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "cape",
+      "path": "Character/Cape/01102005/walk1/3/cape.png",
+      "origin": {
+        "x": 11,
+        "y": 9
+      },
+      "texture_key": "maple_cape_walk1_3_cape",
+      "z": "capeBelowBody",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 3
+        }
+      }
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "cash": 1,
+    "islot": "Sr",
+    "mintable": 1,
+    "reqDEX": 0,
+    "reqINT": 0,
+    "reqJob": 0,
+    "reqLUK": 0,
+    "reqLevel": 0,
+    "reqSTR": 0,
+    "vslot": "Sr"
+  }
+}

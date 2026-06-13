@@ -20,6 +20,12 @@
 │           ├── coat_1040004.json         # Blue Training Shirt
 │           ├── pants_1060040.json        # Blue Trainer Pants
 │           ├── shoes_1072850.json        # Brand New Adventure Shoes
+│           ├── cap_1001128.json           # Magician Hat
+│           ├── cap_1002357.json           # Zakum Helmet
+│           ├── cap_1002083.json           # Black Bandana
+│           ├── cap_1003084.json           # Royal Crown
+│           ├── cape_1102005.json          # Baby Angel Wings
+│           ├── cap_1002357.json          # Zakum Helmet (cap)
 │           ├── mob_100100.json           # Green Snail
 │           ├── mob_100101.json           # Blue Snail
 │           ├── mob_1210102.json          # Orange Mushroom
@@ -33,6 +39,7 @@
 │           ├── skill_POISONMIST.json     # Poison Mist effect sprites
 │           ├── skill_SILVERHAWK.json     # Silver Hawk summon sprites
 │           ├── skill_GENESIS.json        # Genesis effect sprites
+│           ├── cape_1102005.json         # Baby Angel Wings cape
 │           └── skill_HOLYSYMBOL.json     # Holy Symbol orb sprites
 ├── src/
 │   ├── game/
@@ -126,3 +133,8 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 | `data/maple/coat_1040004.json` | Coat | 1040004 | stand1, walk1 |
 | `data/maple/pants_1060040.json` | Pants | 1060040 | stand1, walk1 |
 | `data/maple/shoes_1072850.json` | Shoes | 1072850 | stand1, walk1 |
+| `data/maple/cap_1001128.json` | Cap (Magician Hat) | 1001128 | stand1, walk1 |
+| `data/maple/cap_1002357.json` | Cap (Zakum Helmet) | 1002357 | stand1, walk1 |
+| `data/maple/cap_1002083.json` | Cap (Black Bandana) | 1002083 | stand1, walk1 |
+| `data/maple/cap_1003084.json` | Cap (Royal Crown) | 1003084 | stand1, walk1 |
+| `data/maple/cape_1102005.json` | Cape (Baby Angel Wings) | 1102005 | stand1, walk1 |

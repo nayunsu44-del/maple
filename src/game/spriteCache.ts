@@ -54,6 +54,12 @@ const MAPLE_ASSET_PATHS = {
   coat_1040004: '/data/maple/coat_1040004.json',
   pants_1060040: '/data/maple/pants_1060040.json',
   shoes_1072850: '/data/maple/shoes_1072850.json',
+  // Cosmetic items
+  cap_1001128: '/data/maple/cap_1001128.json',
+  cap_1002357: '/data/maple/cap_1002357.json',
+  cap_1002083: '/data/maple/cap_1002083.json',
+  cap_1003084: '/data/maple/cap_1003084.json',
+  cape_1102005: '/data/maple/cape_1102005.json',
   // Skill Effects
   skill_ENERGYBOLT: '/data/maple/skill_ENERGYBOLT.json',
   skill_CHAINLIGHTNING: '/data/maple/skill_CHAINLIGHTNING.json',
