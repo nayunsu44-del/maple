@@ -363,14 +363,14 @@ export function spawnBoss() {
 
 export function spawnMidBoss() {
   const idx = Math.round(nextMid / 150) - 1;
-  const baseType = idx % 2 === 0 ? 'MU' : 'ZM';
+  const baseType = idx % 2 === 0 ? 'BS' : 'RS';
   const base = ED[baseType];
-  const nm = baseType === 'MU' ? '머쉬맘' : '좀비 머쉬맘';
+  const nm = i18n.mobName(baseType);
   const t = gTimer;
   const hm = (t < 300 ? 1 + t * 0.0067 : 3.0 + (t - 300) * 0.015) * 1.25;
   const am = (t < 300 ? 1 + t * 0.0050 : 2.5 + (t - 300) * 0.004);
   const def = { ...base, nm, r: 48 }; // 머쉬맘 전용 에셋에 맞는 충돌 반경
-  const finalHp = base.hp * hm * 5;
+  const finalHp = base.hp * hm * 8;
   const a = rnd(0, Math.PI * 2);
   const ex = clp(P.x + Math.cos(a) * 560, def.r + 20, WW - def.r - 20);
   const ey = clp(P.y + Math.sin(a) * 560, def.r + 20, WH - def.r - 20);
@@ -896,6 +896,8 @@ function drawSkillSprite(ctx: CanvasRenderingContext2D, assetKey: string, state:
 function getMobAssetKey(e: Enemy): string {
   if (e.def.assetKey) return e.def.assetKey;
   if (e.isMid) {
+    if (e.type === 'BS') return 'mob_100101';
+    if (e.type === 'RS') return 'mob_REDSNAIL';
     return e.type === 'MU' ? 'mob_MUSHMOM' : 'mob_ZMUSHMOM';
   }
   if (e.type === 'SN') return 'mob_100100';
