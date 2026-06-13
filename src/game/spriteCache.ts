@@ -98,6 +98,28 @@ export async function loadMapleAssets() {
 
   await Promise.all(jsonPromises);
   isMapleLoaded = true;
+  preloadCriticalImages();
+}
+
+function preloadCriticalImages() {
+  const criticalKeys = [
+    'body_2000', 'head_12000', 'face_20000', 'hair_30000',
+    'weapon_STAFF', 'coat_1040004', 'pants_1060040', 'shoes_1072850',
+    'cap_1001128', 'cap_1002357', 'cap_1002083', 'cap_1003084', 'cape_1102005',
+  ];
+  const actionState = 'stand1';
+  for (const key of criticalKeys) {
+    const asset = mapleAssets[key];
+    if (!asset) continue;
+    const isFace = asset.type === 'face';
+    const targetState = isFace ? 'default' : actionState;
+    const stateFrames = asset.planByState[targetState] || [];
+    for (const frame of stateFrames) {
+      if (['highlefEar', 'humanEar', 'lefEar'].includes(frame.part)) continue;
+      if (frame.frame !== '0') continue;
+      ensureImageLoaded(asset, frame);
+    }
+  }
 }
 
 export function ensureImageLoaded(asset: MapleAssetData, frame: MapleRenderFrame) {
