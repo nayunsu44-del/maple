@@ -70,11 +70,14 @@ export default function ChapterSelect({ onBack, onPlayChapter }: ChapterSelectPr
       <main className="grid min-h-0 flex-1 grid-cols-[1fr_270px] gap-5 px-8 py-6">
         <section className="relative overflow-hidden rounded-lg border border-white/10 bg-[#101827]">
           <img
+            key={activeId}
             src={MAP_MINIMAP[activeId]}
             alt=""
-            className="absolute inset-0 z-0 h-full w-full object-cover opacity-45"
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 z-0 h-full w-full object-cover opacity-65"
           />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#101827] via-transparent to-transparent" />
+          <div className="absolute inset-0 z-[1] bg-[#101827]/35" />
 
           {CHAPTERS.map((chapter, idx) => {
             const pos = NODE_POS[chapter.id];
