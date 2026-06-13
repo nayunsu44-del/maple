@@ -1,0 +1,822 @@
+{
+  "cdnBase": "https://resource-static.msu.io/data/",
+  "render_plan": [
+    {
+      "key": "bg_vicportTown_0",
+      "cdn_path": "Map/Back/vicportTown/back/0.png",
+      "origin": {
+        "x": 128,
+        "y": 300
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 0
+    },
+    {
+      "key": "bg_vicportTown_1",
+      "cdn_path": "Map/Back/vicportTown/back/1.png",
+      "origin": {
+        "x": 400,
+        "y": 78
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 1
+    },
+    {
+      "key": "bg_vicportTown_2",
+      "cdn_path": "Map/Back/vicportTown/back/2.png",
+      "origin": {
+        "x": 165,
+        "y": 127
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 2
+    },
+    {
+      "key": "bg_vicportTown_3",
+      "cdn_path": "Map/Back/vicportTown/back/3.png",
+      "origin": {
+        "x": 165,
+        "y": 127
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 3
+    },
+    {
+      "key": "bg_vicportTown_4",
+      "cdn_path": "Map/Back/vicportTown/back/4.png",
+      "origin": {
+        "x": 177,
+        "y": 71
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 4
+    },
+    {
+      "key": "bg_vicportTown_5",
+      "cdn_path": "Map/Back/vicportTown/back/5.png",
+      "origin": {
+        "x": 132,
+        "y": 111
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 5
+    },
+    {
+      "key": "bg_vicportTown_6",
+      "cdn_path": "Map/Back/vicportTown/back/6.png",
+      "origin": {
+        "x": 70,
+        "y": 26
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 6
+    },
+    {
+      "key": "bg_vicportTown_7",
+      "cdn_path": "Map/Back/vicportTown/back/7.png",
+      "origin": {
+        "x": 140,
+        "y": 45
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 7
+    },
+    {
+      "key": "bg_vicportTown_8",
+      "cdn_path": "Map/Back/vicportTown/back/8.png",
+      "origin": {
+        "x": 120,
+        "y": 84
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 8
+    },
+    {
+      "key": "bg_vicportTown_9",
+      "cdn_path": "Map/Back/vicportTown/back/9.png",
+      "origin": {
+        "x": 246,
+        "y": 117
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 9
+    },
+    {
+      "key": "bg_vicportTown_10",
+      "cdn_path": "Map/Back/vicportTown/back/10.png",
+      "origin": {
+        "x": 205,
+        "y": 89
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 10
+    },
+    {
+      "key": "bg_vicportTown_11",
+      "cdn_path": "Map/Back/vicportTown/back/11.png",
+      "origin": {
+        "x": 179,
+        "y": 98
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 11
+    },
+    {
+      "key": "bg_vicportTown_12",
+      "cdn_path": "Map/Back/vicportTown/back/12.png",
+      "origin": {
+        "x": 289,
+        "y": 71
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 12
+    },
+    {
+      "key": "bg_vicportTown_13",
+      "cdn_path": "Map/Back/vicportTown/back/13.png",
+      "origin": {
+        "x": 106,
+        "y": 163
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 13
+    },
+    {
+      "key": "bg_vicportTown_14",
+      "cdn_path": "Map/Back/vicportTown/back/14.png",
+      "origin": {
+        "x": 128,
+        "y": 222
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 14
+    },
+    {
+      "key": "bg_vicportTown_15",
+      "cdn_path": "Map/Back/vicportTown/back/15.png",
+      "origin": {
+        "x": 122,
+        "y": 46
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 15
+    },
+    {
+      "key": "bg_vicportTown_16",
+      "cdn_path": "Map/Back/vicportTown/back/16.png",
+      "origin": {
+        "x": 136,
+        "y": 37
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 16
+    },
+    {
+      "key": "bg_vicportTown_17",
+      "cdn_path": "Map/Back/vicportTown/back/17.png",
+      "origin": {
+        "x": 185,
+        "y": 73
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 17
+    },
+    {
+      "key": "bg_vicportTown_18",
+      "cdn_path": "Map/Back/vicportTown/back/18.png",
+      "origin": {
+        "x": 296,
+        "y": 252
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 18
+    },
+    {
+      "key": "bg_vicportTown_19",
+      "cdn_path": "Map/Back/vicportTown/back/19.png",
+      "origin": {
+        "x": 188,
+        "y": 179
+      },
+      "type": "background",
+      "set": "vicportTown",
+      "index": 19
+    },
+    {
+      "key": "bg_Rien_17",
+      "cdn_path": "Map/Back/Rien/back/17.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "background",
+      "set": "Rien",
+      "index": 17
+    },
+    {
+      "key": "tile_whiteMarble_bsc_0",
+      "cdn_path": "Map/Tile/whiteMarble/bsc/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "bsc",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_bsc_1",
+      "cdn_path": "Map/Tile/whiteMarble/bsc/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "bsc",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_bsc_2",
+      "cdn_path": "Map/Tile/whiteMarble/bsc/2.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "bsc",
+      "index": 2
+    },
+    {
+      "key": "tile_whiteMarble_bsc_3",
+      "cdn_path": "Map/Tile/whiteMarble/bsc/3.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "bsc",
+      "index": 3
+    },
+    {
+      "key": "tile_whiteMarble_bsc_4",
+      "cdn_path": "Map/Tile/whiteMarble/bsc/4.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "bsc",
+      "index": 4
+    },
+    {
+      "key": "tile_whiteMarble_edD_0",
+      "cdn_path": "Map/Tile/whiteMarble/edD/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "edD",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_edU_0",
+      "cdn_path": "Map/Tile/whiteMarble/edU/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "edU",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_edU_1",
+      "cdn_path": "Map/Tile/whiteMarble/edU/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "edU",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_enH0_0",
+      "cdn_path": "Map/Tile/whiteMarble/enH0/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enH0",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_enH0_1",
+      "cdn_path": "Map/Tile/whiteMarble/enH0/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enH0",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_enH1_0",
+      "cdn_path": "Map/Tile/whiteMarble/enH1/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enH1",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_enH1_1",
+      "cdn_path": "Map/Tile/whiteMarble/enH1/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enH1",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_enV0_0",
+      "cdn_path": "Map/Tile/whiteMarble/enV0/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enV0",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_enV0_1",
+      "cdn_path": "Map/Tile/whiteMarble/enV0/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enV0",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_enV1_0",
+      "cdn_path": "Map/Tile/whiteMarble/enV1/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enV1",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_enV1_1",
+      "cdn_path": "Map/Tile/whiteMarble/enV1/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "enV1",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_slLD_0",
+      "cdn_path": "Map/Tile/whiteMarble/slLD/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slLD",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_slLD_1",
+      "cdn_path": "Map/Tile/whiteMarble/slLD/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slLD",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_slLU_0",
+      "cdn_path": "Map/Tile/whiteMarble/slLU/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slLU",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_slLU_1",
+      "cdn_path": "Map/Tile/whiteMarble/slLU/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slLU",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_slRD_0",
+      "cdn_path": "Map/Tile/whiteMarble/slRD/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slRD",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_slRD_1",
+      "cdn_path": "Map/Tile/whiteMarble/slRD/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slRD",
+      "index": 1
+    },
+    {
+      "key": "tile_whiteMarble_slRU_0",
+      "cdn_path": "Map/Tile/whiteMarble/slRU/0.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slRU",
+      "index": 0
+    },
+    {
+      "key": "tile_whiteMarble_slRU_1",
+      "cdn_path": "Map/Tile/whiteMarble/slRU/1.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "tile",
+      "set": "whiteMarble",
+      "unit": "slRU",
+      "index": 1
+    },
+    {
+      "key": "minimap_104000000",
+      "cdn_path": "Map/Map/Map1/104000000/miniMap/canvas.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "type": "minimap"
+    }
+  ],
+  "info": {
+    "id": "104000000",
+    "name": "Lith Harbor",
+    "bgm": "Bgm02/AboveTheTreetops",
+    "town": true,
+    "mapMark": "Rith",
+    "VRLeft": -1190,
+    "VRRight": 1283,
+    "VRTop": -1360,
+    "VRBottom": 384,
+    "region": "Victoria Island (Map1)",
+    "cdn_url": "https://resource-static.msu.io/data/Map/Map/Map1/104000000.json"
+  },
+  "back_layers": [
+    {
+      "index": 0,
+      "bS": "vicportTown",
+      "no": 0,
+      "ani": 0,
+      "rx": 0,
+      "ry": 0,
+      "type": 3,
+      "front": 0,
+      "x": 3,
+      "y": -172,
+      "a": 255
+    },
+    {
+      "index": 1,
+      "bS": "vicportTown",
+      "no": 1,
+      "ani": 0,
+      "rx": 0,
+      "ry": 2,
+      "type": 0,
+      "front": 0,
+      "x": -90,
+      "y": -14,
+      "a": 255
+    },
+    {
+      "index": 2,
+      "bS": "vicportTown",
+      "no": 2,
+      "ani": 0,
+      "rx": 0,
+      "ry": 3,
+      "type": 0,
+      "front": 0,
+      "x": -14,
+      "y": -72,
+      "a": 255
+    },
+    {
+      "index": 3,
+      "bS": "vicportTown",
+      "no": 4,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": -517,
+      "y": -142,
+      "a": 255
+    },
+    {
+      "index": 4,
+      "bS": "vicportTown",
+      "no": 6,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": -43,
+      "y": -352,
+      "a": 255
+    },
+    {
+      "index": 5,
+      "bS": "vicportTown",
+      "no": 7,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": 235,
+      "y": -214,
+      "a": 255
+    },
+    {
+      "index": 6,
+      "bS": "vicportTown",
+      "no": 9,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": -405,
+      "y": -302,
+      "a": 255
+    },
+    {
+      "index": 7,
+      "bS": "vicportTown",
+      "no": 10,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": 73,
+      "y": -322,
+      "a": 255
+    },
+    {
+      "index": 8,
+      "bS": "vicportTown",
+      "no": 11,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": -190,
+      "y": -282,
+      "a": 255
+    },
+    {
+      "index": 9,
+      "bS": "vicportTown",
+      "no": 13,
+      "ani": 0,
+      "rx": -1,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": -544,
+      "y": -133,
+      "a": 255
+    },
+    {
+      "index": 10,
+      "bS": "vicportTown",
+      "no": 8,
+      "ani": 0,
+      "rx": -3,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": -117,
+      "y": -193,
+      "a": 255
+    },
+    {
+      "index": 11,
+      "bS": "vicportTown",
+      "no": 5,
+      "ani": 0,
+      "rx": -3,
+      "ry": 4,
+      "type": 4,
+      "front": 0,
+      "x": 34,
+      "y": -192,
+      "a": 255
+    },
+    {
+      "index": 12,
+      "bS": "vicportTown",
+      "no": 14,
+      "ani": 0,
+      "rx": 0,
+      "ry": 3,
+      "type": 1,
+      "front": 0,
+      "x": -245,
+      "y": 169,
+      "a": 255
+    },
+    {
+      "index": 13,
+      "bS": "vicportTown",
+      "no": 15,
+      "ani": 0,
+      "rx": -1,
+      "ry": 3,
+      "type": 0,
+      "front": 0,
+      "x": -245,
+      "y": -33,
+      "a": 255
+    },
+    {
+      "index": 14,
+      "bS": "vicportTown",
+      "no": 16,
+      "ani": 0,
+      "rx": -2,
+      "ry": 3,
+      "type": 0,
+      "front": 0,
+      "x": 89,
+      "y": -57,
+      "a": 255
+    },
+    {
+      "index": 15,
+      "bS": "vicportTown",
+      "no": 17,
+      "ani": 0,
+      "rx": -2,
+      "ry": 3,
+      "type": 0,
+      "front": 0,
+      "x": -442,
+      "y": 0,
+      "a": 255
+    },
+    {
+      "index": 16,
+      "bS": "vicportTown",
+      "no": 18,
+      "ani": 0,
+      "rx": -5,
+      "ry": 5,
+      "type": 0,
+      "front": 0,
+      "x": 528,
+      "y": -10,
+      "a": 255
+    },
+    {
+      "index": 17,
+      "bS": "vicportTown",
+      "no": 19,
+      "ani": 0,
+      "rx": -5,
+      "ry": 3,
+      "type": 0,
+      "front": 0,
+      "x": -514,
+      "y": 64,
+      "a": 255
+    },
+    {
+      "index": 18,
+      "bS": "Rien",
+      "no": 17,
+      "ani": 0,
+      "rx": -2,
+      "ry": -100,
+      "type": 4,
+      "front": 1,
+      "x": 112,
+      "y": 896,
+      "a": 255
+    }
+  ],
+  "tile_layers": [
+    {
+      "page": 1,
+      "tile_set": "whiteMarble",
+      "tile_count": 386,
+      "obj_count": 64,
+      "obj_sets": [
+        "acc1",
+        "acc2",
+        "dungeon4",
+        "guide",
+        "houseVPT"
+      ]
+    },
+    {
+      "page": 3,
+      "tile_set": "whiteMarble",
+      "tile_count": 205,
+      "obj_count": 22,
+      "obj_sets": [
+        "acc2",
+        "houseVPT",
+        "vehicle"
+      ]
+    }
+  ],
+  "parallax_formula": "screenX = x - cameraX * (100 + rx) / 100; screenY = y - cameraY * (100 + ry) / 100"
+}

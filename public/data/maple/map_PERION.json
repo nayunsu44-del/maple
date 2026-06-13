@@ -1,0 +1,53 @@
+{
+  "map_id": "102000000",
+  "map_name": "Perion - Perion",
+  "region": "victoria",
+  "cdn_map_json": "https://resource-static.msu.io/data/Map/Map/Map1/102000000.json",
+  "minimap": {
+    "cdn_url": "https://resource-static.msu.io/data/Map/Map/Map1/102000000/miniMap/canvas.png"
+  },
+  "backgrounds": [
+    {
+      "label": "base_ground",
+      "bS": "dryRock",
+      "no": 0,
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/dryRock/back/0.png",
+      "origin": { "x": 128, "y": 128 },
+      "type": 3,
+      "type_desc": "tile both H+V",
+      "x": 0,
+      "y": 0,
+      "rx": 0,
+      "ry": 0,
+      "front": 0
+    },
+    {
+      "label": "mountain_backdrop",
+      "bS": "dryRock",
+      "no": 1,
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/dryRock/back/1.png",
+      "origin": { "x": 450, "y": 441 },
+      "type": 1,
+      "type_desc": "tile horizontally",
+      "x": 46,
+      "y": -336,
+      "rx": -3,
+      "ry": -5,
+      "front": 0
+    },
+    {
+      "label": "foreground_rocks",
+      "bS": "dryRock",
+      "no": 7,
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/dryRock/back/7.png",
+      "origin": { "x": 450, "y": 117 },
+      "type": 4,
+      "type_desc": "scroll horizontally + tile",
+      "x": 52,
+      "y": 466,
+      "rx": 30,
+      "ry": -16,
+      "front": 0
+    }
+  ]
+}

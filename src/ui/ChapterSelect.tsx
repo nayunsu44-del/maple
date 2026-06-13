@@ -4,6 +4,14 @@ import { CHAPTERS, isChapterUnlocked, type ChapterDef } from '../game/catalog';
 import { currentLang, mobName, t } from '../game/i18n';
 import { getActiveProfile, type Profile } from '../game/profile';
 
+const MAP_MINIMAP: Record<string, string> = {
+  ch1: 'https://resource-static.msu.io/data/Map/Map/Map1/104000000/miniMap/canvas.png',
+  ch2: 'https://resource-static.msu.io/data/Map/Map/Map1/100000000/miniMap/canvas.png',
+  ch3: 'https://resource-static.msu.io/data/Map/Map/Map1/101000000/miniMap/canvas.png',
+  ch4: 'https://resource-static.msu.io/data/Map/Map/Map1/102000000/miniMap/canvas.png',
+  ch5: 'https://resource-static.msu.io/data/Map/Map/Map1/103000000/miniMap/canvas.png',
+};
+
 interface ChapterSelectProps {
   onBack: () => void;
   onPlayChapter: (chapterId: string) => void;
@@ -43,7 +51,6 @@ export default function ChapterSelect({ onBack, onPlayChapter }: ChapterSelectPr
   const activeRecord = bestRecord(profile, activeChapter.id);
   const activeCleared = Boolean(profile.chapters[activeChapter.id]?.cleared);
   const activeCanPlay = activeUnlocked && activeChapter.playable;
-  const pathPoints = CHAPTERS.map(chapter => `${NODE_POS[chapter.id].x},${NODE_POS[chapter.id].y}`).join(' ');
 
   return (
     <div className="absolute inset-0 z-30 flex flex-col bg-[#101827] text-white">
@@ -61,18 +68,13 @@ export default function ChapterSelect({ onBack, onPlayChapter }: ChapterSelectPr
       </header>
 
       <main className="grid min-h-0 flex-1 grid-cols-[1fr_270px] gap-5 px-8 py-6">
-        <section className="relative overflow-hidden rounded-lg border border-white/10 bg-[linear-gradient(135deg,#123047,#142036_50%,#1f3142)]">
-          <svg
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            className="absolute inset-0 z-0 h-full w-full"
-            aria-hidden="true"
-          >
-            <path d="M0,88 C18,66 18,44 31,34 C42,24 39,72 51,63 C62,54 60,30 70,28 C80,26 78,56 100,48" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="18" />
-            <polyline points={pathPoints} fill="none" stroke="rgba(255,213,79,0.42)" strokeWidth="1.7" strokeDasharray="3 2" />
-          </svg>
-
-          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_25%,rgba(129,212,250,0.16),transparent_30%),radial-gradient(circle_at_78%_72%,rgba(255,213,79,0.12),transparent_28%)]" />
+        <section className="relative overflow-hidden rounded-lg border border-white/10 bg-[#101827]">
+          <img
+            src={MAP_MINIMAP[activeId]}
+            alt=""
+            className="absolute inset-0 z-0 h-full w-full object-cover opacity-45"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#101827] via-transparent to-transparent" />
 
           {CHAPTERS.map((chapter, idx) => {
             const pos = NODE_POS[chapter.id];

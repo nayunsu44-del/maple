@@ -35,11 +35,13 @@
 
 ## Active Work
 
-- (none)
+- Lith Harbor (104000000) map asset pipeline: `data/maple/map_LITH.json` with 20 vicportTown backgrounds, whiteMarble tiles, minimap, and parallax config ready for chapter-select UI.
+
 
 ## Next Steps
 
 - Split `engine.ts` (~1318 lines) and `App.tsx` (~1052 lines) to meet P0 800-line cap.
-- Tile-based map rendering for MapleStory map assets.
+- **Chapter select UI**: Use Lith Harbor map backgrounds (`map_LITH.json`) + minimap thumbnail for world/chapter select screen.
+- Tile-based map rendering for MapleStory map assets (whiteMarble tileset + vicportTown objects).
 - Balance tuning: drop rates, skill damage scaling, mid-boss frequency.
 - Real mobile device testing for touch joystick and landscape.

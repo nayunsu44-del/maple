@@ -1,0 +1,54 @@
+{
+  "map_id": "101000000",
+  "name": "Ellinia",
+  "cdn_base": "https://resource-static.msu.io/data",
+  "minimap": {
+    "_path": "Map/Map/Map1/101000000/miniMap/canvas.png",
+    "cdn_url": "https://resource-static.msu.io/data/Map/Map/Map1/101000000/miniMap/canvas.png",
+    "width": 1612,
+    "height": 2404
+  },
+  "backgrounds": [
+    {
+      "bS": "shineWood",
+      "no": 0,
+      "ani": 0,
+      "type": 3,
+      "rx": -2,
+      "front": 0,
+      "desc": "Main ground/sky backdrop — near parallax",
+      "_path": "Map/Back/shineWood/back/0.png",
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/shineWood/back/0.png"
+    },
+    {
+      "bS": "shineWood",
+      "no": 7,
+      "ani": 0,
+      "type": 3,
+      "rx": -8,
+      "front": 0,
+      "desc": "Mid-ground trees — medium parallax",
+      "_path": "Map/Back/shineWood/back/7.png",
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/shineWood/back/7.png"
+    },
+    {
+      "bS": "shineWood",
+      "no": 5,
+      "ani": 0,
+      "type": 3,
+      "rx": -15,
+      "front": 0,
+      "desc": "Distant tree canopy — deep parallax",
+      "_path": "Map/Back/shineWood/back/5.png",
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/shineWood/back/5.png"
+    }
+  ],
+  "info": {
+    "bgm": "Bgm02/WhenTheMorningComes",
+    "town": 1,
+    "VRLeft": -1003,
+    "VRRight": 567,
+    "VRTop": -1939,
+    "VRBottom": 803
+  }
+}

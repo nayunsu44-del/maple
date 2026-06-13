@@ -1,0 +1,51 @@
+{
+  "mapId": "103000000",
+  "name": "Kerning City",
+  "mapName": "Kerning City - Kerning City",
+  "region": "victoria",
+  "bgm": "Bgm01/BadGuys",
+  "minimap": {
+    "cdn_url": "https://resource-static.msu.io/data/Map/Map/Map1/103000000/miniMap/canvas.png"
+  },
+  "backgrounds": [
+    {
+      "label": "Distant skyline (back[0])",
+      "bS": "sunsetCity",
+      "no": 0,
+      "ani": 0,
+      "rx": -10,
+      "ry": -20,
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/sunsetCity/back/0.png",
+      "origin": {
+        "x": 450,
+        "y": 399
+      }
+    },
+    {
+      "label": "Mid-ground buildings (back[1])",
+      "bS": "sunsetCity",
+      "no": 1,
+      "ani": 0,
+      "rx": -20,
+      "ry": -25,
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/sunsetCity/back/1.png",
+      "origin": {
+        "x": 144,
+        "y": 227
+      }
+    },
+    {
+      "label": "Foreground animated layer (back[4])",
+      "bS": "sunsetCity",
+      "no": 2,
+      "ani": 1,
+      "rx": -12,
+      "ry": -20,
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/sunsetCity/ani/2/0.png",
+      "origin": {
+        "x": 277,
+        "y": 309
+      }
+    }
+  ]
+}

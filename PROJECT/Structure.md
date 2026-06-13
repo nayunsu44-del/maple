@@ -138,3 +138,54 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 | `data/maple/cap_1002083.json` | Cap (Black Bandana) | 1002083 | stand1, walk1 |
 | `data/maple/cap_1003084.json` | Cap (Royal Crown) | 1003084 | stand1, walk1 |
 | `data/maple/cape_1102005.json` | Cape (Baby Angel Wings) | 1102005 | stand1, walk1 |
+
+## MapleStory Map Assets
+
+| File | Map | ID | Type |
+|------|-----|----|------|
+| `data/maple/map_LITH.json` | Lith Harbor | 104000000 | Backgrounds + Tiles + Minimap |
+
+| `data/maple/map_HENESYS.json` | Henesys | 100000000 | Minimap + 3 background layers from grassySoil_new |
+| `data/maple/map_ELLINIA.json` | Ellinia | 101000000 | Minimap + 3 background layers from shineWood |
+### map_LITH.json Details
+- **Source**: Nexpace MSU Resource search → CDN fetch (save_render_plan unavailable for map category)
+- **Contents**: 
+  - 20 static background images from `vicportTown` back set (nos 0–19)
+  - 1 foreground overlay from `Rien` back set (no 17)
+  - 16 tile images from `whiteMarble` tileset (bsc, edD, edU, enH0, enH1, enV0, enV1, slLD, slLU, slRD, slRU)
+  - 1 minimap canvas thumbnail
+  - Full parallax layer config (19 back layers with rx/ry/type)
+  - Map info (bounds, BGM, region)
+- **CDN Base**: `https://resource-static.msu.io/data/`
+- **Parallax Formula**: `screenX = x - cameraX * (100 + rx) / 100`
+
+
+### map_ELLINIA.json Details
+- **Source**: Nexpace MSU Resource search → direct CDN fetch
+- **Contents**: 
+  - 1 minimap canvas thumbnail (1612×2404)
+  - 3 background layers from `shineWood` back set (nos 0, 7, 5 — near/medium/deep parallax)
+  - Map info (bounds: -1003..567 × -1939..803, BGM: Bgm02/WhenTheMorningComes, town)
+- **CDN Base**: `https://resource-static.msu.io/data/`
+- **Use case**: Chapter select UI card backgrounds
+
+| `data/maple/map_KERNING.json` | Kerning City | 103000000 | Minimap + 3 background layers from sunsetCity |
+
+### map_KERNING.json Details
+- **Source**: Nexpace MSU Resource search → direct CDN fetch
+- **Contents**:
+  - 1 minimap canvas thumbnail
+  - 3 background layers from `sunsetCity` back set (nos 0, 1, ani:2 — distant skyline, mid-ground buildings, foreground animated)
+  - Map info (map_id: 103000000, region: victoria, BGM: Bgm01/BadGuys)
+- **CDN Base**: `https://resource-static.msu.io/data/`
+- **Use case**: Chapter select UI card backgrounds for Kerning City theme
+
+
+### map_PERION.json Details
+- **Source**: Nexpace MSU Resource search → direct CDN fetch
+- **Contents**:
+  - 1 minimap canvas thumbnail (minimap)
+  - 3 background layers from `dryRock` back set (nos 0, 1, 7 — base ground, mountain backdrop, foreground rocks)
+  - Map info (map_id: 102000000, region: victoria, BGM: Bgm00/Nightmare)
+- **CDN Base**: `https://resource-static.msu.io/data/`
+- **Use case**: Chapter select UI card backgrounds for Perion theme

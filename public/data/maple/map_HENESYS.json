@@ -1,0 +1,82 @@
+{
+  "id": "100000000",
+  "name": "Henesys",
+  "source": "msu-resource",
+  "cdn_base": "https://resource-static.msu.io/data",
+  "minimap": {
+    "_path": "Map/Map/Map1/100000000/miniMap/canvas.png",
+    "cdn_url": "https://resource-static.msu.io/data/Map/Map/Map1/100000000/miniMap/canvas.png",
+    "width": 5830,
+    "height": 1264,
+    "centerX": -370,
+    "centerY": 600,
+    "mag": 4
+  },
+  "backgrounds": [
+    {
+      "index": 0,
+      "bS": "grassySoil_new",
+      "no": 0,
+      "ani": 0,
+      "_path": "Map/Back/grassySoil_new/back/0.png",
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/grassySoil_new/back/0.png",
+      "x": -48,
+      "y": -109,
+      "rx": 0,
+      "ry": 0,
+      "type": 1,
+      "front": 0,
+      "origin": {
+        "x": 11,
+        "y": 369
+      },
+      "description": "Grassy soil base — world-fixed ground layer"
+    },
+    {
+      "index": 1,
+      "bS": "grassySoil_new",
+      "no": 3,
+      "ani": 0,
+      "_path": "Map/Back/grassySoil_new/back/3.png",
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/grassySoil_new/back/3.png",
+      "x": -257,
+      "y": -200,
+      "rx": -6,
+      "ry": -2,
+      "type": 1,
+      "front": 0,
+      "origin": {
+        "x": 425,
+        "y": 111
+      },
+      "description": "Distant trees — slow parallax (rx=-6)"
+    },
+    {
+      "index": 2,
+      "bS": "grassySoil_new",
+      "no": 5,
+      "ani": 0,
+      "_path": "Map/Back/grassySoil_new/back/5.png",
+      "cdn_url": "https://resource-static.msu.io/data/Map/Back/grassySoil_new/back/5.png",
+      "x": -15,
+      "y": -108,
+      "rx": -5,
+      "ry": -5,
+      "type": 1,
+      "front": 0,
+      "origin": {
+        "x": 258,
+        "y": 81
+      },
+      "description": "Sky/clouds layer — parallax (rx=-5, ry=-5)"
+    }
+  ],
+  "info": {
+    "VRLeft": 370,
+    "VRRight": 6200,
+    "VRTop": -1100,
+    "VRBottom": 664,
+    "bgm": "Bgm00/FloralLife",
+    "town": true
+  }
+}
