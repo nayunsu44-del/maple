@@ -16,7 +16,7 @@ interface PartToRender {
   map?: Record<string, { x: number; y: number }>;
 }
 
-function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number, scale: number, flip: boolean) {
+function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anchorY: number, scale: number, flip: boolean) {
   if (!spriteCache.isMapleLoaded) return;
 
   const equipmentKeys = [
@@ -33,12 +33,10 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number,
 
     const isFace = asset.type === 'face';
     const targetState = isFace ? 'default' : actionState;
-    let stateFrames = asset.planByState[targetState] || [];
+    const stateFrames = asset.planByState[targetState] || [];
     let frames = stateFrames.filter(f => f.frame === '0');
 
-    if (frames.length === 0) {
-      frames = stateFrames.filter(f => f.frame === '0');
-    }
+    if (frames.length === 0) frames = stateFrames.filter(f => f.frame === '0');
 
     for (const frame of frames) {
       if (['highlefEar', 'humanEar', 'lefEar'].includes(frame.part)) continue;
@@ -46,12 +44,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number,
       const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
       const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
       if (img) {
-        partsToRender.push({
-          img,
-          z: frame.z || asset.type,
-          origin: frame.origin,
-          map: frame.sockets || frame.map,
-        });
+        partsToRender.push({ img, z: frame.z || asset.type, origin: frame.origin, map: frame.sockets || frame.map });
       }
     }
   }
@@ -59,37 +52,38 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number,
   const bodyPart = partsToRender.find(p => p.z === 'body');
   if (!bodyPart) return;
 
-  const hd = partsToRender.find(p => p.z === 'head');
-  const headBrow = hd?.map?.brow || { x: 0, y: 0 };
+  const zmap = spriteCache.mapleAssets['body_2000']?.zmap || [];
+  const navelOnBody = bodyPart.map?.navel || { x: 0, y: 0 };
   const neckOnBody = bodyPart.map?.neck || { x: 0, y: 0 };
-  const flipSign = flip ? -1 : 1;
 
-  const localPos: Record<string, { x: number; y: number }> = {
-    body: { x: 0, y: 0 }
-  };
+  const localPos: Record<string, { x: number; y: number }> = { body: { x: 0, y: 0 } };
 
-  if (hd) {
-    const neckOnHead = hd.map?.neck || { x: 0, y: 0 };
-    localPos['head'] = {
-      x: (neckOnBody.x - neckOnHead.x) * flipSign * scale,
-      y: (neckOnBody.y - neckOnHead.y) * scale
-    };
+  const headPart = partsToRender.find(p => p.z === 'head');
+  if (headPart) {
+    const neckOnHead = headPart.map?.neck || { x: 0, y: 0 };
+    localPos['head'] = { x: (neckOnBody.x - neckOnHead.x) * scale, y: (neckOnBody.y - neckOnHead.y) * scale };
   }
+
+  const headBrow = headPart?.map?.brow || { x: 0, y: 0 };
 
   for (const part of partsToRender) {
-    if (part.z === 'body' || part.z && /^head/i.test(part.z)) continue;
-    if (!part.map?.brow) continue;
-    const partBrow = part.map.brow;
-    localPos[part.z] = {
-      x: ((localPos['head']?.x || 0) + (headBrow.x - partBrow.x) * flipSign * scale) || 0,
-      y: ((localPos['head']?.y || 0) + (headBrow.y - partBrow.y) * scale) || 0
-    };
+    if (['body', 'head'].includes(part.z)) continue;
+    if (!part.map?.brow && !part.map?.navel) continue;
+
+    if (part.map?.brow && !part.map?.navel) {
+      const pb = part.map.brow;
+      localPos[part.z] = {
+        x: (localPos['head']?.x || 0) + (headBrow.x - pb.x) * scale,
+        y: (localPos['head']?.y || 0) + (headBrow.y - pb.y) * scale
+      };
+    } else {
+      const anchor = part.map?.navel || { x: 0, y: 0 };
+      localPos[part.z] = {
+        x: (navelOnBody.x - anchor.x) * scale,
+        y: (navelOnBody.y - anchor.y) * scale
+      };
+    }
   }
-
-  ctx.save();
-  ctx.translate(x, y);
-
-  const zmap = spriteCache.mapleAssets['body_2000']?.zmap || [];
 
   partsToRender.sort((a, b) => {
     const ai = zmap.indexOf(a.z), bi = zmap.indexOf(b.z);
@@ -99,21 +93,15 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number,
     return ai - bi;
   });
 
+  ctx.save();
+  ctx.translate(anchorX, anchorY);
+  if (flip) ctx.scale(-1, 1);
+
   for (const part of partsToRender) {
     if (!part.z || !part.img || !part.origin) continue;
     const lp = localPos[part.z] || { x: 0, y: 0 };
     const ox = part.origin.x | 0, oy = part.origin.y | 0;
-    const drawX = lp.x - ox * scale;
-    const drawY = lp.y - oy * scale;
-    if (flip) {
-      ctx.save();
-      ctx.translate(-drawX, 0);
-      ctx.scale(-1, 1);
-      ctx.drawImage(part.img, 0, drawY, part.img.width * scale, part.img.height * scale);
-      ctx.restore();
-    } else {
-      ctx.drawImage(part.img, drawX, drawY, part.img.width * scale, part.img.height * scale);
-    }
+    ctx.drawImage(part.img, lp.x - ox * scale, lp.y - oy * scale, part.img.width * scale, part.img.height * scale);
   }
 
   ctx.restore();
