@@ -1,4 +1,4 @@
-import { Coins, Gauge, Hammer, Play, Shirt, Target, Trophy, Users } from 'lucide-react';
+import { Coins, Crosshair, Gauge, Hammer, Play, Shirt, Skull, Star, Target, Trophy, Users } from 'lucide-react';
 import { CHAPTERS, COSMETICS, ENHANCE_MAX_LEVEL, ENHANCE_SLOTS } from '../game/catalog';
 import { calcCP, type Profile } from '../game/profile';
 import { t, type Lang } from '../game/i18n';
@@ -54,6 +54,10 @@ export default function HomeHub({
   const cp = calcCP(profile);
   const best = bestRecord(profile);
   const nextGoal = t(nextGoalKey(profile));
+  const totalKills = Object.values(profile.chapters).reduce((sum, r) => sum + (r?.kills || 0), 0);
+  const clearedCount = Object.values(profile.chapters).filter(r => r?.cleared).length;
+  const cosmeticCount = profile.unlockedCosmetics.length;
+  const cosmetic = COSMETICS.find(c => c.id === profile.equippedCosmetic);
 
   return (
     <div className="absolute inset-0 z-30 flex flex-col bg-[#101827] text-white">
@@ -81,14 +85,19 @@ export default function HomeHub({
       </header>
 
       <main className="grid min-h-0 flex-1 grid-cols-[1fr_240px] gap-6 px-8 py-6">
-        <section className="flex min-h-0 flex-col justify-center gap-4">
-          <div className="flex items-center gap-4">
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#0d1320]">
-              <CharacterPreview cosmeticId={profile.equippedCosmetic} size={76} />
+        <section className="flex min-h-0 flex-col justify-center gap-5">
+          <div className="flex items-center gap-5">
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl border border-[#ffd54f]/20 bg-[#0d1320] shadow-lg shadow-[#ffd54f]/5">
+              <CharacterPreview cosmeticId={profile.equippedCosmetic} size={92} />
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold uppercase text-slate-400">{t('home_active_profile')}</p>
-              <p className="truncate text-3xl font-black text-white">{profile.name}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{t('home_active_profile')}</p>
+              <p className="truncate text-4xl font-black text-white">{profile.name}</p>
+              {cosmetic && cosmetic.id !== 'default' && (
+                <p className="mt-1 text-sm font-semibold text-[#ffd54f]/80">
+                  {lang === 'ko' ? cosmetic.name.ko : cosmetic.name.en}
+                </p>
+              )}
             </div>
           </div>
 
@@ -100,7 +109,6 @@ export default function HomeHub({
               </div>
               <div className="truncate text-2xl font-black text-white">{profile.mesos.toLocaleString()}</div>
             </div>
-
             <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
                 <Gauge size={18} className="text-[#69f0ae]" />
@@ -108,7 +116,6 @@ export default function HomeHub({
               </div>
               <div className="truncate text-2xl font-black text-white">{cp.toLocaleString()}</div>
             </div>
-
             <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
                 <Trophy size={18} className="text-[#40c4ff]" />
@@ -120,11 +127,34 @@ export default function HomeHub({
             </div>
           </div>
 
-          <div className="rounded-lg border border-[#ffd54f]/20 bg-[#ffd54f]/10 px-4 py-3">
-            <div className="flex items-center gap-2 text-sm font-bold text-[#fff8d6]">
-              <Target size={18} className="text-[#ffd54f]" />
-              <span className="text-[#ffd54f]">{t('home_next_goal')}</span>
-              <span className="text-white">{nextGoal}</span>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+                <Skull size={13} />
+                {t('home_kills')}
+              </div>
+              <div className="mt-0.5 text-base font-black text-white">{totalKills.toLocaleString()}</div>
+            </div>
+            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+                <Star size={13} />
+                {t('home_chapters_cleared')}
+              </div>
+              <div className="mt-0.5 text-base font-black text-white">{clearedCount}/{CHAPTERS.filter(c => c.playable).length}</div>
+            </div>
+            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+                <Shirt size={13} />
+                {t('home_cosmetics_unlocked')}
+              </div>
+              <div className="mt-0.5 text-base font-black text-white">{cosmeticCount}/{COSMETICS.length}</div>
+            </div>
+            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+                <Crosshair size={13} />
+                {t('home_goal')}
+              </div>
+              <div className="mt-0.5 truncate text-xs font-bold text-[#ffd54f]">{nextGoal}</div>
             </div>
           </div>
         </section>
