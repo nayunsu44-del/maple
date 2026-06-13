@@ -21,6 +21,7 @@ export interface MapleAssetData {
   render_plan: MapleRenderFrame[];
   planByState: Record<string, MapleRenderFrame[]>;
   zmap?: string[];
+  info?: Record<string, unknown>;
 }
 
 export const mapleImages: Record<string, HTMLImageElement> = {};

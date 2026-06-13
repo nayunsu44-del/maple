@@ -27,6 +27,18 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
   const cos = getCosmetic(cosmeticId);
   if (cos?.maple) equipmentKeys.push(cos.maple.assetKey);
 
+  let capVslot = '';
+  if (cos?.maple?.slot === 'Cap') {
+    const capAsset = spriteCache.mapleAssets[cos.maple.assetKey];
+    capVslot = (capAsset?.info as any)?.vslot || '';
+  }
+
+  const hairVslotMap: Record<string, string> = {
+    hair: 'H1',
+    hairOverHead: 'H2',
+    hairShade: 'H5',
+  };
+
   const partsToRender: PartToRender[] = [];
   const actionState = 'stand1';
 
@@ -41,6 +53,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
 
     for (const frame of frames) {
       if (['highlefEar', 'humanEar', 'lefEar'].includes(frame.part)) continue;
+      if (capVslot && hairVslotMap[frame.part] && capVslot.includes(hairVslotMap[frame.part])) continue;
 
       const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
       const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);

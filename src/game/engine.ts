@@ -120,6 +120,7 @@ export const toSY = (wy: number) => wy - camY + shakeY;
 
 type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
 let cosmeticDraw: CosmeticDrawFn | null = null;
+let cosmeticCapVslot = '';
 
 export function doShake(pow = 6) {
   shakeT = 0.3;
@@ -161,6 +162,10 @@ export function setLoadout(loadout: LoadoutBonus) {
 
 export function setCosmeticDraw(fn: CosmeticDrawFn | null) {
   cosmeticDraw = fn;
+}
+
+export function setCosmeticCapVslot(vslot: string) {
+  cosmeticCapVslot = vslot;
 }
 
 function drawCosmeticOverlay(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
@@ -1044,6 +1049,9 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     for (const frame of frames) {
       // 불필요한 이어 파트 제외 (highlefEar, humanEar, lefEar는 특정 조건에서만 활성화)
       if (['highlefEar', 'humanEar', 'lefEar'].includes(frame.part)) continue;
+      if (cosmeticCapVslot && frame.part === 'hair' && cosmeticCapVslot.includes('H1')) continue;
+      if (cosmeticCapVslot && frame.part === 'hairOverHead' && cosmeticCapVslot.includes('H2')) continue;
+      if (cosmeticCapVslot && frame.part === 'hairShade' && cosmeticCapVslot.includes('H5')) continue;
       
       const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
       const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);

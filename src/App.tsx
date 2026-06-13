@@ -66,7 +66,14 @@ export default function App() {
     const profile = getActiveProfile();
     setActiveProfileState(profile);
     engine.setLoadout(computeLoadout(profile.enhance));
-    engine.setCosmeticDraw(getCosmetic(profile.equippedCosmetic)?.draw ?? null);
+    const cos = getCosmetic(profile.equippedCosmetic);
+    engine.setCosmeticDraw(cos?.draw ?? null);
+    if (cos?.maple?.slot === 'Cap') {
+      const capAsset = spriteCache.mapleAssets[cos.maple.assetKey];
+      engine.setCosmeticCapVslot((capAsset?.info as any)?.vslot || '');
+    } else {
+      engine.setCosmeticCapVslot('');
+    }
     engine.resetGameState();
     engine.setPhase('skillpick');
   };
