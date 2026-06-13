@@ -121,6 +121,13 @@ export const toSY = (wy: number) => wy - camY + shakeY;
 type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
 let cosmeticDraw: CosmeticDrawFn | null = null;
 let cosmeticCapVslot = '';
+export let debugInvincible = false;
+export let debugSpeedMul = 1;
+
+export function setDebug(invincible: boolean, speedMul: number) {
+  debugInvincible = invincible;
+  debugSpeedMul = speedMul;
+}
 let currentMobPool: string[] = ['SN', 'BS', 'SP', 'RS'];
 let currentBossType = 'MA';
 

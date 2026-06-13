@@ -205,6 +205,14 @@ export default function App() {
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
 
+    // ── DEBUG SHORTCUTS (remove this block to disable) ──────────────────
+    const handleDebugKey = (e: KeyboardEvent) => {
+      if (e.key === 'F1') { engine.setDebug(!engine.debugInvincible, engine.debugSpeedMul); e.preventDefault(); }
+      if (e.key === 'F2') { engine.setDebug(engine.debugInvincible, engine.debugSpeedMul === 10 ? 1 : 10); e.preventDefault(); }
+    };
+    window.addEventListener('keydown', handleDebugKey);
+    // ── END DEBUG ───────────────────────────────────────────────────────
+
     // Mouse handlers
     const getCvCoords = (clientX: number, clientY: number) => {
       const r = cv.getBoundingClientRect();
@@ -316,6 +324,11 @@ export default function App() {
       if (currentPhase === 'playing' && engine.hitStop > 0) {
         dt *= 0.12;
       }
+
+      // ── DEBUG ─────────────────────────────────────────────────────────
+      if (engine.debugSpeedMul !== 1) dt *= engine.debugSpeedMul;
+      if (engine.debugInvincible) engine.P.invT = 999;
+      // ── END DEBUG ─────────────────────────────────────────────────────
 
       engine.decayTimers(rawDt, dt);
       lastT = ts;
@@ -561,6 +574,7 @@ export default function App() {
 
     return () => {
       cancelAnimationFrame(animId);
+      window.removeEventListener('keydown', handleDebugKey);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
       cv.removeEventListener('mousemove', handleMouseMove);
