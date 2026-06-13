@@ -1,5 +1,6 @@
 import type { Profile } from './profile';
 import { BOSS_AT, CH1_CLEAR_BONUS } from './constants';
+import * as spriteCache from './spriteCache';
 
 export type EnhanceSlotId = keyof Profile['enhance'];
 
@@ -128,186 +129,43 @@ function withCosmeticTransform(
   ctx.restore();
 }
 
-function drawMage(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
-  withCosmeticTransform(ctx, x, y, facing, scale, () => {
-    ctx.fillStyle = '#2d4fb8';
-    ctx.strokeStyle = '#172554';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(-24, -52);
-    ctx.quadraticCurveTo(0, -60, 24, -52);
-    ctx.quadraticCurveTo(15, -45, -20, -47);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#3454d1';
-    ctx.strokeStyle = '#ffd54f';
-    ctx.beginPath();
-    ctx.moveTo(-12, -55);
-    ctx.quadraticCurveTo(-2, -82, 9, -88);
-    ctx.quadraticCurveTo(20, -70, 11, -55);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#ffd54f';
-    ctx.fillRect(-20, -57, 38, 5);
-    ctx.beginPath();
-    ctx.arc(6, -70, 2.4, 0, Math.PI * 2);
-    ctx.fill();
-  });
+function drawMapleCap(assetKey: string, capY: number): CosmeticDef['draw'] {
+  return (ctx, x, y, facing, scale) => {
+    const asset = spriteCache.mapleAssets[assetKey];
+    if (!asset) return;
+    const frames = asset.planByState['stand1'];
+    if (!frames?.length) return;
+    const frame = frames[0];
+    const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
+    const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
+    if (!img) return;
+    withCosmeticTransform(ctx, x, y + capY * scale, facing, scale, () => {
+      ctx.drawImage(img, -frame.origin.x, -frame.origin.y);
+    });
+  };
 }
 
-function drawKnight(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
-  withCosmeticTransform(ctx, x, y, facing, scale, () => {
-    ctx.fillStyle = '#7b5a2e';
-    ctx.strokeStyle = '#3e2723';
-    ctx.lineWidth = 2;
-
-    ctx.fillStyle = '#d7ccc8';
-    ctx.beginPath();
-    ctx.moveTo(-12, -56);
-    ctx.lineTo(-34, -69);
-    ctx.lineTo(-22, -48);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(12, -56);
-    ctx.lineTo(34, -69);
-    ctx.lineTo(22, -48);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#8d6e63';
-    ctx.beginPath();
-    ctx.arc(0, -45, 17, Math.PI, 0);
-    ctx.lineTo(15, -35);
-    ctx.quadraticCurveTo(0, -28, -15, -35);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#3e2723';
-    ctx.fillRect(-14, -45, 28, 5);
-    ctx.strokeStyle = '#ffcc80';
-    ctx.beginPath();
-    ctx.moveTo(-8, -60);
-    ctx.lineTo(-5, -52);
-    ctx.moveTo(0, -64);
-    ctx.lineTo(0, -52);
-    ctx.moveTo(8, -60);
-    ctx.lineTo(5, -52);
-    ctx.stroke();
-  });
+function drawMapleCape(assetKey: string): CosmeticDef['draw'] {
+  return (ctx, x, y, facing, scale) => {
+    const asset = spriteCache.mapleAssets[assetKey];
+    if (!asset) return;
+    const frames = asset.planByState['stand1'];
+    if (!frames?.length) return;
+    const frame = frames[0];
+    const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
+    const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
+    if (!img) return;
+    withCosmeticTransform(ctx, x, y - 12 * scale, facing, scale, () => {
+      ctx.drawImage(img, -frame.origin.x, -frame.origin.y);
+    });
+  };
 }
 
-function drawNinja(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
-  withCosmeticTransform(ctx, x, y, facing, scale, () => {
-    ctx.fillStyle = '#0b0f19';
-    ctx.beginPath();
-    ctx.arc(0, -48, 15, Math.PI, 0);
-    ctx.lineTo(14, -41);
-    ctx.quadraticCurveTo(0, -35, -14, -41);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = '#111827';
-    ctx.fillRect(-18, -55, 36, 7);
-    ctx.strokeStyle = '#374151';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(-18, -55, 36, 7);
-
-    ctx.fillStyle = '#050816';
-    ctx.beginPath();
-    ctx.moveTo(-17, -52);
-    ctx.lineTo(-39, -63);
-    ctx.lineTo(-31, -48);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(-16, -50);
-    ctx.lineTo(-37, -42);
-    ctx.lineTo(-27, -37);
-    ctx.closePath();
-    ctx.fill();
-  });
-}
-
-function drawAngel(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
-  withCosmeticTransform(ctx, x, y, facing, scale, () => {
-    ctx.save();
-    ctx.shadowColor = 'rgba(179,229,252,0.6)';
-    ctx.shadowBlur = 10;
-    ctx.fillStyle = 'rgba(255,255,255,0.86)';
-    ctx.strokeStyle = '#b3e5fc';
-    ctx.lineWidth = 2;
-
-    ctx.beginPath();
-    ctx.moveTo(-12, -31);
-    ctx.bezierCurveTo(-46, -58, -61, -22, -30, -13);
-    ctx.bezierCurveTo(-47, -14, -43, 5, -22, -1);
-    ctx.bezierCurveTo(-32, 9, -20, 16, -10, 3);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(12, -31);
-    ctx.bezierCurveTo(46, -58, 61, -22, 30, -13);
-    ctx.bezierCurveTo(47, -14, 43, 5, 22, -1);
-    ctx.bezierCurveTo(32, 9, 20, 16, 10, 3);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.strokeStyle = 'rgba(129,212,250,0.72)';
-    ctx.lineWidth = 1.4;
-    ctx.beginPath();
-    ctx.moveTo(-28, -32);
-    ctx.quadraticCurveTo(-41, -25, -28, -17);
-    ctx.moveTo(28, -32);
-    ctx.quadraticCurveTo(41, -25, 28, -17);
-    ctx.stroke();
-    ctx.restore();
-  });
-}
-
-function drawKing(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
-  withCosmeticTransform(ctx, x, y, facing, scale, () => {
-    ctx.fillStyle = '#ffd54f';
-    ctx.strokeStyle = '#6d4c00';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(-19, -55);
-    ctx.lineTo(-14, -72);
-    ctx.lineTo(-5, -58);
-    ctx.lineTo(0, -77);
-    ctx.lineTo(6, -58);
-    ctx.lineTo(15, -72);
-    ctx.lineTo(20, -55);
-    ctx.lineTo(20, -49);
-    ctx.lineTo(-19, -49);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#fbc02d';
-    ctx.fillRect(-21, -54, 42, 7);
-    ctx.strokeRect(-21, -54, 42, 7);
-    ctx.fillStyle = '#40c4ff';
-    ctx.beginPath();
-    ctx.arc(0, -65, 2.8, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = '#e53935';
-    ctx.beginPath();
-    ctx.arc(-12, -52, 2.2, 0, Math.PI * 2);
-    ctx.arc(13, -52, 2.2, 0, Math.PI * 2);
-    ctx.fill();
-  });
-}
+const drawMage   = drawMapleCap('cap_1001128', -52);
+const drawKnight = drawMapleCap('cap_1002357', -48);
+const drawNinja  = drawMapleCap('cap_1002083', -48);
+const drawAngel  = drawMapleCape('cape_1102005');
+const drawKing   = drawMapleCap('cap_1003084', -50);
 
 export const COSMETICS: CosmeticDef[] = [
   {
