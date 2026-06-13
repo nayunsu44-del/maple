@@ -17,7 +17,7 @@ interface PartToRender {
 }
 
 function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anchorY: number, scale: number, flip: boolean, cosmeticId: string) {
-  if (!spriteCache.isMapleLoaded) return;
+  if (!spriteCache.isMapleLoaded) return false;
 
   const equipmentKeys = [
     'body_2000', 'head_12000', 'face_20000', 'hair_30000',
@@ -67,7 +67,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
   }
 
   const bodyPart = partsToRender.find(p => p.z === 'body');
-  if (!bodyPart) return;
+  if (!bodyPart) return false;
 
   const zmap = spriteCache.mapleAssets['body_2000']?.zmap || [];
   const navelOnBody = bodyPart.map?.navel || { x: 0, y: 0 };
@@ -122,6 +122,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
   }
 
   ctx.restore();
+  return true;
 }
 
 export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, className = '' }: CharacterPreviewProps) {
@@ -148,7 +149,19 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
     const scale = size / 104;
     const flip = facing < 0;
 
-    drawMapleCharacter(ctx, anchorX, anchorY, scale, flip, cosmeticId);
+    const drawn = drawMapleCharacter(ctx, anchorX, anchorY, scale, flip, cosmeticId);
+    if (!drawn) {
+      ctx.save();
+      ctx.translate(anchorX, anchorY);
+      ctx.fillStyle = 'rgba(255,255,255,0.06)';
+      ctx.beginPath();
+      ctx.arc(0, -anchorY * 0.55, size * 0.18, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(0, 0, size * 0.13, size * 0.22, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
   }, [cosmeticId, facing, size]);
 
   return (
