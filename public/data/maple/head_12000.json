@@ -1,0 +1,1310 @@
+{
+  "id": "12000",
+  "type": "head",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "PBalert",
+    "PBblink",
+    "PBdead",
+    "PBfly",
+    "PBheal",
+    "PBjump",
+    "PBladder",
+    "PBprone",
+    "PBproneStab",
+    "PBrope",
+    "PBshoot1",
+    "PBshoot2",
+    "PBshootF",
+    "PBsit",
+    "PBstabO1",
+    "PBstabO2",
+    "PBstabOF",
+    "PBstabT1",
+    "PBstabT2",
+    "PBstabTF",
+    "PBstand1",
+    "PBstand2",
+    "PBswingO1",
+    "PBswingO2",
+    "PBswingO3",
+    "PBswingOF",
+    "PBswingP1",
+    "PBswingP2",
+    "PBswingPF",
+    "PBswingT1",
+    "PBswingT2",
+    "PBswingT3",
+    "PBswingTF",
+    "PBwalk1",
+    "PBwalk2",
+    "PVPA1_die",
+    "PVPA1_jump",
+    "PVPA1_prone",
+    "PVPA1_rope",
+    "PVPA1_stand",
+    "PVPA1_walk",
+    "alert",
+    "back",
+    "blink",
+    "create2",
+    "create2_f",
+    "create2_s",
+    "create3",
+    "create3_f",
+    "create3_s",
+    "create4",
+    "create4_f",
+    "create4_s",
+    "fly",
+    "front",
+    "heal",
+    "hide",
+    "jump",
+    "kenjiBlink",
+    "ladder",
+    "pack_ignore",
+    "prone",
+    "proneStab",
+    "rope",
+    "setitem3",
+    "setitem4",
+    "shoot1",
+    "shoot2",
+    "shootF",
+    "sit",
+    "stabO1",
+    "stabO2",
+    "stabOF",
+    "stabT1",
+    "stabT2",
+    "stabTF",
+    "stand1",
+    "stand2",
+    "swingO1",
+    "swingO2",
+    "swingO3",
+    "swingOF",
+    "swingP1",
+    "swingP2",
+    "swingPF",
+    "swingT1",
+    "swingT2",
+    "swingT3",
+    "swingTF",
+    "walk1",
+    "walk2"
+  ],
+  "render_plan": [
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_stand1_0_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_stand1_0_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_stand1_0_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_stand1_0_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_stand1_0_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_stand1_1_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_stand1_1_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_stand1_1_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_stand1_1_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_stand1_1_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_stand1_2_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_stand1_2_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_stand1_2_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_stand1_2_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_stand1_2_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_walk1_0_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_walk1_0_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_0_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_walk1_0_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_0_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_walk1_1_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_walk1_1_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_1_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_walk1_1_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_1_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_walk1_2_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_walk1_2_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_2_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_walk1_2_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_2_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "ear",
+      "path": "Character/00012000/front/ear.png",
+      "origin": {
+        "x": 23,
+        "y": -1
+      },
+      "texture_key": "maple_head_walk1_3_ear",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "head",
+      "path": "Character/00012000/front/head.png",
+      "origin": {
+        "x": 18,
+        "y": 17
+      },
+      "texture_key": "maple_head_walk1_3_head",
+      "z": "head",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "highlefEar",
+      "path": "Character/00012000/front/highlefEar.png",
+      "origin": {
+        "x": 24,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_3_highlefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "humanEar",
+      "path": "Character/00012000/front/humanEar.png",
+      "origin": {
+        "x": 19,
+        "y": -2
+      },
+      "texture_key": "maple_head_walk1_3_humanEar",
+      "z": "hairShade",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "lefEar",
+      "path": "Character/00012000/front/lefEar.png",
+      "origin": {
+        "x": 26,
+        "y": -3
+      },
+      "texture_key": "maple_head_walk1_3_lefEar",
+      "z": "accessoryOverHair",
+      "sockets": {
+        "brow": {
+          "x": -4,
+          "y": -5
+        },
+        "earBelowHead": {
+          "x": -17,
+          "y": 9
+        },
+        "earOverHead": {
+          "x": 15,
+          "y": 10
+        },
+        "neck": {
+          "x": 0,
+          "y": 15
+        }
+      }
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "cash": 0,
+    "islot": "Hd",
+    "vslot": "Hd"
+  }
+}

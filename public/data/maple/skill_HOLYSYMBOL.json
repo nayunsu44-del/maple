@@ -1,0 +1,839 @@
+{
+  "id": "2311003",
+  "type": "skill",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "action",
+    "affected",
+    "affected0",
+    "common",
+    "effect",
+    "effect0",
+    "icon",
+    "iconDisabled",
+    "iconMouseOver",
+    "req",
+    "weapon",
+    "weapon2"
+  ],
+  "render_plan": [
+    {
+      "state": "effect",
+      "frame": "0",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/0.png",
+      "origin": {
+        "x": 159,
+        "y": 288
+      },
+      "texture_key": "maple_skill_effect_0_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "1",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/1.png",
+      "origin": {
+        "x": 154,
+        "y": 324
+      },
+      "texture_key": "maple_skill_effect_1_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "2",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/2.png",
+      "origin": {
+        "x": 149,
+        "y": 322
+      },
+      "texture_key": "maple_skill_effect_2_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "3",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/3.png",
+      "origin": {
+        "x": 164,
+        "y": 318
+      },
+      "texture_key": "maple_skill_effect_3_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "4",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/4.png",
+      "origin": {
+        "x": 191,
+        "y": 317
+      },
+      "texture_key": "maple_skill_effect_4_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "5",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/5.png",
+      "origin": {
+        "x": 175,
+        "y": 333
+      },
+      "texture_key": "maple_skill_effect_5_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "6",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/6.png",
+      "origin": {
+        "x": 304,
+        "y": 377
+      },
+      "texture_key": "maple_skill_effect_6_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "7",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/7.png",
+      "origin": {
+        "x": 305,
+        "y": 357
+      },
+      "texture_key": "maple_skill_effect_7_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "8",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/8.png",
+      "origin": {
+        "x": 303,
+        "y": 350
+      },
+      "texture_key": "maple_skill_effect_8_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "9",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/9.png",
+      "origin": {
+        "x": 300,
+        "y": 357
+      },
+      "texture_key": "maple_skill_effect_9_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "10",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/10.png",
+      "origin": {
+        "x": 298,
+        "y": 357
+      },
+      "texture_key": "maple_skill_effect_10_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "11",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/11.png",
+      "origin": {
+        "x": 294,
+        "y": 356
+      },
+      "texture_key": "maple_skill_effect_11_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "12",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/12.png",
+      "origin": {
+        "x": 301,
+        "y": 355
+      },
+      "texture_key": "maple_skill_effect_12_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "13",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/13.png",
+      "origin": {
+        "x": 294,
+        "y": 354
+      },
+      "texture_key": "maple_skill_effect_13_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "14",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/14.png",
+      "origin": {
+        "x": 289,
+        "y": 352
+      },
+      "texture_key": "maple_skill_effect_14_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "15",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/15.png",
+      "origin": {
+        "x": 277,
+        "y": 350
+      },
+      "texture_key": "maple_skill_effect_15_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "16",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/16.png",
+      "origin": {
+        "x": 275,
+        "y": 349
+      },
+      "texture_key": "maple_skill_effect_16_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "17",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/17.png",
+      "origin": {
+        "x": 53,
+        "y": 245
+      },
+      "texture_key": "maple_skill_effect_17_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect",
+      "frame": "18",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect/18.png",
+      "origin": {
+        "x": 56,
+        "y": 246
+      },
+      "texture_key": "maple_skill_effect_18_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "0",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/0.png",
+      "origin": {
+        "x": 54,
+        "y": 156
+      },
+      "texture_key": "maple_skill_effect0_0_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "1",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/1.png",
+      "origin": {
+        "x": 246,
+        "y": 338
+      },
+      "texture_key": "maple_skill_effect0_1_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "2",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/2.png",
+      "origin": {
+        "x": 256,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_2_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "3",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/3.png",
+      "origin": {
+        "x": 260,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_3_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "4",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/4.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_4_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "5",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/5.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_5_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "6",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/6.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_6_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "7",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/7.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_7_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "8",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/8.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_8_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "9",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/9.png",
+      "origin": {
+        "x": 271,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_9_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "10",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/10.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_10_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "11",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/11.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_11_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "12",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/12.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_12_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "13",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/13.png",
+      "origin": {
+        "x": 265,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_13_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "14",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/14.png",
+      "origin": {
+        "x": 256,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_14_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "15",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/15.png",
+      "origin": {
+        "x": 252,
+        "y": 348
+      },
+      "texture_key": "maple_skill_effect0_15_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "16",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/16.png",
+      "origin": {
+        "x": 243,
+        "y": 342
+      },
+      "texture_key": "maple_skill_effect0_16_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "17",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/17.png",
+      "origin": {
+        "x": 231,
+        "y": 334
+      },
+      "texture_key": "maple_skill_effect0_17_skill",
+      "delay": 60
+    },
+    {
+      "state": "effect0",
+      "frame": "18",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/effect0/18.png",
+      "origin": {
+        "x": 223,
+        "y": 323
+      },
+      "texture_key": "maple_skill_effect0_18_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "0",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/0.png",
+      "origin": {
+        "x": 87,
+        "y": 166
+      },
+      "texture_key": "maple_skill_affected_0_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "1",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/1.png",
+      "origin": {
+        "x": 89,
+        "y": 176
+      },
+      "texture_key": "maple_skill_affected_1_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "2",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/2.png",
+      "origin": {
+        "x": 100,
+        "y": 163
+      },
+      "texture_key": "maple_skill_affected_2_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "3",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/3.png",
+      "origin": {
+        "x": 100,
+        "y": 164
+      },
+      "texture_key": "maple_skill_affected_3_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "4",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/4.png",
+      "origin": {
+        "x": 100,
+        "y": 166
+      },
+      "texture_key": "maple_skill_affected_4_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "5",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/5.png",
+      "origin": {
+        "x": 99,
+        "y": 161
+      },
+      "texture_key": "maple_skill_affected_5_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "6",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/6.png",
+      "origin": {
+        "x": 98,
+        "y": 157
+      },
+      "texture_key": "maple_skill_affected_6_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected",
+      "frame": "7",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected/7.png",
+      "origin": {
+        "x": 111,
+        "y": 154
+      },
+      "texture_key": "maple_skill_affected_7_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "0",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/0.png",
+      "origin": {
+        "x": 67,
+        "y": 200
+      },
+      "texture_key": "maple_skill_affected0_0_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "1",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/1.png",
+      "origin": {
+        "x": 68,
+        "y": 198
+      },
+      "texture_key": "maple_skill_affected0_1_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "2",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/2.png",
+      "origin": {
+        "x": 64,
+        "y": 198
+      },
+      "texture_key": "maple_skill_affected0_2_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "3",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/3.png",
+      "origin": {
+        "x": 62,
+        "y": 198
+      },
+      "texture_key": "maple_skill_affected0_3_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "4",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/4.png",
+      "origin": {
+        "x": 60,
+        "y": 198
+      },
+      "texture_key": "maple_skill_affected0_4_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "5",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/5.png",
+      "origin": {
+        "x": 59,
+        "y": 198
+      },
+      "texture_key": "maple_skill_affected0_5_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "6",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/6.png",
+      "origin": {
+        "x": 63,
+        "y": 192
+      },
+      "texture_key": "maple_skill_affected0_6_skill",
+      "delay": 60
+    },
+    {
+      "state": "affected0",
+      "frame": "7",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/affected0/7.png",
+      "origin": {
+        "x": 55,
+        "y": 178
+      },
+      "texture_key": "maple_skill_affected0_7_skill",
+      "delay": 60
+    },
+    {
+      "state": "icon",
+      "frame": "0",
+      "part": "skill",
+      "path": "Skill/231/skill/2311003/icon.png",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "texture_key": "maple_skill_icon_0_skill"
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "pvp": 0,
+    "type": 10
+  }
+}
