@@ -33,7 +33,7 @@ function findClosestN(from: { x: number; y: number }, list: Enemy[], n: number):
   return result;
 }
 
-function findClosestInRange(from: { x: number; y: number }, list: Enemy[], maxDist2: number, skip: Set<number>): Enemy | null {
+function findClosestInRange(from: { x: number; y: number }, list: Enemy[], maxDist2: number, skip: Set<string | number>): Enemy | null {
   let best: Enemy | null = null;
   let bestD2 = maxDist2;
   for (const e of list) {
@@ -534,10 +534,10 @@ export function triggerChain(onEndRun: () => void) {
   if (enemies.length === 0) return;
   const dmgBase = P.atk * P.atkM * P.chainDmgM;
   const chainRange = P.chainRng;
-  const visited = new Set();
+  const visited = new Set<string | number>();
   const segs: LightningSeg[] = [];
 
-  let cur = findClosestInRange(P, enemies, Infinity, new Set());
+  let cur = findClosestInRange(P, enemies, Infinity, new Set<string | number>());
   let prevPos = { x: P.x, y: P.y };
 
   for (let i = 0; i < P.chainCount && cur; i++) {
