@@ -948,7 +948,8 @@ export function drawEnemies(ctx: CanvasRenderingContext2D) {
     // 몹의 개별 수명주기 시간에 기반하여 모션 프레임 선정
     const durationPerFrame = stateFrames[0].delay || 150;
     const totalDuration = durationPerFrame * stateFrames.length;
-    const animationTime = (gTimer * 1000 + (e._id as number) * 100) % totalDuration;
+    const idNum = typeof e._id === 'number' ? e._id : 0;
+    const animationTime = (gTimer * 1000 + idNum * 100) % totalDuration;
     const frameIndex = Math.floor(animationTime / durationPerFrame) % stateFrames.length;
     const frame = stateFrames[frameIndex];
     if (!frame) continue;
