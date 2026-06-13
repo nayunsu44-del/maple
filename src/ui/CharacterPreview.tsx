@@ -17,10 +17,7 @@ interface PartToRender {
 }
 
 function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number, scale: number, flip: boolean) {
-  if (!spriteCache.isMapleLoaded) {
-    drawFallbackCharacter(ctx, x, y, scale);
-    return;
-  }
+  if (!spriteCache.isMapleLoaded) return;
 
   const equipmentKeys = [
     'body_2000', 'head_12000', 'face_20000', 'hair_30000',
@@ -60,10 +57,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number,
   }
 
   const bodyPart = partsToRender.find(p => p.z === 'body');
-  if (!bodyPart) {
-    drawFallbackCharacter(ctx, x, y, scale);
-    return;
-  }
+  if (!bodyPart) return;
 
   const hd = partsToRender.find(p => p.z === 'head');
   const headBrow = hd?.map?.brow || { x: 0, y: 0 };
@@ -121,41 +115,6 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, x: number, y: number,
       ctx.drawImage(part.img, drawX, drawY, part.img.width * scale, part.img.height * scale);
     }
   }
-
-  ctx.restore();
-}
-
-function drawFallbackCharacter(ctx: CanvasRenderingContext2D, x: number, y: number, scale: number) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.scale(scale, scale);
-
-  ctx.fillStyle = '#263238';
-  ctx.fillRect(-15, -23, 30, 28);
-  ctx.fillStyle = '#1565c0';
-  ctx.fillRect(-12, -31, 24, 31);
-  ctx.fillStyle = '#64b5f6';
-  ctx.fillRect(-18, -27, 8, 22);
-  ctx.fillRect(10, -27, 8, 22);
-  ctx.fillStyle = '#263238';
-  ctx.fillRect(-12, 0, 8, 15);
-  ctx.fillRect(4, 0, 8, 15);
-
-  ctx.fillStyle = '#ffcc80';
-  ctx.beginPath();
-  ctx.arc(0, -45, 14, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.fillStyle = '#5d4037';
-  ctx.beginPath();
-  ctx.arc(0, -50, 15, Math.PI, Math.PI * 2);
-  ctx.fill();
-
-  ctx.fillStyle = '#263238';
-  ctx.beginPath();
-  ctx.arc(-5, -45, 1.8, 0, Math.PI * 2);
-  ctx.arc(6, -45, 1.8, 0, Math.PI * 2);
-  ctx.fill();
 
   ctx.restore();
 }
