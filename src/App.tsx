@@ -5,7 +5,7 @@ import { initAudio, sfx, isSoundOn, toggleSound } from './game/audio';
 import * as spriteCache from './game/spriteCache';
 import * as engine from './game/engine';
 import { t, setLang, skillName, mobName, currentLang, type Lang } from './game/i18n';
-import { computeLoadout, getCosmetic } from './game/catalog';
+import { computeLoadout, getCosmetic, CHAPTERS } from './game/catalog';
 import { getActiveProfile, saveProfile, unlockCosmetics, type Profile } from './game/profile';
 import HomeHub from './ui/HomeHub';
 import ChapterSelect from './ui/ChapterSelect';
@@ -66,6 +66,8 @@ export default function App() {
     const profile = getActiveProfile();
     setActiveProfileState(profile);
     engine.setLoadout(computeLoadout(profile.enhance));
+    const chapter = CHAPTERS.find(c => c.id === chapterId);
+    if (chapter) engine.setChapterConfig(chapter.mobPool, chapter.boss);
     const cos = getCosmetic(profile.equippedCosmetic);
     engine.setCosmeticDraw(cos?.draw ?? null);
     if (cos?.maple?.slot === 'Cap') {

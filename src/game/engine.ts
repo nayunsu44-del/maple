@@ -121,6 +121,8 @@ export const toSY = (wy: number) => wy - camY + shakeY;
 type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
 let cosmeticDraw: CosmeticDrawFn | null = null;
 let cosmeticCapVslot = '';
+let currentMobPool: string[] = ['SN', 'BS', 'SP', 'RS'];
+let currentBossType = 'MA';
 
 export function doShake(pow = 6) {
   shakeT = 0.3;
@@ -166,6 +168,11 @@ export function setCosmeticDraw(fn: CosmeticDrawFn | null) {
 
 export function setCosmeticCapVslot(vslot: string) {
   cosmeticCapVslot = vslot;
+}
+
+export function setChapterConfig(mobPool: string[], bossType: string) {
+  currentMobPool = mobPool;
+  currentBossType = bossType;
 }
 
 function drawCosmeticOverlay(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
@@ -338,7 +345,7 @@ export function spawnEnemy(type: string) {
 export function spawnBoss() {
   if (bossSpawned) return;
   bossSpawned = true;
-  const def = ED['BL'];
+  const def = ED[currentBossType];
   const bx = clp(P.x + 500, def.r + 20, WW - def.r - 20);
   const by = clp(P.y, def.r + 20, WH - def.r - 20);
   for (let i = enemies.length - 1; i >= 0; i--) {
@@ -347,7 +354,7 @@ export function spawnBoss() {
     addParts(e.x, e.y, '#90a4ae', 3, 70, 0.4);
     enemies.splice(i, 1);
   }
-  enemies.push({ type: 'BL', def, x: bx, y: by, hp: def.hp, maxHp: def.hp, atk: def.atk, spd: def.spd, xp: def.xp, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
+  enemies.push({ type: currentBossType, def, x: bx, y: by, hp: def.hp, maxHp: def.hp, atk: def.atk, spd: def.spd, xp: def.xp, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
   doShake(15);
   addFText(P.x, P.y - 120, i18n.t('boss_spawn'), '#ff4444', 30);
   sfx('boss');
@@ -381,11 +388,8 @@ export function spawnMidBoss() {
 }
 
 export function getSpawnType(): string {
-  const t = gTimer, r = Math.random();
-  if (t < 60) return 'SN';
-  if (t < 150) return r < 0.5 ? 'SN' : 'BS';
-  if (t < 300) return r < 0.3 ? 'SN' : r < 0.6 ? 'BS' : 'MU';
-  return r < 0.2 ? 'SN' : r < 0.4 ? 'BS' : r < 0.7 ? 'MU' : 'ZM';
+  const pool = currentMobPool;
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 // ── CORE UPDATES ─────────────────────────────────────────────────────
