@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Coins, Crosshair, Gauge, Hammer, Play, Shirt, Skull, Star, Target, Trophy, Users } from 'lucide-react';
 import { CHAPTERS, COSMETICS, ENHANCE_MAX_LEVEL, ENHANCE_SLOTS } from '../game/catalog';
 import { calcCP, type Profile } from '../game/profile';
@@ -13,7 +12,6 @@ interface HomeHubProps {
   onOpenEnhance: () => void;
   onOpenWardrobe: () => void;
   onOpenProfiles: () => void;
-  onQuickStart: () => void;
 }
 
 function bestRecord(profile: Profile) {
@@ -52,7 +50,6 @@ export default function HomeHub({
   onOpenEnhance,
   onOpenWardrobe,
   onOpenProfiles,
-  onQuickStart,
 }: HomeHubProps) {
   const cp = calcCP(profile);
   const best = bestRecord(profile);
@@ -61,14 +58,6 @@ export default function HomeHub({
   const clearedCount = Object.values(profile.chapters).filter(r => r?.cleared).length;
   const cosmeticCount = profile.unlockedCosmetics.length;
   const cosmetic = COSMETICS.find(c => c.id === profile.equippedCosmetic);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') onQuickStart();
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [onQuickStart]);
 
   return (
     <div className="absolute inset-0 z-30 flex flex-col bg-[#101827] text-white">
@@ -183,7 +172,7 @@ export default function HomeHub({
         <nav className="flex flex-col gap-3">
           <button
             type="button"
-            onClick={onQuickStart}
+            onClick={onOpenChapters}
             className="flex h-14 items-center justify-center gap-2 rounded-lg bg-[#ffb300] px-4 text-lg font-black text-[#101827] shadow-lg shadow-[#ffb300]/20 transition hover:bg-[#ffd54f]"
           >
             <Play size={22} fill="currentColor" />

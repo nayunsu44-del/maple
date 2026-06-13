@@ -1102,7 +1102,6 @@ export default function App() {
             onOpenEnhance={() => showMenu('enhance')}
             onOpenWardrobe={() => showMenu('wardrobe')}
             onOpenProfiles={() => showMenu('profiles')}
-            onQuickStart={() => startGame('ch1')}
           />
         )}
 
