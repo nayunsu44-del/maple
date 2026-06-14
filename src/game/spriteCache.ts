@@ -229,7 +229,11 @@ const MAPLE_ASSET_PATHS = {
   cap_VAMPIRE: '/data/maple/cap_VAMPIRE.json',
   cape_VAMPIRE: '/data/maple/cape_VAMPIRE.json',
   hair_CAIN: '/data/maple/hair_CAIN.json',
+  hair_HITMAN: '/data/maple/hair_HITMAN.json',
   face_JEROME: '/data/maple/face_JEROME.json',
+  face_CAIN: '/data/maple/face_CAIN.json',
+  coat_DRAKAZ: '/data/maple/coat_DRAKAZ.json',
+  weapon_GAISER: '/data/maple/weapon_GAISER.json',
   acc_EARRING: '/data/maple/acc_EARRING.json',
   shoes_DRAKAZ: '/data/maple/shoes_DRAKAZ.json',
   // Cosmetic items
@@ -281,9 +285,8 @@ export async function loadMapleAssets() {
 
 function preloadCriticalImages() {
   const criticalKeys = [
-    'body_2000', 'head_12000', 'face_JEROME', 'hair_CAIN',
-    'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
-    'acc_EARRING', 'shoes_DRAKAZ',
+    'body_2000', 'head_12000', 'face_CAIN', 'hair_HITMAN',
+    'weapon_GAISER', 'coat_DRAKAZ', 'shoes_DRAKAZ',
     'cap_1001128', 'cap_1002357', 'cap_1002083', 'cap_1003084', 'cape_1102005',
     'mob_SPORE', 'mob_REDSNAIL', 'mob_MANO',
     'mob_FAUST', 'mob_STUMPY', 'mob_DYLE',

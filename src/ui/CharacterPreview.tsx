@@ -20,9 +20,8 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
   if (!spriteCache.isMapleLoaded) return false;
 
   const equipmentKeys = [
-    'body_2000', 'head_12000', 'face_JEROME', 'hair_CAIN',
-    'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
-    'acc_EARRING', 'shoes_DRAKAZ'
+    'body_2000', 'head_12000', 'face_CAIN', 'hair_HITMAN',
+    'weapon_GAISER', 'coat_DRAKAZ', 'shoes_DRAKAZ'
   ];
 
   const cos = getCosmetic(cosmeticId);

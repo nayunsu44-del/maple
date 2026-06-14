@@ -1,0 +1,582 @@
+{
+  "id": "48995",
+  "type": "hair",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "alert",
+    "backDefault",
+    "default",
+    "fly",
+    "heal",
+    "jump",
+    "ladder",
+    "prone",
+    "proneStab",
+    "rope",
+    "shoot1",
+    "shoot2",
+    "shootF",
+    "sit",
+    "stabO1",
+    "stabO2",
+    "stabOF",
+    "stabT1",
+    "stabT2",
+    "stabTF",
+    "stand1",
+    "stand2",
+    "swingO1",
+    "swingO2",
+    "swingO3",
+    "swingOF",
+    "swingP1",
+    "swingP2",
+    "swingPF",
+    "swingT1",
+    "swingT2",
+    "swingT3",
+    "swingTF",
+    "walk1",
+    "walk2"
+  ],
+  "render_plan": [
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_stand1_0_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_stand1_0_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_stand1_0_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_stand1_1_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_stand1_1_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_stand1_1_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_stand1_2_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_stand1_2_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_stand1_2_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_0_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_0_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_walk1_0_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_1_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_1_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_walk1_1_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_2_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_2_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_walk1_2_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "hair",
+      "path": "Character/Hair/00048995/default/hair.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_3_hair",
+      "z": "hair",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "hairBelowBody",
+      "path": "Character/Hair/00048995/default/hairBelowBody.png",
+      "origin": {
+        "x": 15,
+        "y": 12
+      },
+      "texture_key": "maple_hair_walk1_3_hairBelowBody",
+      "z": "hairBelowBody",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "hairOverHead",
+      "path": "Character/Hair/00048995/default/hairOverHead.png",
+      "origin": {
+        "x": 18,
+        "y": 18
+      },
+      "texture_key": "maple_hair_walk1_3_hairOverHead",
+      "z": "hairOverHead",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "cash": 1,
+    "islot": "Hr",
+    "vslot": "H1H2H3H4H5H6HfHsHb"
+  }
+}
