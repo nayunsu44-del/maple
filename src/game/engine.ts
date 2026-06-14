@@ -6,7 +6,8 @@ import {
   xpNext, calcScore, calcGrade,
   SPAWN_OUT_OF_BOUNDS_DISTANCE, PLAYER_COLLISION_RADIUS,
   KNOCKBACK_DECAY_RATE, GEM_COLLECT_RADIUS2, SPAWN_EDGE_PADDING,
-  XP_SCATTER_OFFSET, BOSS_CLEAR_XP_BOOST
+  XP_SCATTER_OFFSET, BOSS_CLEAR_XP_BOOST,
+  PROJ_SPEED, INV_PROJ_SPEED, BASE_KNOCKBACK_IMPULSE
 } from './constants';
 import type { LoadoutBonus } from './catalog';
 import { sfx } from './audio';
@@ -500,7 +501,7 @@ export function updPlayer(dt: number, mv: { dx: number; dy: number; on: boolean 
       const ba = ang(P, near), dmg = P.atk * P.atkM, sp = 0.18;
       for (let i = 0; i < P.pc; i++) {
         const a = ba + (i - (P.pc - 1) / 2) * sp;
-        projs.push({ x: P.x, y: P.y, dx: Math.cos(a) * 450, dy: Math.sin(a) * 450, dmg, r: 5, life: 2.6, hit: new Set() });
+        projs.push({ x: P.x, y: P.y, dx: Math.cos(a) * PROJ_SPEED, dy: Math.sin(a) * PROJ_SPEED, dmg, r: 5, life: 2.6, hit: new Set() });
       }
       sfx('shoot');
     }
@@ -515,9 +516,11 @@ export function updEnemies(dt: number, onEndRun: () => void) {
       continue;
     }
     const vx = P.x - e.x, vy = P.y - e.y;
-    const L = Math.sqrt(vx * vx + vy * vy) || 1;
-    e.x += vx / L * e.spd * dt + e.kbx * dt;
-    e.y += vy / L * e.spd * dt + e.kby * dt;
+    const d2 = vx * vx + vy * vy;
+    const L = d2 > 0 ? Math.sqrt(d2) : 0;
+    const invL = d2 > 0 ? 1 / L : 1;
+    e.x += vx * invL * e.spd * dt + e.kbx * dt;
+    e.y += vy * invL * e.spd * dt + e.kby * dt;
     e.kbx *= (1 - KNOCKBACK_DECAY_RATE * dt); e.kby *= (1 - KNOCKBACK_DECAY_RATE * dt);
     e.wb += dt * 3;
     if (e.hf > 0) e.hf -= dt * 4;
@@ -549,7 +552,7 @@ export function updProjs(dt: number, onEndRun: () => void) {
       if (p.hit.has(e._id)) continue;
       p.hit.add(e._id);
       e.hp -= p.dmg; e.hf = 1;
-      const kp = 170 * (e.kbR ?? 1); e.kbx += p.dx / 450 * kp; e.kby += p.dy / 450 * kp;
+      const kp = BASE_KNOCKBACK_IMPULSE * (e.kbR ?? 1); e.kbx += p.dx * INV_PROJ_SPEED * kp; e.kby += p.dy * INV_PROJ_SPEED * kp;
       sfx('hit');
       addFText(e.x, e.y - e.def.r - 4, String(Math.floor(p.dmg)), '#ffd54f');
       addParts(e.x, e.y, '#ffcc02', 3, 55, 0.3);
