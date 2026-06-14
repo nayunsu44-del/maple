@@ -58,13 +58,14 @@ function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number 
     const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
     if (!img) return;
 
-    const scale = (size / Math.min(img.width, img.height)) * 0.85;
+    const baseScale = size / Math.max(img.width, img.height);
+    const scale = (slot === 'shoes' ? baseScale * 1.5 : baseScale * 0.75);
     const ox = frame.origin.x * scale;
     const oy = frame.origin.y * scale;
     const dw = img.width * scale;
     const dh = img.height * scale;
-    const dx = (size - dw) / 2 - ox + (size / 2);
-    const dy = (size - dh) / 2 - oy + (size / 2);
+    const dx = size / 2 - ox;
+    const dy = size / 2 - oy;
     ctx.drawImage(img, dx, dy, dw, dh);
   }, [slot, size]);
 
