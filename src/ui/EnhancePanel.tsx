@@ -1,5 +1,5 @@
 import { ArrowLeft, Coins, Gauge, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   ARMOR_HP_PER_LEVEL,
   ENHANCE_MAX_LEVEL,
@@ -11,6 +11,7 @@ import {
 } from '../game/catalog';
 import { calcCP, enhanceProfile, getActiveProfile, type Profile } from '../game/profile';
 import { t } from '../game/i18n';
+import * as spriteCache from '../game/spriteCache';
 
 interface EnhancePanelProps {
   onBack: () => void;
@@ -22,6 +23,52 @@ function bonusText(profile: Profile, slot: EnhanceSlotId): string {
   if (slot === 'weapon') return `+${Math.round(lv * WEAPON_ATK_MUL_PER_LEVEL * 100)}% ${t('enhance_stat_attack')}`;
   if (slot === 'shoes') return `+${Math.round(lv * SHOES_SPD_MUL_PER_LEVEL * 100)}% ${t('enhance_stat_speed')}`;
   return `+${lv * ARMOR_HP_PER_LEVEL} HP`;
+}
+
+const EQUIP_ASSETS: Record<EnhanceSlotId, string> = {
+  weapon: 'weapon_STAFF',
+  top: 'coat_1040004',
+  bottom: 'pants_1060040',
+  shoes: 'shoes_1072850',
+};
+
+function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number }) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(size * dpr);
+    canvas.height = Math.round(size * dpr);
+    canvas.style.width = `${size}px`;
+    canvas.style.height = `${size}px`;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size, size);
+
+    const assetKey = EQUIP_ASSETS[slot];
+    const asset = spriteCache.mapleAssets[assetKey];
+    if (!asset) return;
+    const frames = asset.planByState['stand1'];
+    if (!frames?.length) return;
+    const frame = frames[0];
+    const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
+    const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
+    if (!img) return;
+
+    const scale = size / Math.max(img.width, img.height) * 0.7;
+    const ox = frame.origin.x * scale;
+    const oy = frame.origin.y * scale;
+    const dw = img.width * scale;
+    const dh = img.height * scale;
+    const dx = (size - dw) / 2 - ox + (size / 2);
+    const dy = (size - dh) / 2 - oy + (size / 2);
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }, [slot, size]);
+
+  return <canvas ref={canvasRef} width={size} height={size} className="block" aria-hidden="true" />;
 }
 
 export default function EnhancePanel({ onBack, onProfilesChange }: EnhancePanelProps) {
@@ -102,8 +149,8 @@ export default function EnhancePanel({ onBack, onProfilesChange }: EnhancePanelP
                 key={slot.id}
                 className="grid grid-cols-[88px_1fr_150px_126px] items-center gap-4 rounded-lg border border-white/10 bg-white/[0.04] p-4"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-[#0d1320] text-xs font-black text-[#ffd54f]">
-                  {slot.icon}
+                <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-[#0d1320]">
+                  <EquipPreview slot={slot.id} size={64} />
                 </div>
 
                 <div className="min-w-0">
