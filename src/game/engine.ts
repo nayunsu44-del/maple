@@ -1116,9 +1116,9 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
   }[] = [];
 
   const equipmentKeys = [
-    'body_2000', 'head_12000', 'face_VAMPIRE', 'hair_VAMPIRE',
+    'body_2000', 'head_12000', 'face_JEROME', 'hair_CAIN',
     'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
-    'pants_DARK', 'shoes_DARK'
+    'acc_EARRING', 'shoes_DRAKAZ'
   ];
   if (cosmeticCapAssetKey) equipmentKeys.push(cosmeticCapAssetKey);
 

@@ -30,7 +30,7 @@ const EQUIP_ASSETS: Record<EnhanceSlotId, string> = {
   weapon: 'weapon_VAMPIRE',
   top: 'coat_VAMPIRE',
   bottom: 'pants_DARK',
-  shoes: 'shoes_DARK',
+  shoes: 'shoes_DRAKAZ',
 };
 
 function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number }) {
