@@ -32,13 +32,13 @@ export default function App() {
   const keysRef = useRef<Set<string>>(new Set());
   const mouseRef = useRef({ mx: LW / 2, my: LH / 2, clicked: false });
   const joyRef = useRef({ on: false, bx: 0, by: 0, dx: 0, dy: 0, id: -1 });
-
-  // Register clean game input hook
-  useGameInput(canvasRef, keysRef, mouseRef, joyRef, rotatedRef, LW, LH, JR);
   const resultRecordedRef = useRef(false);
   const activeChapterRef = useRef('ch1');
   const rotatedRef = useRef(false);
   const [rotated, setRotated] = useState(false);
+
+  // Register clean game input hook
+  useGameInput(canvasRef, keysRef, mouseRef, joyRef, rotatedRef, LW, LH, JR);
 
   const refreshActiveProfile = () => {
     const profile = getActiveProfile();
