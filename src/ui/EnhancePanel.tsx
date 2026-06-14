@@ -1,4 +1,4 @@
-import { ArrowLeft, Coins, Gauge, Sparkles } from 'lucide-react';
+import { ArrowLeft, Coins, Gauge, Magnet, Sparkles } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import {
   ARMOR_HP_PER_LEVEL,
@@ -22,6 +22,7 @@ function bonusText(profile: Profile, slot: EnhanceSlotId): string {
   const lv = profile.enhance[slot];
   if (slot === 'weapon') return `+${Math.round(lv * WEAPON_ATK_MUL_PER_LEVEL * 100)}% ${t('enhance_stat_attack')}`;
   if (slot === 'shoes') return `+${Math.round(lv * SHOES_SPD_MUL_PER_LEVEL * 100)}% ${t('enhance_stat_speed')}`;
+  if (slot === 'magnet') return `+${lv * 4} ${t('enhance_stat_range')}`;
   return `+${lv * ARMOR_HP_PER_LEVEL} HP`;
 }
 
@@ -166,7 +167,11 @@ export default function EnhancePanel({ onBack, onProfilesChange }: EnhancePanelP
                 className="grid grid-cols-[88px_1fr_150px_126px] items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
               >
                 <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-gray-100">
-                  <EquipPreview slot={slot.id} size={64} />
+                  {slot.id === 'magnet' ? (
+                    <Magnet size={40} className="text-purple-400" />
+                  ) : (
+                    <EquipPreview slot={slot.id} size={64} />
+                  )}
                 </div>
 
                 <div className="min-w-0">

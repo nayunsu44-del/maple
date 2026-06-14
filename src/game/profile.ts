@@ -10,6 +10,7 @@ export interface Profile {
     top: number;
     bottom: number;
     shoes: number;
+    magnet: number;
   };
   chapters: {
     [chapterId: string]: {
@@ -70,6 +71,7 @@ function newProfile(name: string): Profile {
       top: 0,
       bottom: 0,
       shoes: 0,
+      magnet: 0,
     },
     chapters: {},
     unlockedCosmetics: ['default'],
@@ -121,6 +123,7 @@ function normalizeProfile(value: unknown): Profile | null {
       top: Math.max(0, toNumber(raw.enhance?.top)),
       bottom: Math.max(0, toNumber(raw.enhance?.bottom)),
       shoes: Math.max(0, toNumber(raw.enhance?.shoes)),
+      magnet: Math.max(0, toNumber(raw.enhance?.magnet)),
     },
     chapters,
     unlockedCosmetics,

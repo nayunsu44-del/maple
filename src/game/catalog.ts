@@ -9,6 +9,7 @@ export interface LoadoutBonus {
   hpAdd: number;
   spdMulAdd: number;
   atkSpeedAdd: number;
+  magRangeAdd: number;
 }
 
 export interface ChapterDef {
@@ -46,6 +47,7 @@ export const WEAPON_ATK_MUL_PER_LEVEL = 0.16;
 export const ARMOR_HP_PER_LEVEL = 40;
 export const SHOES_SPD_MUL_PER_LEVEL = 0.06;
 export const WEAPON_ATKSPD_PER_LEVEL = 0.008;
+export const MAGNET_RANGE_PER_LEVEL = 4;
 
 export const ENHANCE_SLOTS: {
   id: EnhanceSlotId;
@@ -57,6 +59,7 @@ export const ENHANCE_SLOTS: {
   { id: 'top', nameKey: 'enhance_slot_top', icon: 'COAT', bonusKey: 'enhance_bonus_top' },
   { id: 'bottom', nameKey: 'enhance_slot_bottom', icon: 'PANTS', bonusKey: 'enhance_bonus_bottom' },
   { id: 'shoes', nameKey: 'enhance_slot_shoes', icon: 'SHOES', bonusKey: 'enhance_bonus_shoes' },
+  { id: 'magnet', nameKey: 'enhance_slot_magnet', icon: 'MAGNET', bonusKey: 'enhance_bonus_magnet' },
 ];
 
 export const CHAPTERS: ChapterDef[] = [
@@ -237,12 +240,14 @@ export function computeLoadout(enhance: Profile['enhance']): LoadoutBonus {
   const top = clampLevel(enhance.top);
   const bottom = clampLevel(enhance.bottom);
   const shoes = clampLevel(enhance.shoes);
+  const magnet = clampLevel(enhance.magnet);
 
   return {
     atkMulAdd: weapon * WEAPON_ATK_MUL_PER_LEVEL,
     hpAdd: (top + bottom) * ARMOR_HP_PER_LEVEL,
     spdMulAdd: shoes * SHOES_SPD_MUL_PER_LEVEL,
     atkSpeedAdd: weapon * WEAPON_ATKSPD_PER_LEVEL,
+    magRangeAdd: magnet * MAGNET_RANGE_PER_LEVEL,
   };
 }
 
