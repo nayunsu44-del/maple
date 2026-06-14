@@ -218,7 +218,7 @@ export const ED: Record<string, EnemyDef> = {
   CE: { nm: '저주받은 눈', hp: 85, atk: 11, spd: 86, xp: 21, r: 19, col: '#7e57c2' },
   EE: { nm: '이블아이', hp: 115, atk: 14, spd: 76, xp: 28, r: 21, col: '#5e35b1' },
   JN: { nm: '주니어 네키', hp: 70, atk: 12, spd: 102, xp: 20, r: 15, col: '#26a69a' },
-  WM: { nm: '나무가면', hp: 135, atk: 17, spd: 54, xp: 32, r: 22, col: '#a1887f' },
+  WM: { nm: '콜드아이', hp: 135, atk: 17, spd: 54, xp: 32, r: 22, col: '#81d4fa' },
   FA: { nm: '파우스트', hp: 10000, atk: 340, spd: 70, xp: 600, r: 52, col: '#7b1fa2', isBoss: true, assetKey: 'mob_FAUST' },
   WB: { nm: '멧돼지', hp: 130, atk: 17, spd: 68, xp: 30, r: 23, col: '#795548' },
   FB: { nm: '파이어보어', hp: 160, atk: 20, spd: 64, xp: 36, r: 24, col: '#d84315' },

@@ -211,3 +211,4 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
   - Map info (map_id: 102000000, region: victoria, BGM: Bgm00/Nightmare)
 - **CDN Base**: `https://resource-static.msu.io/data/`
 - **Use case**: Chapter select UI card backgrounds for Perion theme
+| `data/maple/mob_WM.json` | Cold Eye | 4230100 | stand, move, hit1, die1 |

@@ -1,10 +1,11 @@
 {
-  "id": "2230110",
+  "id": "4230100",
   "type": "mob",
   "cdnBase": "https://resource-static.msu.io/data",
   "availableStates": [
     "die1",
     "hit1",
+    "jump",
     "move",
     "stand"
   ],
@@ -13,154 +14,94 @@
       "state": "stand",
       "frame": "0",
       "part": "mob",
-      "path": "Mob/2230110/stand/0.png",
+      "path": "Mob/4230100/stand/0.png",
       "origin": {
-        "x": 46,
-        "y": 86
+        "x": 48,
+        "y": 50
       },
       "texture_key": "maple_mob_stand_0_mob",
-      "delay": 100
+      "delay": 150
     },
     {
       "state": "stand",
       "frame": "1",
       "part": "mob",
-      "path": "Mob/2230110/stand/1.png",
+      "path": "Mob/4230100/stand/1.png",
       "origin": {
-        "x": 46,
-        "y": 85
+        "x": 62,
+        "y": 54
       },
       "texture_key": "maple_mob_stand_1_mob",
-      "delay": 100
+      "delay": 150
     },
     {
       "state": "stand",
       "frame": "2",
       "part": "mob",
-      "path": "Mob/2230110/stand/2.png",
+      "path": "Mob/4230100/stand/2.png",
       "origin": {
-        "x": 46,
-        "y": 84
+        "x": 69,
+        "y": 58
       },
       "texture_key": "maple_mob_stand_2_mob",
-      "delay": 100
-    },
-    {
-      "state": "stand",
-      "frame": "3",
-      "part": "mob",
-      "path": "Mob/2230110/stand/3.png",
-      "origin": {
-        "x": 46,
-        "y": 83
-      },
-      "texture_key": "maple_mob_stand_3_mob",
-      "delay": 100
-    },
-    {
-      "state": "stand",
-      "frame": "4",
-      "part": "mob",
-      "path": "Mob/2230110/stand/4.png",
-      "origin": {
-        "x": 46,
-        "y": 85
-      },
-      "texture_key": "maple_mob_stand_4_mob",
-      "delay": 100
-    },
-    {
-      "state": "stand",
-      "frame": "5",
-      "part": "mob",
-      "path": "Mob/2230110/stand/5.png",
-      "origin": {
-        "x": 46,
-        "y": 87
-      },
-      "texture_key": "maple_mob_stand_5_mob",
-      "delay": 100
+      "delay": 150
     },
     {
       "state": "move",
       "frame": "0",
       "part": "mob",
-      "path": "Mob/2230110/move/0.png",
+      "path": "Mob/4230100/move/0.png",
       "origin": {
-        "x": 46,
-        "y": 85
+        "x": 47,
+        "y": 52
       },
       "texture_key": "maple_mob_move_0_mob",
-      "delay": 120
+      "delay": 150
     },
     {
       "state": "move",
       "frame": "1",
       "part": "mob",
-      "path": "Mob/2230110/move/1.png",
+      "path": "Mob/4230100/move/1.png",
       "origin": {
-        "x": 46,
-        "y": 87
+        "x": 43,
+        "y": 55
       },
       "texture_key": "maple_mob_move_1_mob",
-      "delay": 120
+      "delay": 150
     },
     {
       "state": "move",
       "frame": "2",
       "part": "mob",
-      "path": "Mob/2230110/move/2.png",
+      "path": "Mob/4230100/move/2.png",
       "origin": {
-        "x": 48,
-        "y": 90
+        "x": 37,
+        "y": 52
       },
       "texture_key": "maple_mob_move_2_mob",
-      "delay": 120
+      "delay": 150
     },
     {
       "state": "move",
       "frame": "3",
       "part": "mob",
-      "path": "Mob/2230110/move/3.png",
+      "path": "Mob/4230100/move/3.png",
       "origin": {
         "x": 49,
-        "y": 89
+        "y": 48
       },
       "texture_key": "maple_mob_move_3_mob",
-      "delay": 120
-    },
-    {
-      "state": "move",
-      "frame": "4",
-      "part": "mob",
-      "path": "Mob/2230110/move/4.png",
-      "origin": {
-        "x": 49,
-        "y": 86
-      },
-      "texture_key": "maple_mob_move_4_mob",
-      "delay": 120
-    },
-    {
-      "state": "move",
-      "frame": "5",
-      "part": "mob",
-      "path": "Mob/2230110/move/5.png",
-      "origin": {
-        "x": 47,
-        "y": 83
-      },
-      "texture_key": "maple_mob_move_5_mob",
-      "delay": 120
+      "delay": 150
     },
     {
       "state": "hit1",
       "frame": "0",
       "part": "mob",
-      "path": "Mob/2230110/hit1/0.png",
+      "path": "Mob/4230100/hit1/0.png",
       "origin": {
         "x": 42,
-        "y": 87
+        "y": 74
       },
       "texture_key": "maple_mob_hit1_0_mob",
       "delay": 300
@@ -169,96 +110,36 @@
       "state": "die1",
       "frame": "0",
       "part": "mob",
-      "path": "Mob/2230110/die1/0.png",
+      "path": "Mob/4230100/die1/0.png",
       "origin": {
-        "x": 42,
-        "y": 87
+        "x": 49,
+        "y": 47
       },
       "texture_key": "maple_mob_die1_0_mob",
-      "delay": 110
+      "delay": 180
     },
     {
       "state": "die1",
       "frame": "1",
       "part": "mob",
-      "path": "Mob/2230110/die1/1.png",
+      "path": "Mob/4230100/die1/1.png",
       "origin": {
-        "x": 41,
-        "y": 89
+        "x": 60,
+        "y": 39
       },
       "texture_key": "maple_mob_die1_1_mob",
-      "delay": 110
+      "delay": 180
     },
     {
       "state": "die1",
       "frame": "2",
       "part": "mob",
-      "path": "Mob/2230110/die1/2.png",
+      "path": "Mob/4230100/die1/2.png",
       "origin": {
-        "x": 40,
-        "y": 91
+        "x": 60,
+        "y": 39
       },
       "texture_key": "maple_mob_die1_2_mob",
-      "delay": 110
-    },
-    {
-      "state": "die1",
-      "frame": "3",
-      "part": "mob",
-      "path": "Mob/2230110/die1/3.png",
-      "origin": {
-        "x": 38,
-        "y": 93
-      },
-      "texture_key": "maple_mob_die1_3_mob",
-      "delay": 110
-    },
-    {
-      "state": "die1",
-      "frame": "4",
-      "part": "mob",
-      "path": "Mob/2230110/die1/4.png",
-      "origin": {
-        "x": 36,
-        "y": 92
-      },
-      "texture_key": "maple_mob_die1_4_mob",
-      "delay": 110
-    },
-    {
-      "state": "die1",
-      "frame": "5",
-      "part": "mob",
-      "path": "Mob/2230110/die1/5.png",
-      "origin": {
-        "x": 35,
-        "y": 90
-      },
-      "texture_key": "maple_mob_die1_5_mob",
-      "delay": 110
-    },
-    {
-      "state": "die1",
-      "frame": "6",
-      "part": "mob",
-      "path": "Mob/2230110/die1/6.png",
-      "origin": {
-        "x": 34,
-        "y": 87
-      },
-      "texture_key": "maple_mob_die1_6_mob",
-      "delay": 110
-    },
-    {
-      "state": "die1",
-      "frame": "7",
-      "part": "mob",
-      "path": "Mob/2230110/die1/7.png",
-      "origin": {
-        "x": 34,
-        "y": 86
-      },
-      "texture_key": "maple_mob_die1_7_mob",
       "delay": 300
     }
   ],
@@ -418,24 +299,25 @@
     "mobEquipFront"
   ],
   "info": {
-    "MADamage": 324,
-    "MDDamage": 40,
+    "MADamage": 95,
+    "MDDamage": 80,
     "MDRate": 10,
-    "PADamage": 333,
-    "PDDamage": 30,
+    "PADamage": 100,
+    "PDDamage": 80,
     "PDRate": 10,
-    "acc": 90,
+    "acc": 40,
     "bodyAttack": 1,
-    "category": 6,
-    "eva": 20,
-    "exp": 233,
+    "category": 4,
+    "elemAttr": "I2F3",
+    "eva": 3,
+    "exp": 53,
     "fs": "10",
-    "level": 60,
-    "maxHP": 11000,
-    "maxMP": 1000,
+    "level": 28,
+    "maxHP": 720,
+    "maxMP": 120,
     "mobType": "1N",
-    "pushed": 450,
-    "speed": -30,
+    "pushed": 150,
+    "speed": 5,
     "summonType": 1
   }
 }
