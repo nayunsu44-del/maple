@@ -106,43 +106,43 @@ export default function EnhancePanel({ onBack, onProfilesChange }: EnhancePanelP
   };
 
   return (
-    <div className="absolute inset-0 z-30 flex flex-col bg-[#101827] text-white">
-      <header className="flex items-center justify-between border-b border-white/10 px-8 py-5">
+    <div className="absolute inset-0 z-30 flex flex-col bg-[#f5f6f8] text-gray-800">
+      <header className="flex items-center justify-between border-b border-gray-200 px-8 py-5">
         <button
           type="button"
           onClick={() => {
             refresh();
             onBack();
           }}
-          className="flex h-10 items-center gap-2 rounded-lg border border-white/15 bg-white/[0.05] px-4 text-sm font-bold text-slate-100 transition hover:border-white/35"
+          className="flex h-10 items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 text-sm font-bold text-gray-600 transition hover:border-gray-400"
         >
           <ArrowLeft size={18} />
           {t('enhance_back')}
         </button>
-        <h1 className="text-2xl font-black text-[#ffd54f]">{t('enhance_title')}</h1>
+        <h1 className="text-2xl font-black text-amber-500">{t('enhance_title')}</h1>
         <div className="w-[124px]" />
       </header>
 
       <main className="flex min-h-0 flex-1 flex-col gap-4 px-8 py-6">
         <section className="grid grid-cols-2 gap-3">
-          <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-            <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-300">
-              <Coins size={18} className="text-[#ffd54f]" />
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-500">
+              <Coins size={18} className="text-amber-500" />
               {t('home_mesos')}
             </div>
-            <div className="text-2xl font-black">{profile.mesos.toLocaleString()}</div>
+            <div className="text-2xl font-black text-gray-900">{profile.mesos.toLocaleString()}</div>
           </div>
-          <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-            <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-300">
-              <Gauge size={18} className="text-[#69f0ae]" />
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-500">
+              <Gauge size={18} className="text-emerald-500" />
               {t('home_cp')}
             </div>
-            <div className="text-2xl font-black">{calcCP(profile).toLocaleString()}</div>
+            <div className="text-2xl font-black text-gray-900">{calcCP(profile).toLocaleString()}</div>
           </div>
         </section>
 
         {message && (
-          <div className="rounded-lg border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm font-bold text-red-100">
+          <div className="rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-sm font-bold text-red-600">
             {message}
           </div>
         )}
@@ -157,26 +157,26 @@ export default function EnhancePanel({ onBack, onProfilesChange }: EnhancePanelP
             return (
               <article
                 key={slot.id}
-                className="grid grid-cols-[88px_1fr_150px_126px] items-center gap-4 rounded-lg border border-white/10 bg-white/[0.04] p-4"
+                className="grid grid-cols-[88px_1fr_150px_126px] items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
               >
-                <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-[#0d1320]">
+                <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-gray-100">
                   <EquipPreview slot={slot.id} size={64} />
                 </div>
 
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-xl font-black text-white">{t(slot.nameKey)}</h2>
-                    <span className="rounded-md bg-white/10 px-2 py-0.5 text-xs font-bold text-slate-300">
+                    <h2 className="text-xl font-black text-gray-900">{t(slot.nameKey)}</h2>
+                    <span className="rounded-md bg-gray-100 px-2 py-0.5 text-xs font-bold text-gray-500">
                       {t('enhance_level')} {level}/{ENHANCE_MAX_LEVEL}
                     </span>
                   </div>
-                  <div className="mt-2 text-sm font-semibold text-slate-300">
+                  <div className="mt-2 text-sm font-semibold text-gray-500">
                     {t(slot.bonusKey)} · {bonusText(profile, slot.id)}
                   </div>
                 </div>
 
-                <div className={insufficient ? 'text-right text-red-200' : 'text-right text-[#ffd54f]'}>
-                  <div className="text-xs font-bold text-slate-400">{t('enhance_cost')}</div>
+                <div className={insufficient ? 'text-right text-red-400' : 'text-right text-amber-600'}>
+                  <div className="text-xs font-bold text-gray-400">{t('enhance_cost')}</div>
                   <div className="text-lg font-black">{maxed ? t('enhance_max') : cost.toLocaleString()}</div>
                 </div>
 
@@ -186,10 +186,10 @@ export default function EnhancePanel({ onBack, onProfilesChange }: EnhancePanelP
                   onClick={() => handleEnhance(slot.id)}
                   className={`flex h-11 items-center justify-center gap-2 rounded-lg px-4 text-sm font-black transition ${
                     maxed
-                      ? 'cursor-default bg-white/10 text-slate-500'
+                      ? 'cursor-default bg-gray-100 text-gray-400'
                       : insufficient
-                        ? 'cursor-not-allowed border border-red-400/30 bg-red-500/10 text-red-200'
-                        : 'bg-[#ffb300] text-[#101827] hover:bg-[#ffd54f]'
+                        ? 'cursor-not-allowed border border-red-300 bg-red-50 text-red-400'
+                        : 'bg-amber-400 text-white hover:bg-amber-500'
                   }`}
                 >
                   <Sparkles size={17} />
