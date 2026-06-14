@@ -33,6 +33,8 @@ export default function App() {
   const joyRef = useRef({ on: false, bx: 0, by: 0, dx: 0, dy: 0, id: -1 });
   const resultRecordedRef = useRef(false);
   const activeChapterRef = useRef('ch1');
+  const rotatedRef = useRef(false);
+  const [rotated, setRotated] = useState(false);
 
   const refreshActiveProfile = () => {
     const profile = getActiveProfile();
@@ -157,8 +159,16 @@ export default function App() {
     const handleResize = () => {
       const cv = canvasRef.current;
       if (!cv) return;
-      const viewportW = Math.max(1, window.innerWidth);
-      const viewportH = Math.max(1, window.innerHeight);
+      const rawW = Math.max(1, window.innerWidth);
+      const rawH = Math.max(1, window.innerHeight);
+      const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches ?? false;
+      const finePointer = window.matchMedia?.('(pointer: fine)').matches ?? false;
+      const touchDevice = coarsePointer || (!finePointer && navigator.maxTouchPoints > 0);
+      const shouldRotate = touchDevice && rawH > rawW;
+      rotatedRef.current = shouldRotate;
+      setRotated(prev => prev === shouldRotate ? prev : shouldRotate);
+      const viewportW = shouldRotate ? rawH : rawW;
+      const viewportH = shouldRotate ? rawW : rawH;
       const aspect = viewportW / viewportH;
       const BASE_ASPECT = BASE_LW / BASE_LH;
       const MAX_ASPECT = 2.4;
@@ -185,11 +195,21 @@ export default function App() {
       engine.recomputeViewport();
       spriteCache.buildHurtVignette(lw, lh);
     };
+    let orientationFrame = 0;
+    const handleOrientationChange = () => {
+      cancelAnimationFrame(orientationFrame);
+      orientationFrame = requestAnimationFrame(handleResize);
+    };
 
     window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleOrientationChange);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      cancelAnimationFrame(orientationFrame);
+    };
   }, []);
 
   // Start loop on mount and register inputs
@@ -234,6 +254,13 @@ export default function App() {
 
     // Mouse handlers
     const getCvCoords = (clientX: number, clientY: number) => {
+      if (rotatedRef.current) {
+        const screenW = Math.max(1, window.innerWidth);
+        const screenH = Math.max(1, window.innerHeight);
+        const fracX = Math.max(0, Math.min(1, clientY / screenH));
+        const fracY = Math.max(0, Math.min(1, 1 - clientX / screenW));
+        return { x: fracX * LW, y: fracY * LH };
+      }
       const r = cv.getBoundingClientRect();
       const s = LW / r.width;
       return { x: (clientX - r.left) * s, y: (clientY - r.top) * s };
@@ -260,13 +287,12 @@ export default function App() {
     const handleTouchStart = (e: TouchEvent) => {
       initAudio();
       e.preventDefault();
-      const r = cv.getBoundingClientRect();
-      const s = LW / r.width;
 
       for (let i = 0; i < e.changedTouches.length; i++) {
         const t = e.changedTouches[i];
-        const tx = (t.clientX - r.left) * s;
-        const ty = (t.clientY - r.top) * s;
+        const coords = getCvCoords(t.clientX, t.clientY);
+        const tx = coords.x;
+        const ty = coords.y;
 
         // In menu/paused/levelup, treat all touches as clicks
         if (engine.phase !== 'playing' || tx >= LW * 0.55) {
@@ -286,14 +312,13 @@ export default function App() {
 
     const handleTouchMove = (e: TouchEvent) => {
       e.preventDefault();
-      const r = cv.getBoundingClientRect();
-      const s = LW / r.width;
 
       for (let i = 0; i < e.changedTouches.length; i++) {
         const t = e.changedTouches[i];
         if (t.identifier === joyRef.current.id) {
-          let dx = (t.clientX - r.left) * s - joyRef.current.bx;
-          let dy = (t.clientY - r.top) * s - joyRef.current.by;
+          const coords = getCvCoords(t.clientX, t.clientY);
+          let dx = coords.x - joyRef.current.bx;
+          let dy = coords.y - joyRef.current.by;
           const d = Math.hypot(dx, dy);
           if (d > JR) {
             dx = (dx / d) * JR;
@@ -1097,7 +1122,7 @@ export default function App() {
   };
 
   return (
-    <div className="fixed inset-0 h-full w-full bg-[#0d0d1a] text-white font-sans overflow-hidden select-none">
+    <div className={`app-shell ${rotated ? 'app-shell--rotated' : ''} bg-[#0d0d1a] text-white font-sans overflow-hidden select-none`}>
       <div ref={containerRef} className="relative h-full w-full bg-[#0d0d1a] overflow-hidden">
         {/* 로딩 진행 상황을 표시하는 Absolute 오버레이 레이어 */}
         {!mapleLoaded && (
