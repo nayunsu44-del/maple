@@ -59,7 +59,9 @@
 │   │   ├── audio.ts          # Web Audio synth with SFX_GAP throttling
 │   │   ├── spriteCache.ts    # Maple asset loading, planByState indexing, lazy image fetch
 │   │   ├── i18n.ts           # EN/KO translations, t(), skillName(), mobName(), skillDesc()
-│   │   └── engine.ts         # Game state, update loops, combat, canvas drawing
+│   │   ├── physics.ts        # Math and coordinate physics helpers (O(1) closest-scans)
+│   │   ├── engine_draw.ts    # Independent drawing and character socket assembly routines
+│   │   └── engine.ts         # Game state, update loops, and spawners (P0 <= 800 line compliant)
 │   ├── App.tsx               # React entry: game loop, UI states, input, resize
 │   ├── App.css               # Viewport layout and centering
 │   ├── index.css             # Tailwind imports
@@ -92,13 +94,23 @@ Web Audio API synth: oscillators (`sine`, `square`, `sawtooth`, `triangle`) + no
 ### `src/game/i18n.ts`
 Multi-language module. `currentLang` ref updated by `setLang()`. `t(key)`, `skillName(id)`, `mobName(type)`, `skillDesc(id, lv)` all default to `currentLang`. Languages: EN, KO.
 
+### `src/game/physics.ts`
+Utility and math helpers:
+- Coordinates arithmetic (`rnd`, `ri`, `clp`, `dst`, `dst2`, `ang`).
+- O(1) algorithms for nearest-entity scans (`findClosestN`, `findClosestInRange`) and lightning segment rendering (`makeZigzag`, `shuffle`).
+
+### `src/game/engine_draw.ts`
+Dedicated rendering module:
+- Character socket assembly and rendering (`drawPlayer`).
+- Mobs, projectiles, and particle system rendering (`drawEnemies`, `drawProjs`, `drawParts`, `drawFTexts`).
+- Complex skill visual effects drawing (`drawBG`, `drawOrbs`, `drawNovas`, `drawClouds`, `drawHawks`, `drawMeteors`, `drawLightnings`, `drawJuiceOverlays`).
+
 ### `src/game/engine.ts`
-Core game loop logic:
+Core update loops:
 - **Movement**: Vector integration, boundary clamping, facing direction.
 - **Combat**: Projectile collision (AABB pruning), skill cooldowns, damage application.
-- **Drawing**: Character socket assembly, mob rendering, skill effect sprites, HUD elements.
 - **Juice**: Screen shake, hit-stop, damage text, awakening sequence.
-- **Optimization**: `planByState` O(1) lookup, `findClosestN`/`findClosestInRange` linear scan, `dst2` squared distance.
+- **Re-exports**: Transparently bridges draw functions from `./engine_draw` for maximum backward compatibility.
 
 ### `src/App.tsx`
 React component orchestrating game loop via `requestAnimationFrame`. Manages:
