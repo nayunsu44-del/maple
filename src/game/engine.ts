@@ -402,7 +402,8 @@ export function spawnBoss() {
 
 export function spawnMidBoss() {
   const idx = Math.round(nextMid / 150) - 1;
-  const baseType = idx % 2 === 0 ? 'BS' : 'RS';
+  const pool = currentMobPool;
+  const baseType = pool[idx % 2];
   const base = ED[baseType];
   const nm = i18n.mobName(baseType);
   const t = gTimer;
