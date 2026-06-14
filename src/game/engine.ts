@@ -282,10 +282,11 @@ export function killEnemy(e: Enemy, onEndRun: () => void) {
   addParts(e.x, e.y, e.def.col, 8, 90, 0.55);
   addXP(e.x, e.y, e.xp);
   if (Math.random() < 0.01) addPot(e.x, e.y);
+  const hpMesoMult = P.maxHp / 100;
   if (e.isMid) {
-    addMeso(e.x, e.y, ri(MESO_MID_MIN, MESO_MID_MAX));
+    addMeso(e.x, e.y, Math.round(ri(MESO_MID_MIN, MESO_MID_MAX) * hpMesoMult));
   } else if (!e.isBoss && Math.random() < MESO_TRASH_DROP_CHANCE) {
-    addMeso(e.x, e.y, ri(MESO_TRASH_MIN, MESO_TRASH_MAX));
+    addMeso(e.x, e.y, Math.round(ri(MESO_TRASH_MIN, MESO_TRASH_MAX) * hpMesoMult));
   }
   if (e.isMid) {
     hitStop = Math.max(hitStop, 0.12);
@@ -308,7 +309,8 @@ export function killEnemy(e: Enemy, onEndRun: () => void) {
     doShake(22);
     addParts(e.x, e.y, '#ffd54f', 25, 150, 1.5);
     for (let i = 0; i < 5; i++) addXP(e.x + rnd(-XP_SCATTER_OFFSET, XP_SCATTER_OFFSET), e.y + rnd(-XP_SCATTER_OFFSET, XP_SCATTER_OFFSET), BOSS_CLEAR_XP_BOOST);
-    const mesoReward = ri(MESO_BOSS_MIN, MESO_BOSS_MAX) + CH1_CLEAR_BONUS;
+    const hpMesoMult = P.maxHp / 100;
+    const mesoReward = Math.round((ri(MESO_BOSS_MIN, MESO_BOSS_MAX) + CH1_CLEAR_BONUS) * hpMesoMult);
     runMesos += mesoReward;
     addFText(e.x, e.y - 96, '+' + mesoReward + ' ' + i18n.t('hud_mesos'), '#ffd54f', 22);
     addFText(e.x, e.y - 60, i18n.t('boss_clear'), '#ffd54f', 32);
