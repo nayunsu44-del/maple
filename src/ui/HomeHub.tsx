@@ -1,4 +1,4 @@
-import { Coins, Crosshair, Gauge, Hammer, Play, Shirt, Skull, Star, Target, Trophy, Users } from 'lucide-react';
+import { Coins, Crosshair, Gauge, Hammer, Play, Shirt, Skull, Star, Trophy, Users } from 'lucide-react';
 import { CHAPTERS, COSMETICS, ENHANCE_MAX_LEVEL, ENHANCE_SLOTS } from '../game/catalog';
 import { calcCP, type Profile } from '../game/profile';
 import { t, type Lang } from '../game/i18n';
@@ -31,14 +31,11 @@ function isCurrentlyAvailableCosmetic(cosmeticId: string): boolean {
 
 function nextGoalKey(profile: Profile): string {
   if (!profile.chapters.ch1?.cleared) return 'home_goal_clear_lith';
-
   const hasEnhanceRoom = ENHANCE_SLOTS.some(slot => profile.enhance[slot.id] < ENHANCE_MAX_LEVEL);
   if (hasEnhanceRoom) return 'home_goal_enhance_cp';
-
   const availableCosmetics = COSMETICS.filter(cosmetic => isCurrentlyAvailableCosmetic(cosmetic.id));
   const allAvailableUnlocked = availableCosmetics.every(cosmetic => profile.unlockedCosmetics.includes(cosmetic.id));
   if (!allAvailableUnlocked) return 'home_goal_unlock_cosmetics';
-
   return 'home_goal_best_score';
 }
 
@@ -54,27 +51,17 @@ export default function HomeHub({
   const cp = calcCP(profile);
   const best = bestRecord(profile);
   const nextGoal = t(nextGoalKey(profile));
-  const totalKills = profile.stats.totalKills;
+  const totalKills = Object.values(profile.chapters).reduce((sum, r) => sum + (r?.kills || 0), 0);
   const clearedCount = Object.values(profile.chapters).filter(r => r?.cleared).length;
   const cosmeticCount = profile.unlockedCosmetics.length;
   const cosmetic = COSMETICS.find(c => c.id === profile.equippedCosmetic);
 
   return (
-    <div className="absolute inset-0 z-30 flex flex-col bg-[#101827] text-white">
-      <div className="absolute inset-0 z-0 opacity-10">
-        <img
-          src="https://resource-static.msu.io/data/Map/Map/Map1/104000000/miniMap/canvas.png"
-          alt=""
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-          className="h-full w-full object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#101827]/60 via-transparent to-[#101827]/80" />
-      <header className="relative z-10 flex items-center justify-between border-b border-white/10 px-8 py-5">
+    <div className="absolute inset-0 z-30 flex flex-col bg-[#f5f6f8] text-gray-800">
+      <header className="flex items-center justify-between border-b border-gray-200 px-8 py-5">
         <div>
-          <h1 className="text-3xl font-black tracking-normal text-[#ffd54f]">Survivor Rush</h1>
-          <p className="mt-1 text-xs font-semibold text-slate-500">MapleStory × Vampire Survivors</p>
+          <h1 className="text-3xl font-black tracking-normal text-amber-500">Survivor Rush</h1>
+          <p className="mt-1 text-xs font-semibold text-gray-400">MapleStory × Vampire Survivors</p>
         </div>
         <div className="flex items-center gap-2">
           {(['en', 'ko'] as Lang[]).map(code => (
@@ -84,8 +71,8 @@ export default function HomeHub({
               onClick={() => onLangChange(code)}
               className={`h-8 min-w-10 rounded-md border px-3 text-sm font-bold transition ${
                 lang === code
-                  ? 'border-[#ffd54f] bg-[#ffd54f] text-[#101827]'
-                  : 'border-white/15 bg-white/5 text-slate-200 hover:border-white/35'
+                  ? 'border-amber-400 bg-amber-400 text-white'
+                  : 'border-gray-300 bg-white text-gray-500 hover:border-amber-300'
               }`}
             >
               {code.toUpperCase()}
@@ -94,17 +81,17 @@ export default function HomeHub({
         </div>
       </header>
 
-      <main className="relative z-10 grid min-h-0 flex-1 grid-cols-[1fr_240px] gap-6 px-8 py-6">
+      <main className="grid min-h-0 flex-1 grid-cols-[1fr_240px] gap-6 px-8 py-6">
         <section className="flex min-h-0 flex-col justify-center gap-5">
           <div className="flex items-center gap-5">
-            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl border border-[#ffd54f]/20 bg-[#0d1320] shadow-lg shadow-[#ffd54f]/5">
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl border border-amber-200 bg-white shadow-md">
               <CharacterPreview cosmeticId={profile.equippedCosmetic} size={92} />
             </div>
             <div className="min-w-0">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{t('home_active_profile')}</p>
-              <p className="truncate text-4xl font-black text-white">{profile.name}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400">{t('home_active_profile')}</p>
+              <p className="truncate text-4xl font-black text-gray-900">{profile.name}</p>
               {cosmetic && cosmetic.id !== 'default' && (
-                <p className="mt-1 text-sm font-semibold text-[#ffd54f]/80">
+                <p className="mt-1 text-sm font-semibold text-amber-500">
                   {lang === 'ko' ? cosmetic.name.ko : cosmetic.name.en}
                 </p>
               )}
@@ -112,59 +99,59 @@ export default function HomeHub({
           </div>
 
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
-                <Coins size={18} className="text-[#ffd54f]" />
+            <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-500">
+                <Coins size={18} className="text-amber-500" />
                 {t('home_mesos')}
               </div>
-              <div className="truncate text-2xl font-black text-white">{profile.mesos.toLocaleString()}</div>
+              <div className="truncate text-2xl font-black text-gray-900">{profile.mesos.toLocaleString()}</div>
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
-                <Gauge size={18} className="text-[#69f0ae]" />
+            <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-500">
+                <Gauge size={18} className="text-emerald-500" />
                 {t('home_cp')}
               </div>
-              <div className="truncate text-2xl font-black text-white">{cp.toLocaleString()}</div>
+              <div className="truncate text-2xl font-black text-gray-900">{cp.toLocaleString()}</div>
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
-                <Trophy size={18} className="text-[#40c4ff]" />
+            <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-500">
+                <Trophy size={18} className="text-sky-500" />
                 {t('home_best_record')}
               </div>
-              <div className="truncate text-2xl font-black text-white">
+              <div className="truncate text-2xl font-black text-gray-900">
                 {best ? `${best.bestGrade || '-'} · ${best.bestScore.toLocaleString()}` : t('home_no_record')}
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-4 gap-2">
-            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+            <div className="rounded-md border border-gray-100 bg-white/70 px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-400">
                 <Skull size={13} />
                 {t('home_kills')}
               </div>
-              <div className="mt-0.5 text-base font-black text-white">{totalKills.toLocaleString()}</div>
+              <div className="mt-0.5 text-base font-black text-gray-900">{totalKills.toLocaleString()}</div>
             </div>
-            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+            <div className="rounded-md border border-gray-100 bg-white/70 px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-400">
                 <Star size={13} />
                 {t('home_chapters_cleared')}
               </div>
-              <div className="mt-0.5 text-base font-black text-white">{clearedCount}/{CHAPTERS.filter(c => c.playable).length}</div>
+              <div className="mt-0.5 text-base font-black text-gray-900">{clearedCount}/{CHAPTERS.filter(c => c.playable).length}</div>
             </div>
-            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+            <div className="rounded-md border border-gray-100 bg-white/70 px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-400">
                 <Shirt size={13} />
                 {t('home_cosmetics_unlocked')}
               </div>
-              <div className="mt-0.5 text-base font-black text-white">{cosmeticCount}/{COSMETICS.length}</div>
+              <div className="mt-0.5 text-base font-black text-gray-900">{cosmeticCount}/{COSMETICS.length}</div>
             </div>
-            <div className="rounded-md border border-white/5 bg-white/[0.02] px-3 py-2">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+            <div className="rounded-md border border-gray-100 bg-white/70 px-3 py-2">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-400">
                 <Crosshair size={13} />
                 {t('home_goal')}
               </div>
-              <div className="mt-0.5 truncate text-xs font-bold text-[#ffd54f]">{nextGoal}</div>
+              <div className="mt-0.5 truncate text-xs font-bold text-amber-600">{nextGoal}</div>
             </div>
           </div>
         </section>
@@ -173,7 +160,7 @@ export default function HomeHub({
           <button
             type="button"
             onClick={onOpenChapters}
-            className="flex h-14 items-center justify-center gap-2 rounded-lg bg-[#ffb300] px-4 text-lg font-black text-[#101827] shadow-lg shadow-[#ffb300]/20 transition hover:bg-[#ffd54f]"
+            className="flex h-14 items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 text-lg font-black text-white shadow-lg shadow-amber-200 transition hover:bg-amber-500"
           >
             <Play size={22} fill="currentColor" />
             {t('home_start')}
@@ -182,7 +169,7 @@ export default function HomeHub({
           <button
             type="button"
             onClick={onOpenEnhance}
-            className="flex h-14 items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/[0.06] px-4 text-base font-bold text-white transition hover:border-[#ffd54f] hover:bg-[#ffd54f]/10"
+            className="flex h-14 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 text-base font-bold text-gray-700 transition hover:border-amber-300 hover:bg-amber-50"
           >
             <Hammer size={20} />
             {t('home_enhance')}
@@ -191,7 +178,7 @@ export default function HomeHub({
           <button
             type="button"
             onClick={onOpenWardrobe}
-            className="flex h-14 items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/[0.06] px-4 text-base font-bold text-white transition hover:border-[#ce93d8] hover:bg-[#ce93d8]/10"
+            className="flex h-14 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 text-base font-bold text-gray-700 transition hover:border-purple-300 hover:bg-purple-50"
           >
             <Shirt size={20} />
             {t('home_cosmetics')}
@@ -200,7 +187,7 @@ export default function HomeHub({
           <button
             type="button"
             onClick={onOpenProfiles}
-            className="flex h-14 items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/[0.06] px-4 text-base font-bold text-white transition hover:border-[#40c4ff] hover:bg-[#40c4ff]/10"
+            className="flex h-14 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 text-base font-bold text-gray-700 transition hover:border-sky-300 hover:bg-sky-50"
           >
             <Users size={20} />
             {t('home_profiles')}
