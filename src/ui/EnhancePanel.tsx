@@ -58,7 +58,7 @@ function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number 
     const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
     if (!img) return;
 
-    const scale = size / Math.max(img.width, img.height) * 0.7;
+    const scale = (size / Math.min(img.width, img.height)) * 0.85;
     const ox = frame.origin.x * scale;
     const oy = frame.origin.y * scale;
     const dw = img.width * scale;
