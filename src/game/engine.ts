@@ -284,8 +284,15 @@ export function tryLevelUp(onTriggerUI: () => void) {
   addFText(P.x, P.y - 35, 'LEVEL UP!', '#ffd54f', 24);
   sfx('levelup');
   addParts(P.x, P.y, '#ffd54f', 12, 100, 0.8);
-  triggerLevelUp();
-  onTriggerUI();
+  const allMaxed = Object.keys(SD).every(id => (P.skills[id] || 0) >= SD[id].maxLv);
+  if (allMaxed) {
+    P.hp = P.maxHp;
+    sfx('heal');
+    addFText(P.x, P.y - 58, '💚 FULL HEAL!', '#66bb6a', 20);
+  } else {
+    triggerLevelUp();
+    onTriggerUI();
+  }
 }
 
 // ── ENEMY LIFE ENGINE ────────────────────────────────────────────────
