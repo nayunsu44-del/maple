@@ -171,7 +171,7 @@ function drawMapleCape(assetKey: string): CosmeticDef['draw'] {
     const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
     const img = spriteCache.mapleImages[imgKey] || spriteCache.ensureImageLoaded(asset, frame);
     if (!img) return;
-    withCosmeticTransform(ctx, x, y - 12 * scale, facing, scale, () => {
+    withCosmeticTransform(ctx, x, y - 28 * scale, facing, scale, () => {
       ctx.drawImage(img, -frame.origin.x, -frame.origin.y);
     });
   };
