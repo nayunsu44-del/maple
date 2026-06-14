@@ -127,12 +127,12 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
 
 export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, className = '' }: CharacterPreviewProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [, setTick] = useState(0);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     if (spriteCache.isMapleLoaded) return;
     const id = setInterval(() => {
-      if (spriteCache.isMapleLoaded) setTick(t => t + 1);
+      if (spriteCache.isMapleLoaded) { setTick(t => t + 1); clearInterval(id); }
     }, 100);
     return () => clearInterval(id);
   }, []);
@@ -159,10 +159,11 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
     const flip = facing < 0;
 
     const drawn = drawMapleCharacter(ctx, anchorX, anchorY, scale, flip, cosmeticId);
-    if (!drawn) {
+    if (!drawn && tick === 0) {
+      // 초기 로딩 전에만 한 번 실루엣 표시
       ctx.save();
       ctx.translate(anchorX, anchorY);
-      ctx.fillStyle = 'rgba(255,255,255,0.06)';
+      ctx.fillStyle = 'rgba(0,0,0,0.04)';
       ctx.beginPath();
       ctx.arc(0, -anchorY * 0.55, size * 0.18, 0, Math.PI * 2);
       ctx.fill();
@@ -171,7 +172,7 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
       ctx.fill();
       ctx.restore();
     }
-  }, [cosmeticId, facing, size]);
+  }, [cosmeticId, facing, size, tick]);
 
   return (
     <canvas
