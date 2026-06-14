@@ -1112,10 +1112,10 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     path: string;
   }[] = [];
 
-  // ── CHARACTER ASSEMBLY: Nova Kain set ──────
+  // ── CHARACTER ASSEMBLY: Custom Set ──────
   const equipmentKeys = [
-    'body_2000', 'head_12000', 'face_CAIN_A', 'hair_CAIN',
-    'weapon_NOVA', 'coat_DRAKAZ', 'shoes_DRAKAZ', 'acc_NOVA'
+    'body_2000', 'head_12000', 'face_50247', 'hair_60000',
+    'weapon_GAISER', 'coat_DRAKAZ', 'shoes_DRAKAZ', 'acc_1012626'
   ];
   if (cosmeticCapAssetKey) equipmentKeys.push(cosmeticCapAssetKey);
 

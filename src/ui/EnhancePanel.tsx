@@ -27,7 +27,7 @@ function bonusText(profile: Profile, slot: EnhanceSlotId): string {
 }
 
 const EQUIP_ASSETS: Record<EnhanceSlotId, string> = {
-  weapon: 'weapon_NOVA',
+  weapon: 'weapon_GAISER',
   top: 'coat_DRAKAZ',
   bottom: 'pants_DARK',
   shoes: 'shoes_DRAKAZ',
