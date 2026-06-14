@@ -72,12 +72,16 @@ export default function App() {
     engine.setWorld(chapter?.infinite ?? false);
     if (chapter) engine.setChapterConfig(chapter.mobPool, chapter.boss, chapter.difficultyMult, chapter.bgTheme);
     const cos = getCosmetic(profile.equippedCosmetic);
-    engine.setCosmeticDraw(cos?.draw ?? null);
     if (cos?.maple?.slot === 'Cap') {
       const vslot = cos.id === 'ninja' ? 'CpH1H2H5' : ((spriteCache.mapleAssets[cos.maple.assetKey]?.info as any)?.vslot || '');
-      engine.setCosmeticCapVslot(vslot);
+      engine.setCapCosmetic(vslot, cos.maple.assetKey);
+      engine.setCapeCosmetic(null);
+    } else if (cos?.maple?.slot === 'Cape') {
+      engine.setCapCosmetic('', '');
+      engine.setCapeCosmetic(cos.draw ?? null);
     } else {
-      engine.setCosmeticCapVslot('');
+      engine.setCapCosmetic('', '');
+      engine.setCapeCosmetic(null);
     }
     engine.resetGameState();
     engine.setPhase('skillpick');

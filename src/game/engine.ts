@@ -131,6 +131,8 @@ export const toSY = (wy: number) => wy - camY + shakeY;
 type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
 let cosmeticDraw: CosmeticDrawFn | null = null;
 let cosmeticCapVslot = '';
+let cosmeticCapAssetKey = '';
+let cosmeticCapeDraw: CosmeticDrawFn | null = null;
 export let debugInvincible = false;
 export let debugSpeedMul = 1;
 
@@ -198,8 +200,13 @@ export function setCosmeticDraw(fn: CosmeticDrawFn | null) {
   cosmeticDraw = fn;
 }
 
-export function setCosmeticCapVslot(vslot: string) {
+export function setCapCosmetic(vslot: string, assetKey: string) {
   cosmeticCapVslot = vslot;
+  cosmeticCapAssetKey = assetKey;
+}
+
+export function setCapeCosmetic(draw: CosmeticDrawFn | null) {
+  cosmeticCapeDraw = draw;
 }
 
 export function setChapterConfig(mobPool: string[], bossType: string, difficultyMult = 1, bgTheme = 'lith') {
@@ -210,8 +217,8 @@ export function setChapterConfig(mobPool: string[], bossType: string, difficulty
 }
 
 function drawCosmeticOverlay(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
-  if (cosmeticDraw) {
-    cosmeticDraw(ctx, x, y, facing, scale);
+  if (cosmeticCapeDraw) {
+    cosmeticCapeDraw(ctx, x, y, facing, scale);
   }
 }
 
@@ -1112,6 +1119,7 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     'body_2000', 'head_12000', 'face_20000', 'hair_30000',
     'weapon_STAFF', 'coat_1040004', 'pants_1060040', 'shoes_1072850'
   ];
+  if (cosmeticCapAssetKey) equipmentKeys.push(cosmeticCapAssetKey);
 
   // 각 파트에서 현재 상태 및 프레임에 적합한 조각들을 가져옵니다.
   for (const eqKey of equipmentKeys) {
