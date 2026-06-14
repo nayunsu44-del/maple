@@ -200,7 +200,27 @@ export const ED: Record<string, EnemyDef> = {
   SP: { nm: '스포아', hp: 45, atk: 8, spd: 55, xp: 12, r: 18, col: '#ce93d8', assetKey: 'mob_SPORE' },
   RS: { nm: '빨간달팽이', hp: 70, atk: 10, spd: 40, xp: 18, r: 18, col: '#ef5350', assetKey: 'mob_REDSNAIL' },
   MA: { nm: '마노', hp: 8000, atk: 300, spd: 60, xp: 500, r: 48, col: '#8d6e63', isBoss: true, assetKey: 'mob_MANO' },
-  BL: { nm: '주니어발록', hp: 12000, atk: 400, spd: 95, xp: 250, r: 44, col: '#ef9a9a', isBoss: true }
+  BL: { nm: '주니어발록', hp: 12000, atk: 400, spd: 95, xp: 250, r: 44, col: '#ef9a9a', isBoss: true },
+  SL: { nm: '슬라임', hp: 40, atk: 6, spd: 78, xp: 10, r: 16, col: '#57d957' },
+  ST: { nm: '나무인형', hp: 70, atk: 9, spd: 42, xp: 15, r: 18, col: '#9a6f3a' },
+  GM: { nm: '초록버섯', hp: 95, atk: 11, spd: 62, xp: 20, r: 20, col: '#2eaf5d' },
+  PG: { nm: '돼지', hp: 75, atk: 10, spd: 82, xp: 18, r: 19, col: '#f48fb1' },
+  MM: { nm: '머쉬맘', hp: 9000, atk: 320, spd: 56, xp: 550, r: 54, col: '#f6c152', isBoss: true, assetKey: 'mob_MUSHMOM' },
+  CE: { nm: '저주받은 눈', hp: 85, atk: 11, spd: 86, xp: 21, r: 19, col: '#7e57c2' },
+  EE: { nm: '이블아이', hp: 115, atk: 14, spd: 76, xp: 28, r: 21, col: '#5e35b1' },
+  JN: { nm: '주니어 네키', hp: 70, atk: 12, spd: 102, xp: 20, r: 15, col: '#26a69a' },
+  WM: { nm: '나무가면', hp: 135, atk: 17, spd: 54, xp: 32, r: 22, col: '#a1887f' },
+  FA: { nm: '파우스트', hp: 10000, atk: 340, spd: 70, xp: 600, r: 52, col: '#7b1fa2', isBoss: true },
+  WB: { nm: '멧돼지', hp: 130, atk: 17, spd: 68, xp: 30, r: 23, col: '#795548' },
+  FB: { nm: '파이어보어', hp: 160, atk: 20, spd: 64, xp: 36, r: 24, col: '#d84315' },
+  SG: { nm: '스톤골렘', hp: 240, atk: 26, spd: 36, xp: 54, r: 30, col: '#9e9e9e' },
+  DS: { nm: '다크 나무인형', hp: 190, atk: 22, spd: 42, xp: 44, r: 25, col: '#4e342e' },
+  STP: { nm: '스텀피', hp: 12000, atk: 380, spd: 48, xp: 700, r: 56, col: '#5d4037', isBoss: true },
+  OC: { nm: '옥토퍼스', hp: 70, atk: 13, spd: 108, xp: 22, r: 19, col: '#ff7043' },
+  BB: { nm: '버블링', hp: 60, atk: 12, spd: 122, xp: 20, r: 17, col: '#4dd0e1' },
+  LG: { nm: '라이거', hp: 120, atk: 18, spd: 96, xp: 34, r: 23, col: '#66bb6a' },
+  WK: { nm: '와일드 카고', hp: 160, atk: 24, spd: 88, xp: 46, r: 25, col: '#455a64' },
+  DY: { nm: '다일', hp: 13500, atk: 430, spd: 78, xp: 800, r: 58, col: '#2e7d32', isBoss: true }
 };
 
 export const xpNext = (lv: number) => Math.floor(40 * Math.pow(lv, 1.4));

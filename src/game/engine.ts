@@ -80,6 +80,11 @@ export let awakenName = '';
 export let hurtT = 0;
 export let nextMid = 150;
 let currentLoadout: LoadoutBonus = { atkMulAdd: 0, hpAdd: 0, spdMulAdd: 0 };
+let worldW = WW;
+let worldH = WH;
+let worldInfinite = false;
+const CULL_DIST = Math.hypot(LW, LH) * 1.8;
+const CULL_DIST2 = CULL_DIST * CULL_DIST;
 
 export const P: PlayerState = {
   x: WW / 2, y: WH / 2,
@@ -130,6 +135,15 @@ export function setDebug(invincible: boolean, speedMul: number) {
 }
 let currentMobPool: string[] = ['SN', 'BS', 'SP', 'RS'];
 let currentBossType = 'MA';
+let currentDifficultyMult = 1;
+let currentBgTheme = 'lith';
+const BG_FALLBACK_COLORS: Record<string, string> = {
+  lith: 'rgb(180,135,100)',
+  henesys: '#5aa84e',
+  ellinia: '#2f5d4a',
+  perion: '#7d7264',
+  kerning: '#363b44',
+};
 
 export function doShake(pow = 6) {
   shakeT = 0.3;
@@ -169,6 +183,12 @@ export function setLoadout(loadout: LoadoutBonus) {
   currentLoadout = { ...loadout };
 }
 
+export function setWorld(infinite: boolean, w = WW, h = WH) {
+  worldInfinite = infinite;
+  worldW = w;
+  worldH = h;
+}
+
 export function setCosmeticDraw(fn: CosmeticDrawFn | null) {
   cosmeticDraw = fn;
 }
@@ -177,9 +197,11 @@ export function setCosmeticCapVslot(vslot: string) {
   cosmeticCapVslot = vslot;
 }
 
-export function setChapterConfig(mobPool: string[], bossType: string) {
+export function setChapterConfig(mobPool: string[], bossType: string, difficultyMult = 1, bgTheme = 'lith') {
   currentMobPool = mobPool;
   currentBossType = bossType;
+  currentDifficultyMult = difficultyMult;
+  currentBgTheme = bgTheme;
 }
 
 function drawCosmeticOverlay(ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) {
@@ -196,7 +218,7 @@ export function resetGameState() {
   enemies = []; projs = []; drops = []; parts = []; novas = []; ftexts = [];
   orbEnts = []; meteors = []; lightnings = []; clouds = []; hawks = [];
   Object.assign(P, {
-    x: WW / 2, y: WH / 2,
+    x: worldW / 2, y: worldH / 2,
     hp: 100, maxHp: 100,
     atk: 43, atkM: 1,
     spd: 180, spdM: 1,
@@ -328,19 +350,22 @@ export function spawnEnemy(type: string) {
   else if (side === 1) { ex = camX + LW + m; ey = rnd(camY - m, camY + LH + m); }
   else if (side === 2) { ex = rnd(camX - m, camX + LW + m); ey = camY + LH + m; }
   else { ex = camX - m; ey = rnd(camY - m, camY + LH + m); }
-  ex = clp(ex, def.r, WW - def.r);
-  ey = clp(ey, def.r, WH - def.r);
+  if (!worldInfinite) {
+    ex = clp(ex, def.r, worldW - def.r);
+    ey = clp(ey, def.r, worldH - def.r);
+  }
 
   const hm = (t < 300 ? 1 + t * 0.0067 : 3.0 + (t - 300) * 0.015) * 1.25;
   const am = (t < 300 ? 1 + t * 0.0050 : 2.5 + (t - 300) * 0.004);
   const sm = t < 300 ? 1 + t * 0.0030 : 1.9 + (t - 300) * 0.0003;
-  const finalHp = def.hp * hm;
+  const finalHp = def.hp * hm * currentDifficultyMult;
+  const finalAtk = def.atk * am * currentDifficultyMult;
 
   enemies.push({
     type, def,
     x: ex, y: ey,
     hp: finalHp, maxHp: finalHp,
-    atk: def.atk * am,
+    atk: finalAtk,
     spd: def.spd * sm,
     xp: Math.round(finalHp * 0.25),
     hf: 0, wb: rnd(0, Math.PI * 2), kbx: 0, kby: 0,
@@ -353,15 +378,17 @@ export function spawnBoss() {
   if (bossSpawned) return;
   bossSpawned = true;
   const def = ED[currentBossType];
-  const bx = clp(P.x + 500, def.r + 20, WW - def.r - 20);
-  const by = clp(P.y, def.r + 20, WH - def.r - 20);
+  const bx = worldInfinite ? P.x + 500 : clp(P.x + 500, def.r + 20, worldW - def.r - 20);
+  const by = worldInfinite ? P.y : clp(P.y, def.r + 20, worldH - def.r - 20);
+  const bossHp = def.hp * currentDifficultyMult;
+  const bossAtk = def.atk * currentDifficultyMult;
   for (let i = enemies.length - 1; i >= 0; i--) {
     const e = enemies[i];
     e.hp = -1;
     addParts(e.x, e.y, '#90a4ae', 3, 70, 0.4);
     enemies.splice(i, 1);
   }
-  enemies.push({ type: currentBossType, def, x: bx, y: by, hp: def.hp, maxHp: def.hp, atk: def.atk, spd: def.spd, xp: def.xp, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
+  enemies.push({ type: currentBossType, def, x: bx, y: by, hp: bossHp, maxHp: bossHp, atk: bossAtk, spd: def.spd, xp: def.xp, hf: 0, wb: 0, kbx: 0, kby: 0, kbR: 0.15, isBoss: true, _id: 'boss' });
   doShake(15);
   addFText(P.x, P.y - 120, i18n.t('boss_spawn').replace('{name}', i18n.mobName(currentBossType)), '#ff4444', 30);
   sfx('boss');
@@ -377,14 +404,17 @@ export function spawnMidBoss() {
   const hm = (t < 300 ? 1 + t * 0.0067 : 3.0 + (t - 300) * 0.015) * 1.25;
   const am = (t < 300 ? 1 + t * 0.0050 : 2.5 + (t - 300) * 0.004);
   const def = { ...base, nm, r: 48 }; // 머쉬맘 전용 에셋에 맞는 충돌 반경
-  const finalHp = base.hp * hm * 8;
+  const finalHp = base.hp * hm * 8 * currentDifficultyMult;
+  const finalAtk = base.atk * am * 1.5 * currentDifficultyMult;
   const a = rnd(0, Math.PI * 2);
-  const ex = clp(P.x + Math.cos(a) * 560, def.r + 20, WW - def.r - 20);
-  const ey = clp(P.y + Math.sin(a) * 560, def.r + 20, WH - def.r - 20);
+  const rawX = P.x + Math.cos(a) * 560;
+  const rawY = P.y + Math.sin(a) * 560;
+  const ex = worldInfinite ? rawX : clp(rawX, def.r + 20, worldW - def.r - 20);
+  const ey = worldInfinite ? rawY : clp(rawY, def.r + 20, worldH - def.r - 20);
   enemies.push({
     type: baseType, def,
     x: ex, y: ey, hp: finalHp, maxHp: finalHp,
-    atk: base.atk * am * 1.5, spd: base.spd * 0.75,
+    atk: finalAtk, spd: base.spd * 0.75,
     xp: Math.round(finalHp * 0.25),
     hf: 0, wb: rnd(0, Math.PI * 2), kbx: 0, kby: 0, kbR: 0.18, isMid: true,
     _id: Math.random()
@@ -405,8 +435,10 @@ export function getSpawnType(): string {
 
 // ── CORE UPDATES ─────────────────────────────────────────────────────
 export function updPlayer(dt: number, mv: { dx: number; dy: number; on: boolean }, onEndRun: () => void) {
-  P.x = clp(P.x + mv.dx * P.spd * P.spdM * dt, 40, WW - 40);
-  P.y = clp(P.y + mv.dy * P.spd * P.spdM * dt, 40, WH - 40);
+  const nextX = P.x + mv.dx * P.spd * P.spdM * dt;
+  const nextY = P.y + mv.dy * P.spd * P.spdM * dt;
+  P.x = worldInfinite ? nextX : clp(nextX, 40, worldW - 40);
+  P.y = worldInfinite ? nextY : clp(nextY, 40, worldH - 40);
   if (mv.dx !== 0) P.face = mv.dx > 0 ? -1 : 1; // 오른쪽 이동 시 flip(true), 왼쪽 이동 시 flip(false) - Maple 스프라이트는 기본 왼쪽 방향
   if (mv.on) P.walk += dt * 6;
   else P.walk = 0;
@@ -495,7 +527,12 @@ export function updPlayer(dt: number, mv: { dx: number; dy: number; on: boolean 
 }
 
 export function updEnemies(dt: number, onEndRun: () => void) {
-  for (const e of enemies) {
+  for (let i = enemies.length - 1; i >= 0; i--) {
+    const e = enemies[i];
+    if (worldInfinite && !e.isBoss && !e.isMid && dst2(e, P) > CULL_DIST2) {
+      enemies.splice(i, 1);
+      continue;
+    }
     const vx = P.x - e.x, vy = P.y - e.y;
     const L = Math.sqrt(vx * vx + vy * vy) || 1;
     e.x += vx / L * e.spd * dt + e.kbx * dt;
@@ -667,8 +704,10 @@ export function updHawks(dt: number, onEndRun: () => void) {
     while (da > Math.PI) da -= Math.PI * 2;
     while (da < -Math.PI) da += Math.PI * 2;
     h.a += clp(da, -4 * dt, 4 * dt);
-    h.x = clp(h.x + Math.cos(h.a) * spd * dt, 0, WW);
-    h.y = clp(h.y + Math.sin(h.a) * spd * dt, 0, WH);
+    const nextX = h.x + Math.cos(h.a) * spd * dt;
+    const nextY = h.y + Math.sin(h.a) * spd * dt;
+    h.x = worldInfinite ? nextX : clp(nextX, 0, worldW);
+    h.y = worldInfinite ? nextY : clp(nextY, 0, worldH);
 
     for (let i = enemies.length - 1; i >= 0; i--) {
       const e = enemies[i];
@@ -763,8 +802,13 @@ export function updFTexts(dt: number) {
 }
 
 export function updCamera() {
-  camX = clp(P.x - LW / 2, -60, WW - LW + 60);
-  camY = clp(P.y - LH / 2, -60, WH - LH + 60);
+  if (worldInfinite) {
+    camX = P.x - LW / 2;
+    camY = P.y - LH / 2;
+  } else {
+    camX = clp(P.x - LW / 2, -60, worldW - LW + 60);
+    camY = clp(P.y - LH / 2, -60, worldH - LH + 60);
+  }
 }
 
 export function decayTimers(rawDt: number, dt: number) {
@@ -828,11 +872,12 @@ export function drawBG(ctx: CanvasRenderingContext2D) {
   const oy = (((-camY + shakeY) % P2) + P2) % P2 - P2;
   ctx.save();
   ctx.translate(ox, oy);
-  if (spriteCache.bgPattern) {
-    ctx.fillStyle = spriteCache.bgPattern;
+  const pattern = spriteCache.bgPatterns[currentBgTheme] ?? spriteCache.bgPattern;
+  if (pattern) {
+    ctx.fillStyle = pattern;
     ctx.fillRect(0, 0, LW + P2 * 2, LH + P2 * 2);
   } else {
-    ctx.fillStyle = '#3d7a38';
+    ctx.fillStyle = BG_FALLBACK_COLORS[currentBgTheme] ?? BG_FALLBACK_COLORS.lith;
     ctx.fillRect(0, 0, LW + P2 * 2, LH + P2 * 2);
   }
   ctx.restore();
@@ -912,7 +957,7 @@ function getMobAssetKey(e: Enemy): string {
   if (e.type === 'MU') return 'mob_1210102';
   if (e.type === 'ZM') return 'mob_2230101';
   if (e.type === 'BL') return 'mob_8130100';
-  return 'mob_100100';
+  return `mob_${e.type}`;
 }
 
 export function drawEnemies(ctx: CanvasRenderingContext2D) {

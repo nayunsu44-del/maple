@@ -36,7 +36,131 @@ export let orbSprite: HTMLCanvasElement;
 export let orbAwkSprite: HTMLCanvasElement;
 export let xpSprite: HTMLCanvasElement;
 export let bgPattern: CanvasPattern | null = null;
+export const bgPatterns: Record<string, CanvasPattern | null> = {};
 export let hurtVignette: HTMLCanvasElement;
+
+type FloorThemeId = 'lith' | 'henesys' | 'ellinia' | 'perion' | 'kerning';
+
+interface FloorThemeSpec {
+  id: FloorThemeId;
+  baseColor: string;
+  drawTile: (ctx: CanvasRenderingContext2D, ox: number, oy: number, tile: number, row: number, col: number) => void;
+  gridColor: string;
+  gridWidth?: number;
+}
+
+const FLOOR_THEMES: FloorThemeSpec[] = [
+  {
+    id: 'lith',
+    baseColor: 'rgb(180,135,100)',
+    gridColor: 'rgba(0,0,0,0.08)',
+    drawTile: (ctx, ox, oy, tile, row, col) => {
+      const shade = 0.92 + (row + col % 2) * 0.04;
+      const r = Math.floor(180 * shade), g = Math.floor(135 * shade), b = Math.floor(100 * shade);
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.fillRect(ox, oy, tile, tile);
+
+      ctx.fillStyle = 'rgba(0,0,0,0.06)';
+      for (let py = oy + tile / 4; py < oy + tile; py += tile / 4) {
+        ctx.fillRect(ox, py, tile, 1.5);
+      }
+
+      ctx.fillStyle = 'rgba(0,0,0,0.1)';
+      ctx.fillRect(ox + tile / 2, oy, 2, tile);
+
+      ctx.fillStyle = 'rgba(0,0,0,0.04)';
+      for (let px = ox + 4; px < ox + tile; px += 12) {
+        ctx.fillRect(px, oy + 3, 3, tile - 6);
+      }
+
+      ctx.fillStyle = 'rgba(0,0,0,0.15)';
+      const nailX = ox + tile / 2, nailY1 = oy + tile / 4, nailY2 = oy + tile * 3 / 4;
+      ctx.beginPath(); ctx.arc(nailX, nailY1, 2.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(nailX, nailY2, 2.5, 0, Math.PI * 2); ctx.fill();
+    },
+  },
+  {
+    id: 'henesys',
+    baseColor: '#5aa84e',
+    gridColor: 'rgba(34,85,29,0.12)',
+    drawTile: (ctx, ox, oy, tile, row, col) => {
+      ctx.fillStyle = row === col ? '#5eaf52' : '#55a049';
+      ctx.fillRect(ox, oy, tile, tile);
+      ctx.strokeStyle = 'rgba(22,83,27,0.16)';
+      ctx.lineWidth = 1;
+      for (let x = ox + 9; x < ox + tile; x += 16) {
+        ctx.beginPath(); ctx.moveTo(x, oy + 6); ctx.lineTo(x + 6, oy + tile - 8); ctx.stroke();
+      }
+      ctx.strokeStyle = 'rgba(222,255,191,0.16)';
+      for (let x = ox + 4; x < ox + tile; x += 22) {
+        ctx.beginPath(); ctx.moveTo(x, oy + tile - 6); ctx.lineTo(x + 7, oy + 12); ctx.stroke();
+      }
+      ctx.fillStyle = 'rgba(232,255,194,0.18)';
+      for (let i = 0; i < 5; i++) {
+        const x = ox + 10 + ((i * 17 + row * 11 + col * 7) % (tile - 18));
+        const y = oy + 8 + ((i * 13 + row * 19 + col * 5) % (tile - 16));
+        ctx.fillRect(x, y, 2, 2);
+      }
+    },
+  },
+  {
+    id: 'ellinia',
+    baseColor: '#2f5d4a',
+    gridColor: 'rgba(9,31,28,0.14)',
+    drawTile: (ctx, ox, oy, tile, row, col) => {
+      ctx.fillStyle = row === col ? '#315f4d' : '#2b5747';
+      ctx.fillRect(ox, oy, tile, tile);
+      ctx.fillStyle = 'rgba(19,65,56,0.24)';
+      for (let i = 0; i < 5; i++) {
+        const x = ox + 8 + ((i * 21 + col * 13) % (tile - 20));
+        const y = oy + 10 + ((i * 15 + row * 17) % (tile - 22));
+        ctx.beginPath(); ctx.ellipse(x, y, 12, 4, (i + row + col) * 0.6, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.fillStyle = 'rgba(98,151,119,0.12)';
+      for (let i = 0; i < 4; i++) {
+        const x = ox + 12 + ((i * 19 + row * 9) % (tile - 18));
+        const y = oy + 12 + ((i * 11 + col * 13) % (tile - 18));
+        ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill();
+      }
+    },
+  },
+  {
+    id: 'perion',
+    baseColor: '#7d7264',
+    gridColor: 'rgba(46,36,28,0.14)',
+    drawTile: (ctx, ox, oy, tile, row, col) => {
+      ctx.fillStyle = row === col ? '#817669' : '#766b5e';
+      ctx.fillRect(ox, oy, tile, tile);
+      ctx.strokeStyle = 'rgba(45,36,31,0.22)';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(ox + 10, oy + 18); ctx.lineTo(ox + 27, oy + 31); ctx.lineTo(ox + 42, oy + 29); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ox + 54, oy + 8); ctx.lineTo(ox + 47, oy + 26); ctx.lineTo(ox + 59, oy + 46); ctx.stroke();
+      ctx.fillStyle = 'rgba(42,34,29,0.18)';
+      for (let i = 0; i < 8; i++) {
+        const x = ox + 7 + ((i * 13 + row * 17 + col * 5) % (tile - 14));
+        const y = oy + 6 + ((i * 19 + row * 7 + col * 11) % (tile - 12));
+        ctx.beginPath(); ctx.arc(x, y, i % 3 === 0 ? 2.2 : 1.3, 0, Math.PI * 2); ctx.fill();
+      }
+    },
+  },
+  {
+    id: 'kerning',
+    baseColor: '#363b44',
+    gridColor: 'rgba(120,141,157,0.20)',
+    gridWidth: 1.5,
+    drawTile: (ctx, ox, oy, tile, row, col) => {
+      ctx.fillStyle = row === col ? '#383e47' : '#323740';
+      ctx.fillRect(ox, oy, tile, tile);
+      ctx.fillStyle = 'rgba(20,23,28,0.32)';
+      ctx.beginPath(); ctx.arc(ox + tile * 0.72, oy + tile * 0.32, 5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(ox + tile * 0.22, oy + tile * 0.72, 3, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgba(20,24,30,0.28)';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(ox + 12, oy + 18); ctx.lineTo(ox + 32, oy + 18); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ox + 48, oy + 55); ctx.lineTo(ox + 66, oy + 55); ctx.stroke();
+    },
+  },
+];
 
 const MAPLE_ASSET_PATHS = {
   mob_100100: '/data/maple/mob_100100.json',
@@ -147,6 +271,23 @@ export function ensureImageLoaded(asset: MapleAssetData, frame: MapleRenderFrame
   return null;
 }
 
+function makeFloorPattern(ctxForPattern: CanvasRenderingContext2D, spec: FloorThemeSpec): CanvasPattern | null {
+  const pc = document.createElement('canvas'); pc.width = pc.height = TILE * 2;
+  const pg = pc.getContext('2d')!;
+  const T = TILE;
+  pg.fillStyle = spec.baseColor;
+  pg.fillRect(0, 0, T * 2, T * 2);
+  for (let row = 0; row < 2; row++) {
+    for (let col = 0; col < 2; col++) {
+      spec.drawTile(pg, col * T, row * T, T, row, col);
+    }
+  }
+  pg.strokeStyle = spec.gridColor;
+  pg.lineWidth = spec.gridWidth ?? 1;
+  pg.strokeRect(0.5, 0.5, T * 2 - 1, T * 2 - 1);
+  return ctxForPattern.createPattern(pc, 'repeat');
+}
+
 export function buildSprites(ctxForPattern: CanvasRenderingContext2D) {
   projSprite = makeGlowSprite(28, [[0, '#fff9c4'], [0.4, 'rgba(255,241,118,0.55)'], [1, 'rgba(255,241,118,0)']], 5, '#fff9c4');
   projAwkSprite = makeGlowSprite(42, [[0, '#fffde7'], [0.35, 'rgba(255,193,7,0.75)'], [1, 'rgba(255,160,0,0)']], 8, '#ffd54f');
@@ -154,48 +295,11 @@ export function buildSprites(ctxForPattern: CanvasRenderingContext2D) {
   orbAwkSprite = makeGlowSprite(58, [[0, '#ffffff'], [0.4, 'rgba(64,196,255,0.85)'], [1, 'rgba(41,121,255,0)']], 10, '#80d8ff');
   xpSprite = makeGlowSprite(30, [[0, '#b9f6ca'], [0.5, 'rgba(0,230,118,0.7)'], [1, 'rgba(0,230,118,0)']], 5, '#e8f5e9');
 
-  const pc = document.createElement('canvas'); pc.width = pc.height = TILE * 2;
-  const pg = pc.getContext('2d')!;
-  const T = TILE;
-
-  // 리스항구 스타일 나무 판자 바닥
-  for (let row = 0; row < 2; row++) {
-    for (let col = 0; col < 2; col++) {
-      const ox = col * T, oy = row * T;
-      // 기본 나무 색상 (따뜻한 갈색)
-      const shade = 0.92 + (row + col % 2) * 0.04;
-      const r = Math.floor(180 * shade), g = Math.floor(135 * shade), b = Math.floor(100 * shade);
-      pg.fillStyle = `rgb(${r},${g},${b})`;
-      pg.fillRect(ox, oy, T, T);
-
-      // 판자 무늬 (가로선)
-      pg.fillStyle = 'rgba(0,0,0,0.06)';
-      for (let py = oy + T/4; py < oy + T; py += T/4) {
-        pg.fillRect(ox, py, T, 1.5);
-      }
-
-      // 세로 판자 경계선
-      pg.fillStyle = 'rgba(0,0,0,0.1)';
-      pg.fillRect(ox + T/2, oy, 2, T);
-
-      // 나무 결 무늬
-      pg.fillStyle = 'rgba(0,0,0,0.04)';
-      for (let px = ox + 4; px < ox + T; px += 12) {
-        pg.fillRect(px, oy + 3, 3, T - 6);
-      }
-
-      // 못 자국 (교차점)
-      pg.fillStyle = 'rgba(0,0,0,0.15)';
-      const nailX = ox + T/2, nailY1 = oy + T/4, nailY2 = oy + T*3/4;
-      pg.beginPath(); pg.arc(nailX, nailY1, 2.5, 0, Math.PI * 2); pg.fill();
-      pg.beginPath(); pg.arc(nailX, nailY2, 2.5, 0, Math.PI * 2); pg.fill();
-    }
+  for (const theme of FLOOR_THEMES) {
+    bgPatterns[theme.id] = makeFloorPattern(ctxForPattern, theme);
   }
+  bgPattern = bgPatterns.lith ?? null;
 
-  // 타일 경계 그리드
-  pg.strokeStyle = 'rgba(0,0,0,0.08)'; pg.lineWidth = 1;
-  pg.strokeRect(0.5, 0.5, T * 2 - 1, T * 2 - 1);
-  bgPattern = ctxForPattern.createPattern(pc, 'repeat');
 
   hurtVignette = document.createElement('canvas');
   hurtVignette.width = 800;

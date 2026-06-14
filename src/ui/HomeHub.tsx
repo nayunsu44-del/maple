@@ -54,7 +54,7 @@ export default function HomeHub({
   const cp = calcCP(profile);
   const best = bestRecord(profile);
   const nextGoal = t(nextGoalKey(profile));
-  const totalKills = Object.values(profile.chapters).reduce((sum, r) => sum + (r?.kills || 0), 0);
+  const totalKills = profile.stats.totalKills;
   const clearedCount = Object.values(profile.chapters).filter(r => r?.cleared).length;
   const cosmeticCount = profile.unlockedCosmetics.length;
   const cosmetic = COSMETICS.find(c => c.id === profile.equippedCosmetic);

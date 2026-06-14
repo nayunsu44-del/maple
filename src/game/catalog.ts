@@ -14,11 +14,13 @@ export interface ChapterDef {
   id: string;
   name: { en: string; ko: string };
   theme: string;
+  bgTheme: string;
   mobPool: string[];
   boss: string;
   duration: number;
   difficultyMult: number;
   clearBonus: number;
+  infinite: boolean;
   playable: boolean;
 }
 
@@ -61,56 +63,66 @@ export const CHAPTERS: ChapterDef[] = [
     id: 'ch1',
     name: { en: 'Lith Harbor', ko: '리스항구' },
     theme: 'chapter_theme_lith',
+    bgTheme: 'lith',
     mobPool: ['SN', 'BS', 'SP', 'RS'],
     boss: 'MA',
     duration: BOSS_AT,
     difficultyMult: 1,
     clearBonus: CH1_CLEAR_BONUS,
+    infinite: false,
     playable: true,
   },
   {
     id: 'ch2',
     name: { en: 'Henesys', ko: '헤네시스' },
     theme: 'chapter_theme_henesys',
-    mobPool: ['SN', 'BS', 'MU'],
-    boss: 'Mushmom',
+    bgTheme: 'henesys',
+    mobPool: ['SL', 'ST', 'GM', 'PG'],
+    boss: 'MM',
     duration: BOSS_AT,
     difficultyMult: 1.25,
     clearBonus: 180,
-    playable: false,
+    infinite: true,
+    playable: true,
   },
   {
     id: 'ch3',
     name: { en: 'Ellinia', ko: '엘리니아' },
     theme: 'chapter_theme_ellinia',
-    mobPool: ['MU', 'ZM'],
-    boss: 'Faust',
+    bgTheme: 'ellinia',
+    mobPool: ['CE', 'EE', 'JN', 'WM'],
+    boss: 'FA',
     duration: BOSS_AT,
     difficultyMult: 1.5,
     clearBonus: 280,
-    playable: false,
+    infinite: true,
+    playable: true,
   },
   {
     id: 'ch4',
     name: { en: 'Perion', ko: '페리온' },
     theme: 'chapter_theme_perion',
-    mobPool: ['BS', 'MU', 'ZM'],
-    boss: 'Stumpy',
+    bgTheme: 'perion',
+    mobPool: ['WB', 'FB', 'SG', 'DS'],
+    boss: 'STP',
     duration: BOSS_AT,
     difficultyMult: 1.8,
     clearBonus: 420,
-    playable: false,
+    infinite: true,
+    playable: true,
   },
   {
     id: 'ch5',
     name: { en: 'Kerning City', ko: '커닝시티' },
     theme: 'chapter_theme_kerning',
-    mobPool: ['SN', 'BS', 'MU', 'ZM'],
-    boss: 'Dyle',
+    bgTheme: 'kerning',
+    mobPool: ['OC', 'BB', 'LG', 'WK'],
+    boss: 'DY',
     duration: BOSS_AT,
     difficultyMult: 2.15,
     clearBonus: 600,
-    playable: false,
+    infinite: true,
+    playable: true,
   },
 ];
 

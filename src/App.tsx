@@ -67,7 +67,8 @@ export default function App() {
     setActiveProfileState(profile);
     engine.setLoadout(computeLoadout(profile.enhance));
     const chapter = CHAPTERS.find(c => c.id === chapterId);
-    if (chapter) engine.setChapterConfig(chapter.mobPool, chapter.boss);
+    engine.setWorld(chapter?.infinite ?? false);
+    if (chapter) engine.setChapterConfig(chapter.mobPool, chapter.boss, chapter.difficultyMult, chapter.bgTheme);
     const cos = getCosmetic(profile.equippedCosmetic);
     engine.setCosmeticDraw(cos?.draw ?? null);
     if (cos?.maple?.slot === 'Cap') {
@@ -801,7 +802,7 @@ export default function App() {
       ctx.fillStyle = '#d4a017';
       ctx.font = "bold 13px 'Segoe UI', sans-serif";
       ctx.textAlign = 'center';
-      ctx.fillText(`⚠️  ${mobName('BL')}  ⚠️`, LW / 2, by - 5);
+      ctx.fillText(`⚠️  ${mobName(boss.type)}  ⚠️`, LW / 2, by - 5);
 
       ctx.fillStyle = '#4a0000';
       ctx.fillRect(bx, by, bw, bh);

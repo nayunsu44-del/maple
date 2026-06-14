@@ -17,19 +17,42 @@
 - **우선순위**: 낮음 (절차적으로 충분).
 
 ## 2. Ch2~5 신규 몹 스프라이트
-- **무엇**: 챕터별 테마에 맞는 신규 일반 몹 (챕터당 3~5종).
-- **쓰임**: `catalog.ts` 챕터 `mobPool`, `public/data/maple/mob_*.json`.
-- **형식**: 메이플 몹 렌더 플랜 JSON (stand/move/hit1/die1).
-- **임시 대체**: 현재 7종 몹 재사용 + Ch2~5는 `playable:false`(준비중).
-- **우선순위**: 높음 (Ch2~5 실플레이의 핵심).
-- **메모**: 챕터 테마 확정 후 어떤 지역 몹을 쓸지 ID 목록 작성 필요.
+- **무엇**: Victoria Island progression chapter mobs. Ch2~5 are playable now, but mobs without sprite plans render as colored-circle fallback using each `ED` color.
+- **쓰임**: `catalog.ts` chapter `mobPool`, `constants.ts` `ED`, `public/data/maple/mob_<KEY>.json`.
+- **형식**: Maple mob render plan JSON (stand/move/hit1/die1). When a real plan is added as `mob_<KEY>.json`, the fallback circle should be replaced by the sprite.
+- **우선순위**: 높음.
+
+| chapter | ED key | monster | typical monster ID | target data file |
+|---------|--------|---------|--------------------|------------------|
+| Ch2 Henesys | `SL` | Slime / 슬라임 | confirm on fetch | `public/data/maple/mob_SL.json` |
+| Ch2 Henesys | `ST` | Stump / 나무인형 | confirm on fetch | `public/data/maple/mob_ST.json` |
+| Ch2 Henesys | `GM` | Green Mushroom / 초록버섯 | confirm on fetch | `public/data/maple/mob_GM.json` |
+| Ch2 Henesys | `PG` | Pig / 돼지 | confirm on fetch | `public/data/maple/mob_PG.json` |
+| Ch3 Ellinia | `CE` | Curse Eye / 저주받은 눈 | confirm on fetch | `public/data/maple/mob_CE.json` |
+| Ch3 Ellinia | `EE` | Evil Eye / 이블아이 | confirm on fetch | `public/data/maple/mob_EE.json` |
+| Ch3 Ellinia | `JN` | Jr. Necki / 주니어 네키 | confirm on fetch | `public/data/maple/mob_JN.json` |
+| Ch3 Ellinia | `WM` | Wooden Mask / 나무가면 | confirm on fetch | `public/data/maple/mob_WM.json` |
+| Ch4 Perion | `WB` | Wild Boar / 멧돼지 | confirm on fetch | `public/data/maple/mob_WB.json` |
+| Ch4 Perion | `FB` | Fire Boar / 파이어보어 | confirm on fetch | `public/data/maple/mob_FB.json` |
+| Ch4 Perion | `SG` | Stone Golem / 스톤골렘 | confirm on fetch | `public/data/maple/mob_SG.json` |
+| Ch4 Perion | `DS` | Dark Stump / 다크 나무인형 | confirm on fetch | `public/data/maple/mob_DS.json` |
+| Ch5 Kerning City | `OC` | Octopus / 옥토퍼스 | confirm on fetch | `public/data/maple/mob_OC.json` |
+| Ch5 Kerning City | `BB` | Bubbling / 버블링 | confirm on fetch | `public/data/maple/mob_BB.json` |
+| Ch5 Kerning City | `LG` | Ligator / 라이거 | confirm on fetch | `public/data/maple/mob_LG.json` |
+| Ch5 Kerning City | `WK` | Wild Kargo / 와일드 카고 | confirm on fetch | `public/data/maple/mob_WK.json` |
 
 ## 3. Ch2~5 신규 보스 스프라이트
-- **무엇**: 챕터당 전용 보스 1종.
-- **쓰임**: `catalog.ts` 챕터 `boss`, `public/data/maple/mob_*.json`.
-- **형식**: 메이플 보스 렌더 플랜 JSON.
-- **임시 대체**: 주르발록/머쉬맘 계열 재사용 가능하나 A2 방침상 Ch2~5는 준비중.
+- **무엇**: Chapter boss sprite plans. Ch2 uses the existing Mushmom plan now; Ch3~5 currently render as colored-circle fallback until sprite plans are fetched.
+- **쓰임**: `catalog.ts` chapter `boss`, `constants.ts` `ED`, `public/data/maple/mob_<KEY>.json`.
+- **형식**: Maple boss render plan JSON.
 - **우선순위**: 높음.
+
+| chapter | ED key | boss | typical monster ID | target data file |
+|---------|--------|------|--------------------|------------------|
+| Ch2 Henesys | `MM` | Mushmom / 머쉬맘 | confirm on fetch; existing `mob_MUSHMOM.json` is wired now | `public/data/maple/mob_MUSHMOM.json` |
+| Ch3 Ellinia | `FA` | Faust / 파우스트 | confirm on fetch | `public/data/maple/mob_FA.json` |
+| Ch4 Perion | `STP` | Stumpy / 스텀피 | confirm on fetch | `public/data/maple/mob_STP.json` |
+| Ch5 Kerning City | `DY` | Dyle / 다일 | confirm on fetch | `public/data/maple/mob_DY.json` |
 
 ## 4. Ch2~5 맵 배경 / 타일
 - **무엇**: 챕터별 맵 배경/바닥 테마.
