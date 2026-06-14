@@ -1,5 +1,5 @@
 {
-  "id": "40720",
+  "id": "45300",
   "type": "hair",
   "cdnBase": "https://resource-static.msu.io/data",
   "availableStates": [
@@ -44,7 +44,7 @@
       "state": "stand1",
       "frame": "0",
       "part": "hair",
-      "path": "Character/Hair/00040720/default/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
         "x": 15,
         "y": 12
@@ -61,29 +61,11 @@
     {
       "state": "stand1",
       "frame": "0",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/default/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_stand1_0_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "stand1",
-      "frame": "0",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/default/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 24,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_stand1_0_hairOverHead",
       "z": "hairOverHead",
@@ -98,9 +80,9 @@
       "state": "stand1",
       "frame": "1",
       "part": "hair",
-      "path": "Character/Hair/00040720/walk1/1/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
-        "x": 16,
+        "x": 15,
         "y": 12
       },
       "texture_key": "maple_hair_stand1_1_hair",
@@ -115,29 +97,11 @@
     {
       "state": "stand1",
       "frame": "1",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/default/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_stand1_1_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "stand1",
-      "frame": "1",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 23,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_stand1_1_hairOverHead",
       "z": "hairOverHead",
@@ -152,10 +116,10 @@
       "state": "stand1",
       "frame": "2",
       "part": "hair",
-      "path": "Character/Hair/00040720/stand1/2/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
-        "x": 16,
-        "y": 13
+        "x": 15,
+        "y": 12
       },
       "texture_key": "maple_hair_stand1_2_hair",
       "z": "hair",
@@ -169,85 +133,13 @@
     {
       "state": "stand1",
       "frame": "2",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/default/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_stand1_2_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "stand1",
-      "frame": "2",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/stand1/2/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 22,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_stand1_2_hairOverHead",
-      "z": "hairOverHead",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "stand1",
-      "frame": "3",
-      "part": "hair",
-      "path": "Character/Hair/00040720/walk1/1/hair.png",
-      "origin": {
-        "x": 16,
-        "y": 12
-      },
-      "texture_key": "maple_hair_stand1_3_hair",
-      "z": "hair",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "stand1",
-      "frame": "3",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/default/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_stand1_3_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "stand1",
-      "frame": "3",
-      "part": "hairOverHead",
-      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
-      "origin": {
-        "x": 23,
-        "y": 20
-      },
-      "texture_key": "maple_hair_stand1_3_hairOverHead",
       "z": "hairOverHead",
       "sockets": {
         "brow": {
@@ -260,10 +152,10 @@
       "state": "walk1",
       "frame": "0",
       "part": "hair",
-      "path": "Character/Hair/00040720/walk1/0/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
-        "x": 16,
-        "y": 13
+        "x": 15,
+        "y": 12
       },
       "texture_key": "maple_hair_walk1_0_hair",
       "z": "hair",
@@ -277,29 +169,11 @@
     {
       "state": "walk1",
       "frame": "0",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/walk1/0/hairBelowBody.png",
-      "origin": {
-        "x": 22,
-        "y": 20
-      },
-      "texture_key": "maple_hair_walk1_0_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "walk1",
-      "frame": "0",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/walk1/0/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 22,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_walk1_0_hairOverHead",
       "z": "hairOverHead",
@@ -314,9 +188,9 @@
       "state": "walk1",
       "frame": "1",
       "part": "hair",
-      "path": "Character/Hair/00040720/walk1/1/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
-        "x": 16,
+        "x": 15,
         "y": 12
       },
       "texture_key": "maple_hair_walk1_1_hair",
@@ -331,29 +205,11 @@
     {
       "state": "walk1",
       "frame": "1",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/walk1/1/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_walk1_1_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "walk1",
-      "frame": "1",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 23,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_walk1_1_hairOverHead",
       "z": "hairOverHead",
@@ -368,7 +224,7 @@
       "state": "walk1",
       "frame": "2",
       "part": "hair",
-      "path": "Character/Hair/00040720/walk1/2/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
         "x": 15,
         "y": 12
@@ -385,29 +241,11 @@
     {
       "state": "walk1",
       "frame": "2",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/walk1/2/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_walk1_2_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "walk1",
-      "frame": "2",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/walk1/2/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 24,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_walk1_2_hairOverHead",
       "z": "hairOverHead",
@@ -422,9 +260,9 @@
       "state": "walk1",
       "frame": "3",
       "part": "hair",
-      "path": "Character/Hair/00040720/walk1/1/hair.png",
+      "path": "Character/Hair/00045300/default/hair.png",
       "origin": {
-        "x": 16,
+        "x": 15,
         "y": 12
       },
       "texture_key": "maple_hair_walk1_3_hair",
@@ -439,29 +277,11 @@
     {
       "state": "walk1",
       "frame": "3",
-      "part": "hairBelowBody",
-      "path": "Character/Hair/00040720/walk1/3/hairBelowBody.png",
-      "origin": {
-        "x": 15,
-        "y": 11
-      },
-      "texture_key": "maple_hair_walk1_3_hairBelowBody",
-      "z": "hairBelowBody",
-      "sockets": {
-        "brow": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "state": "walk1",
-      "frame": "3",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00045300/default/hairOverHead.png",
       "origin": {
-        "x": 23,
-        "y": 20
+        "x": 17,
+        "y": 17
       },
       "texture_key": "maple_hair_walk1_3_hairOverHead",
       "z": "hairOverHead",
@@ -630,11 +450,7 @@
   ],
   "info": {
     "cash": 1,
-    "extendFrame": 1,
     "islot": "Hr",
-    "vehicleDefaultFrame": {
-      "jump": 1
-    },
     "vslot": "H1H2H3H4H5H6HfHsHb"
   }
 }

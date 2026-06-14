@@ -1076,8 +1076,6 @@ export function drawEnemies(ctx: CanvasRenderingContext2D) {
 // ── MAPLE MCP CHARACTER ASSEMBLY DRAWING ────────────────────────────
 export function drawPlayer(ctx: CanvasRenderingContext2D) {
   const sx = toSX(P.x), sy = toSY(P.y);
-  ctx.strokeStyle = '#ff0000'; ctx.lineWidth = 4;
-  ctx.beginPath(); ctx.arc(sx, sy, 80, 0, Math.PI*2); ctx.stroke();
   if (!spriteCache.isMapleLoaded) {
     ctx.fillStyle = '#1565c0'; ctx.fillRect(sx - 10, sy - 10, 20, 20);
     drawCosmeticOverlay(ctx, sx, sy, P.face, 1);
