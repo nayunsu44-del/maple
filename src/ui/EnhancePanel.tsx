@@ -34,6 +34,15 @@ const EQUIP_ASSETS: Record<EnhanceSlotId, string> = {
 
 function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    if (spriteCache.isMapleLoaded) return;
+    const id = setInterval(() => {
+      if (spriteCache.isMapleLoaded) { setTick(t => t + 1); clearInterval(id); }
+    }, 100);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -67,7 +76,7 @@ function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number 
     const dx = size / 2 - ox;
     const dy = size / 2 - oy;
     ctx.drawImage(img, dx, dy, dw, dh);
-  }, [slot, size]);
+  }, [slot, size, tick]);
 
   return <canvas ref={canvasRef} width={size} height={size} className="block" aria-hidden="true" />;
 }
