@@ -289,8 +289,8 @@ export async function loadMapleAssets() {
 
 function preloadCriticalImages() {
   const criticalKeys = [
-    'body_2000', 'head_12000', 'face_CAIN_A', 'hair_HITMAN',
-    'weapon_GAISER', 'coat_DRAKAZ', 'shoes_DRAKAZ',
+    'body_2000', 'head_12000', 'face_CAIN_A', 'hair_CAIN',
+    'weapon_NOVA', 'coat_DRAKAZ', 'shoes_DRAKAZ', 'acc_NOVA',
     'cap_1001128', 'cap_1002357', 'cap_1002083', 'cap_1003084', 'cape_1102005',
     'mob_SPORE', 'mob_REDSNAIL', 'mob_MANO',
     'mob_FAUST', 'mob_STUMPY', 'mob_DYLE',

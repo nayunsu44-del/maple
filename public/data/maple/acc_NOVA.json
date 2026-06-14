@@ -1,49 +1,165 @@
 {
-  "id": "1012369",
+  "id": "1022168",
   "type": "accessory",
   "cdnBase": "https://resource-static.msu.io/data",
   "availableStates": [
-    "angry",
-    "bewildered",
-    "blaze",
-    "blink",
-    "bowing",
-    "cheers",
-    "chu",
-    "cry",
-    "dam",
+    "alert",
     "default",
-    "despair",
-    "glitter",
-    "hit",
-    "hot",
-    "hum",
-    "love",
-    "oops",
-    "pain",
-    "shine",
-    "smile",
-    "stunned",
-    "troubled",
-    "vomit",
-    "wink"
+    "fly",
+    "heal",
+    "jump",
+    "prone",
+    "proneStab",
+    "shoot1",
+    "shoot2",
+    "shootF",
+    "sit",
+    "stabO1",
+    "stabO2",
+    "stabOF",
+    "stabT1",
+    "stabT2",
+    "stabTF",
+    "stand1",
+    "stand2",
+    "swingO1",
+    "swingO2",
+    "swingO3",
+    "swingOF",
+    "swingP1",
+    "swingP2",
+    "swingPF",
+    "swingT1",
+    "swingT2",
+    "swingT3",
+    "swingTF",
+    "walk1",
+    "walk2"
   ],
   "render_plan": [
     {
-      "state": "default",
+      "state": "stand1",
       "frame": "0",
-      "part": "accessory",
-      "path": "Character/Accessory/01012369/default/default.png",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
       "origin": {
         "x": 17,
-        "y": 27
+        "y": 9
       },
-      "texture_key": "maple_accessory_default_0_accessory",
-      "z": "accessoryFace",
+      "texture_key": "maple_accessory_stand1_0_default",
+      "z": "accessoryEye",
       "sockets": {
         "brow": {
-          "x": -8,
-          "y": -35
+          "x": 0,
+          "y": -12
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
+      "origin": {
+        "x": 17,
+        "y": 9
+      },
+      "texture_key": "maple_accessory_stand1_1_default",
+      "z": "accessoryEye",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": -12
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
+      "origin": {
+        "x": 17,
+        "y": 9
+      },
+      "texture_key": "maple_accessory_stand1_2_default",
+      "z": "accessoryEye",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": -12
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
+      "origin": {
+        "x": 17,
+        "y": 9
+      },
+      "texture_key": "maple_accessory_walk1_0_default",
+      "z": "accessoryEye",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": -12
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
+      "origin": {
+        "x": 17,
+        "y": 9
+      },
+      "texture_key": "maple_accessory_walk1_1_default",
+      "z": "accessoryEye",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": -12
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
+      "origin": {
+        "x": 17,
+        "y": 9
+      },
+      "texture_key": "maple_accessory_walk1_2_default",
+      "z": "accessoryEye",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": -12
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "default",
+      "path": "Character/Accessory/01022168/default/default.png",
+      "origin": {
+        "x": 17,
+        "y": 9
+      },
+      "texture_key": "maple_accessory_walk1_3_default",
+      "z": "accessoryEye",
+      "sockets": {
+        "brow": {
+          "x": 0,
+          "y": -12
         }
       }
     }
@@ -204,25 +320,28 @@
     "mobEquipFront"
   ],
   "info": {
-    "incDEX": 7,
-    "incINT": 7,
-    "incLUK": 7,
-    "incMAD": 3,
-    "incPAD": 3,
-    "incSTR": 7,
-    "islot": "Af",
+    "exGrade": 2,
+    "exItem": 1,
+    "incDEX": 1,
+    "incINT": 1,
+    "incLUK": 1,
+    "incMAD": 1,
+    "incMDD": 30,
+    "incPAD": 1,
+    "incPDD": 30,
+    "incSTR": 1,
+    "islot": "Ay",
     "notExtend": 1,
     "notSale": 1,
-    "only": 1,
     "reqDEX": 0,
     "reqINT": 0,
     "reqJob": 0,
     "reqLUK": 0,
-    "reqLevel": 13,
+    "reqLevel": 30,
     "reqSTR": 0,
     "timeLimited": 1,
     "tradeBlock": 1,
     "tuc": 3,
-    "vslot": "Af"
+    "vslot": "Ay"
   }
 }

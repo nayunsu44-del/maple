@@ -16,6 +16,10 @@
 │           ├── head_12000.json           # Character head and ear data
 │           ├── face_20000.json           # Expression sprite mappings (default face)
 │           ├── hair_30000.json           # Hair textures and overlays
+│           ├── hair_37241.json           # Nova Bob Cut (hair)
+│           ├── face_50547.json           # Kain Face A (face)
+│           ├── acc_NOVA.json             # Black Feather Glasses (accessory)
+│           ├── weapon_NOVA.json          # Abyss Shooter (weapon)
 │           ├── weapon_STAFF.json         # Beginner Magician's Staff (AAT 6)
 │           ├── coat_1040004.json         # Blue Training Shirt
 │           ├── pants_1060040.json        # Blue Trainer Pants
@@ -151,6 +155,10 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 | `data/maple/head_12000.json` | Head | 12000 | stand1, walk1 |
 | `data/maple/face_20000.json` | Face | 20000 | default |
 | `data/maple/hair_30000.json` | Hair | 30000 | stand1, walk1 |
+| `data/maple/hair_37241.json` | Hair (Nova Bob Cut) | 37241 | stand1, walk1 |
+| `data/maple/face_50547.json` | Face (Kain Face A) | 50547 | default |
+| `data/maple/acc_NOVA.json` | Face Accessory (Black Feather Glasses) | 1022168 | stand1, walk1 |
+| `data/maple/weapon_NOVA.json` | Weapon (Abyss Shooter) | 1492118 | stand1, walk1 |
 | `data/maple/weapon_STAFF.json` | Weapon (Staff) | — | stand1, walk1, swingO1, swingO2, swingO3 |
 | `data/maple/coat_1040004.json` | Coat | 1040004 | stand1, walk1 |
 | `data/maple/pants_1060040.json` | Pants | 1060040 | stand1, walk1 |
