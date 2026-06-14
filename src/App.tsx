@@ -280,7 +280,7 @@ export default function App() {
         ctx.fillRect(0, 0, LW, LH);
 
       } else if (currentPhase === 'skillpick') {
-        drawSkillPickCanvas(ctx);
+        canvasUi.drawSkillPickCanvas(ctx, guiContext);
         // 즉시 클릭 실행 패턴으로 drawSkillPickCanvas 내부에서 이미 처리가 조율되므로, 
         // 이곳에서는 클릭 플래그 안전 해제 및 렌더링 동기화만 담당합니다.
         if (mouseRef.current.clicked) {
@@ -401,7 +401,7 @@ export default function App() {
         engine.drawLightnings(ctx);
         engine.drawParts(ctx);
         engine.drawFTexts(ctx);
-        drawHUDCanvas(ctx);
+        canvasUi.drawHUDCanvas(ctx, guiContext);
         engine.drawJuiceOverlays(ctx);
 
       } else if (currentPhase === 'paused') {
@@ -419,7 +419,7 @@ export default function App() {
         engine.drawLightnings(ctx);
         engine.drawParts(ctx);
         engine.drawFTexts(ctx);
-        drawHUDCanvas(ctx);
+        canvasUi.drawHUDCanvas(ctx, guiContext);
 
         ctx.fillStyle = 'rgba(0,0,0,0.62)';
         ctx.fillRect(0, 0, LW, LH);
@@ -470,9 +470,9 @@ export default function App() {
         engine.drawLightnings(ctx);
         engine.drawParts(ctx);
         engine.drawFTexts(ctx);
-        drawHUDCanvas(ctx);
+        canvasUi.drawHUDCanvas(ctx, guiContext);
 
-        drawLevelUpCanvas(ctx, startX, cy0, cw, ch, gap);
+        canvasUi.drawLevelUpCanvas(ctx, startX, cy0, cw, ch, gap, guiContext);
 
         // drawLevelUpCanvas 내부에서 마우스 클릭 선택이 무지연으로 즉각 완결 처리되므로 
         // 이곳에서는 키보드 단축키(1, 2, 3) 선택 수신 로직만 가볍게 가동합니다.
@@ -502,7 +502,7 @@ export default function App() {
         engine.drawEnemies(ctx);
         engine.drawPlayer(ctx);
         engine.drawParts(ctx);
-        drawResultCanvas(ctx);
+        canvasUi.drawResultCanvas(ctx, guiContext);
       }
 
       // 프레임 연산 처리가 완료된 후 클릭 버퍼를 안전하게 해제합니다.
