@@ -188,6 +188,9 @@ const MAPLE_ASSET_PATHS = {
   mob_SPORE: '/data/maple/mob_SPORE.json',
   mob_REDSNAIL: '/data/maple/mob_REDSNAIL.json',
   mob_MANO: '/data/maple/mob_MANO.json',
+  mob_FAUST: '/data/maple/mob_FAUST.json',
+  mob_STUMPY: '/data/maple/mob_STUMPY.json',
+  mob_DYLE: '/data/maple/mob_DYLE.json',
   body_2000: '/data/maple/body_2000.json',
   head_12000: '/data/maple/head_12000.json',
   face_20000: '/data/maple/face_20000.json',
@@ -250,6 +253,7 @@ function preloadCriticalImages() {
     'weapon_STAFF', 'coat_1040004', 'pants_1060040', 'shoes_1072850',
     'cap_1001128', 'cap_1002357', 'cap_1002083', 'cap_1003084', 'cape_1102005',
     'mob_SPORE', 'mob_REDSNAIL', 'mob_MANO',
+    'mob_FAUST', 'mob_STUMPY', 'mob_DYLE',
   ];
   const actionState = 'stand1';
   for (const key of criticalKeys) {

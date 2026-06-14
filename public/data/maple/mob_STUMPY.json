@@ -1,0 +1,556 @@
+{
+  "id": "3220000",
+  "type": "mob",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "attack1",
+    "attack2",
+    "die1",
+    "hit1",
+    "move",
+    "skill1",
+    "stand"
+  ],
+  "render_plan": [
+    {
+      "state": "stand",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/3220000/stand/0.png",
+      "origin": {
+        "x": 91,
+        "y": 172
+      },
+      "texture_key": "maple_mob_stand_0_mob",
+      "delay": 120
+    },
+    {
+      "state": "stand",
+      "frame": "1",
+      "part": "mob",
+      "path": "Mob/3220000/stand/1.png",
+      "origin": {
+        "x": 91,
+        "y": 173
+      },
+      "texture_key": "maple_mob_stand_1_mob",
+      "delay": 120
+    },
+    {
+      "state": "stand",
+      "frame": "2",
+      "part": "mob",
+      "path": "Mob/3220000/stand/2.png",
+      "origin": {
+        "x": 91,
+        "y": 174
+      },
+      "texture_key": "maple_mob_stand_2_mob",
+      "delay": 120
+    },
+    {
+      "state": "stand",
+      "frame": "3",
+      "part": "mob",
+      "path": "Mob/3220000/stand/3.png",
+      "origin": {
+        "x": 91,
+        "y": 175
+      },
+      "texture_key": "maple_mob_stand_3_mob",
+      "delay": 120
+    },
+    {
+      "state": "stand",
+      "frame": "4",
+      "part": "mob",
+      "path": "Mob/3220000/stand/4.png",
+      "origin": {
+        "x": 91,
+        "y": 174
+      },
+      "texture_key": "maple_mob_stand_4_mob",
+      "delay": 120
+    },
+    {
+      "state": "stand",
+      "frame": "5",
+      "part": "mob",
+      "path": "Mob/3220000/stand/5.png",
+      "origin": {
+        "x": 91,
+        "y": 173
+      },
+      "texture_key": "maple_mob_stand_5_mob",
+      "delay": 120
+    },
+    {
+      "state": "move",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/3220000/move/0.png",
+      "origin": {
+        "x": 91,
+        "y": 176
+      },
+      "texture_key": "maple_mob_move_0_mob",
+      "delay": 120
+    },
+    {
+      "state": "move",
+      "frame": "1",
+      "part": "mob",
+      "path": "Mob/3220000/move/1.png",
+      "origin": {
+        "x": 91,
+        "y": 177
+      },
+      "texture_key": "maple_mob_move_1_mob",
+      "delay": 120
+    },
+    {
+      "state": "move",
+      "frame": "2",
+      "part": "mob",
+      "path": "Mob/3220000/move/2.png",
+      "origin": {
+        "x": 91,
+        "y": 178
+      },
+      "texture_key": "maple_mob_move_2_mob",
+      "delay": 120
+    },
+    {
+      "state": "move",
+      "frame": "3",
+      "part": "mob",
+      "path": "Mob/3220000/move/3.png",
+      "origin": {
+        "x": 91,
+        "y": 177
+      },
+      "texture_key": "maple_mob_move_3_mob",
+      "delay": 120
+    },
+    {
+      "state": "move",
+      "frame": "4",
+      "part": "mob",
+      "path": "Mob/3220000/move/4.png",
+      "origin": {
+        "x": 91,
+        "y": 176
+      },
+      "texture_key": "maple_mob_move_4_mob",
+      "delay": 120
+    },
+    {
+      "state": "move",
+      "frame": "5",
+      "part": "mob",
+      "path": "Mob/3220000/move/5.png",
+      "origin": {
+        "x": 91,
+        "y": 175
+      },
+      "texture_key": "maple_mob_move_5_mob",
+      "delay": 120
+    },
+    {
+      "state": "hit1",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/3220000/hit1/0.png",
+      "origin": {
+        "x": 89,
+        "y": 183
+      },
+      "texture_key": "maple_mob_hit1_0_mob",
+      "delay": 300
+    },
+    {
+      "state": "die1",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/3220000/hit1/0.png",
+      "origin": {
+        "x": 91,
+        "y": 184
+      },
+      "texture_key": "maple_mob_die1_0_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "1",
+      "part": "mob",
+      "path": "Mob/3220000/die1/1.png",
+      "origin": {
+        "x": 91,
+        "y": 183
+      },
+      "texture_key": "maple_mob_die1_1_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "2",
+      "part": "mob",
+      "path": "Mob/3220000/die1/2.png",
+      "origin": {
+        "x": 91,
+        "y": 182
+      },
+      "texture_key": "maple_mob_die1_2_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "3",
+      "part": "mob",
+      "path": "Mob/3220000/die1/3.png",
+      "origin": {
+        "x": 91,
+        "y": 181
+      },
+      "texture_key": "maple_mob_die1_3_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "4",
+      "part": "mob",
+      "path": "Mob/3220000/die1/4.png",
+      "origin": {
+        "x": 91,
+        "y": 161
+      },
+      "texture_key": "maple_mob_die1_4_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "5",
+      "part": "mob",
+      "path": "Mob/3220000/die1/5.png",
+      "origin": {
+        "x": 91,
+        "y": 160
+      },
+      "texture_key": "maple_mob_die1_5_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "6",
+      "part": "mob",
+      "path": "Mob/3220000/die1/6.png",
+      "origin": {
+        "x": 91,
+        "y": 160
+      },
+      "texture_key": "maple_mob_die1_6_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "7",
+      "part": "mob",
+      "path": "Mob/3220000/die1/7.png",
+      "origin": {
+        "x": 91,
+        "y": 160
+      },
+      "texture_key": "maple_mob_die1_7_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "8",
+      "part": "mob",
+      "path": "Mob/3220000/die1/8.png",
+      "origin": {
+        "x": 91,
+        "y": 159
+      },
+      "texture_key": "maple_mob_die1_8_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "9",
+      "part": "mob",
+      "path": "Mob/3220000/die1/9.png",
+      "origin": {
+        "x": 91,
+        "y": 156
+      },
+      "texture_key": "maple_mob_die1_9_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "10",
+      "part": "mob",
+      "path": "Mob/3220000/die1/10.png",
+      "origin": {
+        "x": 59,
+        "y": 154
+      },
+      "texture_key": "maple_mob_die1_10_mob",
+      "delay": 150
+    },
+    {
+      "state": "die1",
+      "frame": "11",
+      "part": "mob",
+      "path": "Mob/3220000/die1/11.png",
+      "origin": {
+        "x": 57,
+        "y": 155
+      },
+      "texture_key": "maple_mob_die1_11_mob",
+      "delay": 150
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "HPgaugeHide": 1,
+    "MADamage": 85,
+    "MDDamage": 70,
+    "MDRate": 20,
+    "PADamage": 90,
+    "PDDamage": 50,
+    "PDRate": 20,
+    "acc": 23,
+    "attack": {
+      "0": {
+        "action": 1,
+        "attackRatio": 100,
+        "jumpAttack": 1,
+        "type": 0
+      },
+      "1": {
+        "action": 2,
+        "attackRatio": 100,
+        "bulletSpeed": 140,
+        "type": 2
+      }
+    },
+    "bodyAttack": 1,
+    "boss": 1,
+    "category": 2,
+    "charismaEXP": 3,
+    "eva": 1,
+    "exp": 880,
+    "firstAttack": 1,
+    "fs": "10",
+    "hpRecovery": 35,
+    "hpTagBgcolor": 5,
+    "hpTagColor": 1,
+    "level": 25,
+    "maxHP": 7500,
+    "maxMP": 2000,
+    "mobType": "7N",
+    "mpRecovery": 1,
+    "pushed": 50,
+    "rareItemDropLevel": 2,
+    "skill": {
+      "0": {
+        "action": 1,
+        "effectAfter": 1500,
+        "level": 1,
+        "skill": 112
+      },
+      "1": {
+        "action": 1,
+        "effectAfter": 1500,
+        "level": 15,
+        "skill": 114
+      },
+      "2": {
+        "action": 1,
+        "effectAfter": 0,
+        "level": 1,
+        "skill": 112
+      },
+      "3": {
+        "action": 1,
+        "effectAfter": 0,
+        "level": 1,
+        "skill": 113
+      }
+    },
+    "speak": {
+      "0": {
+        "0": "How dare you enter my land!",
+        "hp": 6000
+      },
+      "chatBalloon": 0,
+      "con": {
+        "0": {
+          "quest": {
+            "questID": 2815,
+            "state": 2
+          }
+        }
+      }
+    },
+    "speed": -60,
+    "summonType": 1
+  }
+}

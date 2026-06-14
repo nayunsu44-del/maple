@@ -41,7 +41,9 @@
 │           ├── skill_SILVERHAWK.json     # Silver Hawk summon sprites
 │           ├── skill_GENESIS.json        # Genesis effect sprites
 │           ├── cape_1102005.json         # Baby Angel Wings cape
-│           └── skill_HOLYSYMBOL.json     # Holy Symbol orb sprites
+│           ├── skill_HOLYSYMBOL.json     # Holy Symbol orb sprites
+│           ├── mob_DYLE.json             # Dyle boss
+│           └── mob_FAUST.json          # Faust boss
 ├── src/
 │   ├── game/
 │   │   ├── types.ts          # Type declarations (PlayerState, Enemy, Projectile, etc.)
@@ -122,6 +124,8 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 | `data/maple/mob_8130100.json` | Jr. Balrog | 8130100 | stand, move, hit1, die1 |
 | `data/maple/mob_MUSHMOM.json` | Mushmom | mid-boss | stand, move, hit1, die1 |
 | `data/maple/mob_ZMUSHMOM.json` | Zombie Mushmom | mid-boss | stand, move, hit1, die1 |
+| `data/maple/mob_FAUST.json` | Faust | 5220002 | stand, move, hit1, die1, attack1, skill1 |
+| `data/maple/mob_DYLE.json` | Dyle | 6220000 | stand, move, hit1, die1, skill1 |
 
 ## MapleStory Character Assets
 
