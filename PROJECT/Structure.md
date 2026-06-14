@@ -160,6 +160,12 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 | `data/maple/cap_1002083.json` | Cap (Black Bandana) | 1002083 | stand1, walk1 |
 | `data/maple/cap_1003084.json` | Cap (Royal Crown) | 1003084 | stand1, walk1 |
 | `data/maple/cape_1102005.json` | Cape (Baby Angel Wings) | 1102005 | stand1, walk1 |
+| `data/maple/hair_VAMPIRE.json` | Hair (Comma Hair) | 43282 | stand1, walk1 |
+| `data/maple/face_VAMPIRE.json` | Face (Worrisome Glare) | 20008 | default |
+| `data/maple/cap_VAMPIRE.json` | Cap (Devilish Horns) | 1002389 | stand1, walk1 |
+| `data/maple/weapon_VAMPIRE.json` | Weapon (Dark Sword) | 1302904 | stand1, walk1 |
+| `data/maple/cape_VAMPIRE.json` | Cape (Black Seraph Cape) | 1102030 | stand1, walk1 |
+| `data/maple/coat_VAMPIRE.json` | Coat (Black Skull Hooded Vest) | 1042088 | stand1, walk1 |
 
 ## MapleStory Map Assets
 

@@ -217,11 +217,17 @@ const MAPLE_ASSET_PATHS = {
   pants_1060040: '/data/maple/pants_1060040.json',
   shoes_1072850: '/data/maple/shoes_1072850.json',
   hair_DARK: '/data/maple/hair_DARK.json',
+  hair_VAMPIRE: '/data/maple/hair_VAMPIRE.json',
   face_DARK: '/data/maple/face_DARK.json',
+  face_VAMPIRE: '/data/maple/face_VAMPIRE.json',
   coat_DARK: '/data/maple/coat_DARK.json',
+  coat_VAMPIRE: '/data/maple/coat_VAMPIRE.json',
   pants_DARK: '/data/maple/pants_DARK.json',
   shoes_DARK: '/data/maple/shoes_DARK.json',
   weapon_DARK: '/data/maple/weapon_DARK.json',
+  weapon_VAMPIRE: '/data/maple/weapon_VAMPIRE.json',
+  cap_VAMPIRE: '/data/maple/cap_VAMPIRE.json',
+  cape_VAMPIRE: '/data/maple/cape_VAMPIRE.json',
   // Cosmetic items
   cap_1001128: '/data/maple/cap_1001128.json',
   cap_1002357: '/data/maple/cap_1002357.json',
@@ -271,8 +277,8 @@ export async function loadMapleAssets() {
 
 function preloadCriticalImages() {
   const criticalKeys = [
-    'body_2000', 'head_12000', 'face_DARK', 'hair_DARK',
-    'weapon_DARK', 'coat_DARK', 'pants_DARK', 'shoes_DARK',
+    'body_2000', 'head_12000', 'face_VAMPIRE', 'hair_VAMPIRE',
+    'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
     'cap_1001128', 'cap_1002357', 'cap_1002083', 'cap_1003084', 'cape_1102005',
     'mob_SPORE', 'mob_REDSNAIL', 'mob_MANO',
     'mob_FAUST', 'mob_STUMPY', 'mob_DYLE',

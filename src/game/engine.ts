@@ -130,7 +130,7 @@ export const toSY = (wy: number) => wy - camY + shakeY;
 
 type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
 let cosmeticDraw: CosmeticDrawFn | null = null;
-let cosmeticCapVslot = '';
+let cosmeticCapVslot = 'CpH1H5';    // Devilish Horns default
 let cosmeticCapAssetKey = '';
 let cosmeticCapeDraw: CosmeticDrawFn | null = null;
 export let debugInvincible = false;
@@ -1118,8 +1118,9 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
   }[] = [];
 
   const equipmentKeys = [
-    'body_2000', 'head_12000', 'face_DARK', 'hair_DARK',
-    'weapon_DARK', 'coat_DARK', 'pants_DARK', 'shoes_DARK'
+    'body_2000', 'head_12000', 'face_VAMPIRE', 'hair_VAMPIRE',
+    'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
+    'pants_DARK', 'shoes_DARK'
   ];
   if (cosmeticCapAssetKey) equipmentKeys.push(cosmeticCapAssetKey);
 

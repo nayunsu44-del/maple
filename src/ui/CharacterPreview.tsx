@@ -20,8 +20,9 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
   if (!spriteCache.isMapleLoaded) return false;
 
   const equipmentKeys = [
-    'body_2000', 'head_12000', 'face_DARK', 'hair_DARK',
-    'weapon_DARK', 'coat_DARK', 'pants_DARK', 'shoes_DARK'
+    'body_2000', 'head_12000', 'face_VAMPIRE', 'hair_VAMPIRE',
+    'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
+    'pants_DARK', 'shoes_DARK'
   ];
 
   const cos = getCosmetic(cosmeticId);
@@ -34,6 +35,10 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
       const capAsset = spriteCache.mapleAssets[cos.maple.assetKey];
       capVslot = (capAsset?.info as any)?.vslot || '';
     }
+  }
+  if (!capVslot) {
+    const vampCap = spriteCache.mapleAssets['cap_VAMPIRE'];
+    capVslot = (vampCap?.info as any)?.vslot || '';
   }
 
   const hairVslotMap: Record<string, string> = {
