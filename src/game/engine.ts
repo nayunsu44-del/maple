@@ -1075,15 +1075,14 @@ export function drawEnemies(ctx: CanvasRenderingContext2D) {
 
 // ── MAPLE MCP CHARACTER ASSEMBLY DRAWING ────────────────────────────
 export function drawPlayer(ctx: CanvasRenderingContext2D) {
+  const sx = toSX(P.x), sy = toSY(P.y);
+  ctx.strokeStyle = '#ff0000'; ctx.lineWidth = 4;
+  ctx.beginPath(); ctx.arc(sx, sy, 80, 0, Math.PI*2); ctx.stroke();
   if (!spriteCache.isMapleLoaded) {
-    // 로드 완료 전에는 기존 도형 캐릭터 대체 렌더링
-    const sx = toSX(P.x), sy = toSY(P.y);
     ctx.fillStyle = '#1565c0'; ctx.fillRect(sx - 10, sy - 10, 20, 20);
     drawCosmeticOverlay(ctx, sx, sy, P.face, 1);
     return;
   }
-
-  const sx = toSX(P.x), sy = toSY(P.y);
   const scale = 1.35;
 
   const isMoving = Math.abs(P.walk) > 0.01;
