@@ -1,5 +1,5 @@
 {
-  "id": "50047",
+  "id": "51060",
   "type": "face",
   "cdnBase": "https://resource-static.msu.io/data",
   "availableStates": [
@@ -34,9 +34,9 @@
       "state": "default",
       "frame": "0",
       "part": "face",
-      "path": "Character/Face/00050047/default/face.png",
+      "path": "Character/Face/00051060/default/face.png",
       "origin": {
-        "x": 11,
+        "x": 12,
         "y": -7
       },
       "texture_key": "maple_face_default_0_face",
