@@ -1124,10 +1124,8 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     const asset = spriteCache.mapleAssets[eqKey];
     if (!asset) continue;
 
-    // 얼굴(Face)은 actionState 상관없이 항상 default, frame "0" 고정
-    const isFace = asset.type === 'face';
-    const targetState = isFace ? 'default' : actionState;
-    const targetFrame = isFace ? '0' : frameStr;
+    const targetState = (actionState in asset.planByState) ? actionState : (('default' in asset.planByState) ? 'default' : Object.keys(asset.planByState)[0]);
+    const targetFrame = (targetState === 'default') ? '0' : frameStr;
     let stateFrames = asset.planByState[targetState] || [];
     let frames = stateFrames.filter(f => f.frame === targetFrame);
 

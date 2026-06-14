@@ -299,8 +299,7 @@ function preloadCriticalImages() {
   for (const key of criticalKeys) {
     const asset = mapleAssets[key];
     if (!asset) continue;
-    const isFace = asset.type === 'face';
-    const targetState = isFace ? 'default' : actionState;
+    const targetState = (actionState in asset.planByState) ? actionState : (('default' in asset.planByState) ? 'default' : Object.keys(asset.planByState)[0]);
     const stateFrames = asset.planByState[targetState] || [];
     for (const frame of stateFrames) {
       if (['highlefEar', 'humanEar', 'lefEar'].includes(frame.part)) continue;

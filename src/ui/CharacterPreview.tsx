@@ -52,8 +52,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
     const asset = spriteCache.mapleAssets[eqKey];
     if (!asset) continue;
 
-    const isFace = asset.type === 'face';
-    const targetState = isFace ? 'default' : actionState;
+    const targetState = (actionState in asset.planByState) ? actionState : (('default' in asset.planByState) ? 'default' : Object.keys(asset.planByState)[0]);
     const stateFrames = asset.planByState[targetState] || [];
     const frames = stateFrames.filter(f => f.frame === '0');
 
@@ -145,7 +144,7 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
         const allLoaded = keys.every(key => {
           const asset = spriteCache.mapleAssets[key];
           if (!asset) return false;
-          const targetState = asset.type === 'face' ? 'default' : 'stand1';
+          const targetState = ('stand1' in asset.planByState) ? 'stand1' : (('default' in asset.planByState) ? 'default' : Object.keys(asset.planByState)[0]);
           const stateFrames = asset.planByState[targetState] || [];
           const frames = stateFrames.filter(f => f.frame === '0');
           if (!frames.length) return false;
