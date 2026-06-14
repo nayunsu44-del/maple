@@ -325,9 +325,20 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
   }
 
   partsToRender.forEach((part) => {
+    if (part.z && part.z.includes('accessory')) {
+      const ab = part.map?.brow || { x: 0, y: 0 };
+      localPos[part.z] = {
+        x: localPos['head'].x + (headBrow.x - ab.x) * scale,
+        y: localPos['head'].y + (headBrow.y - ab.y) * scale
+      };
+    }
+  });
+
+  partsToRender.forEach((part) => {
     if (part.z === 'body' || part.z === 'head' || part.z === 'face') return;
     if (part.z === 'hair' || part.z === 'hairOverHead' || part.z === 'hairShade') return;
     if (part.z === 'cap' || part.z === 'capAccessory' || part.z === 'capOverHair' || part.z === 'capBelowAccessory') return;
+    if (part.z && part.z.includes('accessory')) return;
     let anchorSocket = part.map?.navel || { x: 0, y: 0 };
     let parentLocal = localPos['body'];
     let parentSocket = navelOnBody;
