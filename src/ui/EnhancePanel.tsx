@@ -76,7 +76,7 @@ function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number 
     if (!img) return;
 
     const baseScale = size / Math.max(img.width, img.height);
-    const scale = (slot === 'shoes' ? baseScale * 1.0 : baseScale * 0.75);
+    const scale = (slot === 'shoes' ? baseScale * 0.6 : baseScale * 0.75);
     const dw = img.width * scale;
     const dh = img.height * scale;
     const dx = (size - dw) / 2;
