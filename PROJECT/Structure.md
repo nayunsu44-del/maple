@@ -65,7 +65,7 @@
 │   │   └── engine.ts         # Game state, update loops, and spawners (P0 <= 800 line compliant)
 │   ├── ui/
 │   │   └── canvas_ui.ts      # Dedicated Canvas UI drawing routines (HUD, skillpick, levelup, results)
-│   ├── App.tsx               # React entry: game loop, UI states, input, resize (P0 <= 800 line compliant)
+│   ├── App_v2.tsx            # React entry: game loop, UI states, input, resize (P0 <= 800 line compliant)
 │   ├── App.css               # Viewport layout and centering
 │   ├── index.css             # Tailwind imports
 │   ├── assets.json           # Asset manifest (empty baseline)
@@ -121,7 +121,7 @@ Dedicated Canvas UI drawing and overlay routines:
 - Renders the complete HUD dashboard (HP, EXP, Timer, Boss Alert, Kill Count, Mesos, active skills, custom joystick, sound toggler) with exact scaling ratios (`drawHUDCanvas`).
 - Renders the levelup selection overlay and retry/home buttons (`drawLevelUpCanvas`, `drawResultCanvas`).
 
-### `src/App.tsx`
+### `src/App_v2.tsx`
 React component orchestrating the game loop and UI overlays. Strictly compliant with P0/P1 constraints:
 - Manages phase state machine (title → skillpick → playing → paused/levelup → result).
 - Orchestrates `requestAnimationFrame` and coordinates the game rendering canvas lifecycle.
