@@ -1,0 +1,345 @@
+{
+  "id": "1492037",
+  "type": "weapon",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "alert",
+    "fly",
+    "heal",
+    "jump",
+    "prone",
+    "proneStab",
+    "shoot2",
+    "stabO1",
+    "stabO2",
+    "stabT2",
+    "stand1",
+    "swingO3",
+    "swingP1",
+    "swingP2",
+    "swingT1",
+    "swingT2",
+    "swingT3",
+    "walk1"
+  ],
+  "render_plan": [
+    {
+      "state": "stand1",
+      "frame": "0",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/stand1/0/weapon.png",
+      "origin": {
+        "x": 25,
+        "y": -2
+      },
+      "texture_key": "maple_weapon_stand1_0_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "1",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/stand1/1/weapon.png",
+      "origin": {
+        "x": 27,
+        "y": -1
+      },
+      "texture_key": "maple_weapon_stand1_1_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "stand1",
+      "frame": "2",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/stand1/2/weapon.png",
+      "origin": {
+        "x": 29,
+        "y": -2
+      },
+      "texture_key": "maple_weapon_stand1_2_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "0",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/walk1/0/weapon.png",
+      "origin": {
+        "x": 48,
+        "y": 17
+      },
+      "texture_key": "maple_weapon_walk1_0_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "1",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/walk1/1/weapon.png",
+      "origin": {
+        "x": 27,
+        "y": 2
+      },
+      "texture_key": "maple_weapon_walk1_1_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "2",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/walk1/0/weapon.png",
+      "origin": {
+        "x": 48,
+        "y": 17
+      },
+      "texture_key": "maple_weapon_walk1_2_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "state": "walk1",
+      "frame": "3",
+      "part": "weapon",
+      "path": "Character/Weapon/01492037/walk1/3/weapon.png",
+      "origin": {
+        "x": 45,
+        "y": 30
+      },
+      "texture_key": "maple_weapon_walk1_3_weapon",
+      "z": "weapon",
+      "sockets": {
+        "navel": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "afterImage": "gun",
+    "attack": 9,
+    "attackSpeed": 4,
+    "cash": 0,
+    "epic": {
+      "ItemSkill": {
+        "0": {
+          "id": 10004,
+          "level": 1
+        },
+        "1": {
+          "id": 10003,
+          "level": 1
+        }
+      },
+      "hs": "h1"
+    },
+    "epicItem": 1,
+    "equipTradeBlock": 1,
+    "incDEX": 6,
+    "incPAD": 61,
+    "islot": "Wp",
+    "mintable": 1,
+    "price": 28000,
+    "reqDEX": 0,
+    "reqINT": 0,
+    "reqJob": 16,
+    "reqLUK": 0,
+    "reqLevel": 58,
+    "reqSTR": 0,
+    "sfx": "gun",
+    "stand": 1,
+    "tuc": 7,
+    "vslot": "Wp",
+    "walk": 1
+  }
+}
