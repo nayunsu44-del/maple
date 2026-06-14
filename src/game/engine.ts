@@ -969,17 +969,15 @@ function drawSkillSprite(ctx: CanvasRenderingContext2D, assetKey: string, state:
 // ── MAPLE MCP MOB DRAWING ───────────────────────────────────────────
 function getMobAssetKey(e: Enemy): string {
   if (e.def.assetKey) return e.def.assetKey;
-  if (e.isMid) {
-    if (e.type === 'BS') return 'mob_100101';
-    if (e.type === 'RS') return 'mob_REDSNAIL';
-    return `mob_${e.type}`;
-  }
-  if (e.type === 'SN') return 'mob_100100';
-  if (e.type === 'BS') return 'mob_100101';
-  if (e.type === 'MU') return 'mob_1210102';
-  if (e.type === 'ZM') return 'mob_2230101';
-  if (e.type === 'BL') return 'mob_8130100';
-  return `mob_${e.type}`;
+  const typeMap: Record<string, string> = {
+    SN: 'mob_100100', BS: 'mob_100101', MU: 'mob_1210102', ZM: 'mob_2230101', BL: 'mob_8130100',
+    SP: 'mob_SPORE', RS: 'mob_REDSNAIL', MM: 'mob_MUSHMOM',
+    SL: 'mob_SL', ST: 'mob_ST', GM: 'mob_GM', PG: 'mob_PG',
+    CE: 'mob_CE', EE: 'mob_EE', JN: 'mob_JN', WM: 'mob_WM',
+    WB: 'mob_WB', FB: 'mob_FB', SG: 'mob_SG', DS: 'mob_DS',
+    OC: 'mob_OC', BB: 'mob_BB', LG: 'mob_LG', WK: 'mob_WK',
+  };
+  return typeMap[e.type] || `mob_${e.type}`;
 }
 
 export function drawEnemies(ctx: CanvasRenderingContext2D) {
