@@ -8,6 +8,7 @@ import { t, setLang, skillName, mobName, currentLang, type Lang } from './game/i
 import { computeLoadout, getCosmetic, CHAPTERS } from './game/catalog';
 import { getActiveProfile, saveProfile, unlockCosmetics, type Profile } from './game/profile';
 import { useGameInput } from './game/useGameInput';
+import { clp } from './game/physics';
 import HomeHub from './ui/HomeHub';
 import ChapterSelect from './ui/ChapterSelect';
 import EnhancePanel from './ui/EnhancePanel';
@@ -304,13 +305,13 @@ export default function App() {
                      engine.gTimer < 420 ? 0.85 + ((engine.gTimer - 30) / 390) * 0.20 :
                      engine.gTimer < 480 ? 1.05 + ((engine.gTimer - 420) / 60) * 0.20 : 0.70;
 
-        const ampGrow = engine.gTimer < 480 ? 0.10 + engine.clp(engine.gTimer / 480, 0, 1) * 0.16 : 0.08;
+        const ampGrow = engine.gTimer < 480 ? 0.10 + clp(engine.gTimer / 480, 0, 1) * 0.16 : 0.08;
         const wave = Math.sin(engine.gTimer / 42 * Math.PI * 2) * ampGrow + Math.sin(engine.gTimer / 15 * Math.PI * 2) * (ampGrow * 0.35);
-        const rampIn = 0.5 + 0.5 * engine.clp(engine.gTimer / 12, 0, 1);
-        const intensity = engine.clp((base + wave) * rampIn, 0.05, 1.30);
+        const rampIn = 0.5 + 0.5 * clp(engine.gTimer / 12, 0, 1);
+        const intensity = clp((base + wave) * rampIn, 0.05, 1.30);
 
-        const earlyMul = 0.75 + 0.25 * engine.clp(engine.gTimer / 300, 0, 1);
-        const si = engine.clp((1.05 - intensity * 0.93) / 2, 0.05, 0.55) / earlyMul;
+        const earlyMul = 0.75 + 0.25 * clp(engine.gTimer / 300, 0, 1);
+        const si = clp((1.05 - intensity * 0.93) / 2, 0.05, 0.55) / earlyMul;
         const maxE = Math.round((12 + intensity * 60 + (engine.gTimer > 300 ? (engine.gTimer - 300) * 0.15 : 0)) * earlyMul);
 
         if (!engine.bossSpawned && engine.spawnClock >= si && engine.enemies.length < maxE) {
