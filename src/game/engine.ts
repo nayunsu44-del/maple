@@ -1115,6 +1115,7 @@ export function drawPlayer(ctx: CanvasRenderingContext2D) {
     path: string;
   }[] = [];
 
+  // ── CHARACTER ASSEMBLY: face_JEROME + hair_CAIN + vampire set ──────
   const equipmentKeys = [
     'body_2000', 'head_12000', 'face_JEROME', 'hair_CAIN',
     'weapon_VAMPIRE', 'coat_VAMPIRE', 'cap_VAMPIRE', 'cape_VAMPIRE',
