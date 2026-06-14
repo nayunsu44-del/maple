@@ -130,7 +130,7 @@ export const toSY = (wy: number) => wy - camY + shakeY;
 
 type CosmeticDrawFn = (ctx: CanvasRenderingContext2D, x: number, y: number, facing: number, scale: number) => void;
 let cosmeticDraw: CosmeticDrawFn | null = null;
-let cosmeticCapVslot = 'CpH1H5';    // Devilish Horns default
+let cosmeticCapVslot = '';    // Devilish Horns: no hair masking
 let cosmeticCapAssetKey = '';
 let cosmeticCapeDraw: CosmeticDrawFn | null = null;
 export let debugInvincible = false;

@@ -37,8 +37,7 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
     }
   }
   if (!capVslot) {
-    const vampCap = spriteCache.mapleAssets['cap_VAMPIRE'];
-    capVslot = (vampCap?.info as any)?.vslot || '';
+    // Devilish Horns: no hair masking (vslot left empty)
   }
 
   const hairVslotMap: Record<string, string> = {
