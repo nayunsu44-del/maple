@@ -27,10 +27,10 @@ function bonusText(profile: Profile, slot: EnhanceSlotId): string {
 }
 
 const EQUIP_ASSETS: Record<EnhanceSlotId, string> = {
-  weapon: 'weapon_STAFF',
-  top: 'coat_1040004',
-  bottom: 'pants_1060040',
-  shoes: 'shoes_1072850',
+  weapon: 'weapon_DARK',
+  top: 'coat_DARK',
+  bottom: 'pants_DARK',
+  shoes: 'shoes_DARK',
 };
 
 function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number }) {

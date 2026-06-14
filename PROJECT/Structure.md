@@ -212,3 +212,6 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 - **CDN Base**: `https://resource-static.msu.io/data/`
 - **Use case**: Chapter select UI card backgrounds for Perion theme
 | `data/maple/mob_WM.json` | Cold Eye | 4230100 | stand, move, hit1, die1 |
+
+| `data/maple/hair_DARK.json` | Hair (Spiky Hair) | 35527 | stand1, walk1 |
+| `data/maple/face_DARK.json` | Face (Anger's Blaze) | 20510 | default |
