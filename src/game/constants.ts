@@ -23,6 +23,15 @@ export const MESO_BOSS_MIN = 300;
 export const MESO_BOSS_MAX = 500;
 export const CH1_CLEAR_BONUS = 100;
 
+// ── PHYSICS & SPAWN CONSTANTS ───────────────────────────────────────
+export const SPAWN_OUT_OF_BOUNDS_DISTANCE = 560; // 몬스터가 뷰포트 밖에서 소환되는 상대 거리
+export const PLAYER_COLLISION_RADIUS = 14;      // 플레이어와 몹 간의 충돌 판정 반경
+export const KNOCKBACK_DECAY_RATE = 8;         // 넉백 감쇠 저항값 마찰 배율 (1 - 8 * dt)
+export const GEM_COLLECT_RADIUS2 = 324;         // 젬 수집 완료되는 제곱 판정 반경 (18^2)
+export const SPAWN_EDGE_PADDING = 20;           // 맵 스폰 경계 패딩 수치
+export const XP_SCATTER_OFFSET = 35;            // 보스 처치 후 생성되는 XP 아이템 분산 오프셋
+export const BOSS_CLEAR_XP_BOOST = 50;          // 보스 처치 보상 XP 젬당 수량
+
 export const SD: Record<string, SkillDef> = {
   POWER: {
     nm: '파워 스트라이크',

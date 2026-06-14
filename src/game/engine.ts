@@ -4,6 +4,9 @@ import {
   MESO_TRASH_DROP_CHANCE, MESO_TRASH_MIN, MESO_TRASH_MAX,
   MESO_MID_MIN, MESO_MID_MAX, MESO_BOSS_MIN, MESO_BOSS_MAX, CH1_CLEAR_BONUS,
   xpNext, calcScore, calcGrade,
+  SPAWN_OUT_OF_BOUNDS_DISTANCE, PLAYER_COLLISION_RADIUS,
+  KNOCKBACK_DECAY_RATE, GEM_COLLECT_RADIUS2, SPAWN_EDGE_PADDING,
+  XP_SCATTER_OFFSET, BOSS_CLEAR_XP_BOOST
 } from './constants';
 import type { LoadoutBonus } from './catalog';
 import { sfx } from './audio';
@@ -304,7 +307,7 @@ export function killEnemy(e: Enemy, onEndRun: () => void) {
   if (e.isBoss) {
     doShake(22);
     addParts(e.x, e.y, '#ffd54f', 25, 150, 1.5);
-    for (let i = 0; i < 5; i++) addXP(e.x + rnd(-35, 35), e.y + rnd(-35, 35), 50);
+    for (let i = 0; i < 5; i++) addXP(e.x + rnd(-XP_SCATTER_OFFSET, XP_SCATTER_OFFSET), e.y + rnd(-XP_SCATTER_OFFSET, XP_SCATTER_OFFSET), BOSS_CLEAR_XP_BOOST);
     const mesoReward = ri(MESO_BOSS_MIN, MESO_BOSS_MAX) + CH1_CLEAR_BONUS;
     runMesos += mesoReward;
     addFText(e.x, e.y - 96, '+' + mesoReward + ' ' + i18n.t('hud_mesos'), '#ffd54f', 22);
@@ -353,8 +356,8 @@ export function spawnBoss() {
   if (bossSpawned) return;
   bossSpawned = true;
   const def = ED[currentBossType];
-  const bx = worldInfinite ? P.x + 500 : clp(P.x + 500, def.r + 20, worldW - def.r - 20);
-  const by = worldInfinite ? P.y : clp(P.y, def.r + 20, worldH - def.r - 20);
+  const bx = worldInfinite ? P.x + 500 : clp(P.x + 500, def.r + SPAWN_EDGE_PADDING, worldW - def.r - SPAWN_EDGE_PADDING);
+  const by = worldInfinite ? P.y : clp(P.y, def.r + SPAWN_EDGE_PADDING, worldH - def.r - SPAWN_EDGE_PADDING);
   const bossHp = def.hp * currentDifficultyMult;
   const bossAtk = def.atk * currentDifficultyMult;
   for (let i = enemies.length - 1; i >= 0; i--) {
@@ -383,10 +386,10 @@ export function spawnMidBoss() {
   const finalHp = base.hp * hm * 8 * currentDifficultyMult;
   const finalAtk = base.atk * am * 1.5 * currentDifficultyMult;
   const a = rnd(0, Math.PI * 2);
-  const rawX = P.x + Math.cos(a) * 560;
-  const rawY = P.y + Math.sin(a) * 560;
-  const ex = worldInfinite ? rawX : clp(rawX, def.r + 20, worldW - def.r - 20);
-  const ey = worldInfinite ? rawY : clp(rawY, def.r + 20, worldH - def.r - 20);
+  const rawX = P.x + Math.cos(a) * SPAWN_OUT_OF_BOUNDS_DISTANCE;
+  const rawY = P.y + Math.sin(a) * SPAWN_OUT_OF_BOUNDS_DISTANCE;
+  const ex = worldInfinite ? rawX : clp(rawX, def.r + SPAWN_EDGE_PADDING, worldW - def.r - SPAWN_EDGE_PADDING);
+  const ey = worldInfinite ? rawY : clp(rawY, def.r + SPAWN_EDGE_PADDING, worldH - def.r - SPAWN_EDGE_PADDING);
   enemies.push({
     type: baseType, def,
     x: ex, y: ey, hp: finalHp, maxHp: finalHp,
@@ -513,10 +516,10 @@ export function updEnemies(dt: number, onEndRun: () => void) {
     const L = Math.sqrt(vx * vx + vy * vy) || 1;
     e.x += vx / L * e.spd * dt + e.kbx * dt;
     e.y += vy / L * e.spd * dt + e.kby * dt;
-    e.kbx *= (1 - 8 * dt); e.kby *= (1 - 8 * dt);
+    e.kbx *= (1 - KNOCKBACK_DECAY_RATE * dt); e.kby *= (1 - KNOCKBACK_DECAY_RATE * dt);
     e.wb += dt * 3;
     if (e.hf > 0) e.hf -= dt * 4;
-    if (P.invT <= 0 && L < e.def.r + 14) {
+    if (P.invT <= 0 && L < e.def.r + PLAYER_COLLISION_RADIUS) {
       P.hp -= e.atk;
       hurtT = 0.4;
       sfx('hurt');
