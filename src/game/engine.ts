@@ -79,7 +79,7 @@ export let awakenT = 0;
 export let awakenName = '';
 export let hurtT = 0;
 export let nextMid = 150;
-let currentLoadout: LoadoutBonus = { atkMulAdd: 0, hpAdd: 0, spdMulAdd: 0 };
+let currentLoadout: LoadoutBonus = { atkMulAdd: 0, hpAdd: 0, spdMulAdd: 0, atkSpeedAdd: 0 };
 let worldW = WW;
 let worldH = WH;
 let worldInfinite = false;
@@ -252,6 +252,7 @@ export function resetGameState() {
   P.maxHp += currentLoadout.hpAdd;
   P.hp = P.maxHp;
   P.spdM += currentLoadout.spdMulAdd;
+  P.atkCd = 0.7 / (1 + currentLoadout.atkSpeedAdd);
 }
 
 // ── SKILL APPLY & LEVEL UP ───────────────────────────────────────────

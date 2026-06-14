@@ -8,6 +8,7 @@ export interface LoadoutBonus {
   atkMulAdd: number;
   hpAdd: number;
   spdMulAdd: number;
+  atkSpeedAdd: number;
 }
 
 export interface ChapterDef {
@@ -41,9 +42,10 @@ export interface CosmeticDef {
 
 export const ENHANCE_MAX_LEVEL = 50;
 export const ENHANCE_BASE_COST = 50;
-export const WEAPON_ATK_MUL_PER_LEVEL = 0.08;
-export const ARMOR_HP_PER_LEVEL = 20;
-export const SHOES_SPD_MUL_PER_LEVEL = 0.03;
+export const WEAPON_ATK_MUL_PER_LEVEL = 0.16;
+export const ARMOR_HP_PER_LEVEL = 40;
+export const SHOES_SPD_MUL_PER_LEVEL = 0.06;
+export const WEAPON_ATKSPD_PER_LEVEL = 0.008;
 
 export const ENHANCE_SLOTS: {
   id: EnhanceSlotId;
@@ -240,6 +242,7 @@ export function computeLoadout(enhance: Profile['enhance']): LoadoutBonus {
     atkMulAdd: weapon * WEAPON_ATK_MUL_PER_LEVEL,
     hpAdd: (top + bottom) * ARMOR_HP_PER_LEVEL,
     spdMulAdd: shoes * SHOES_SPD_MUL_PER_LEVEL,
+    atkSpeedAdd: weapon * WEAPON_ATKSPD_PER_LEVEL,
   };
 }
 
