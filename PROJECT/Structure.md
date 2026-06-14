@@ -59,10 +59,13 @@
 │   │   ├── audio.ts          # Web Audio synth with SFX_GAP throttling
 │   │   ├── spriteCache.ts    # Maple asset loading, planByState indexing, lazy image fetch
 │   │   ├── i18n.ts           # EN/KO translations, t(), skillName(), mobName(), skillDesc()
+│   │   ├── useGameInput.ts   # Clean, custom React hook encapsulating all mouse, touch, keyboard input handlers
 │   │   ├── physics.ts        # Math and coordinate physics helpers (O(1) closest-scans)
 │   │   ├── engine_draw_v2.ts # Independent drawing and character socket assembly routines
 │   │   └── engine.ts         # Game state, update loops, and spawners (P0 <= 800 line compliant)
-│   ├── App.tsx               # React entry: game loop, UI states, input, resize
+│   ├── ui/
+│   │   └── canvas_ui.ts      # Dedicated Canvas UI drawing routines (HUD, skillpick, levelup, results)
+│   ├── App.tsx               # React entry: game loop, UI states, input, resize (P0 <= 800 line compliant)
 │   ├── App.css               # Viewport layout and centering
 │   ├── index.css             # Tailwind imports
 │   ├── assets.json           # Asset manifest (empty baseline)
@@ -112,13 +115,17 @@ Core update loops:
 - **Juice**: Screen shake, hit-stop, damage text, awakening sequence.
 - **Re-exports**: Transparently bridges draw functions from `./engine_draw_v2` for maximum backward compatibility.
 
+### `src/ui/canvas_ui.ts`
+Dedicated Canvas UI drawing and overlay routines:
+- Renders the skill pick overlay with detailed rarity stats, description texts, and hover matrices (`drawSkillPickCanvas`).
+- Renders the complete HUD dashboard (HP, EXP, Timer, Boss Alert, Kill Count, Mesos, active skills, custom joystick, sound toggler) with exact scaling ratios (`drawHUDCanvas`).
+- Renders the levelup selection overlay and retry/home buttons (`drawLevelUpCanvas`, `drawResultCanvas`).
+
 ### `src/App.tsx`
-React component orchestrating game loop via `requestAnimationFrame`. Manages:
-- Phase state machine (title → skillpick → playing → paused/levelup → result).
-- Input: keyboard, mouse click, touch joystick, tap.
-- Canvas rendering: title screen, skill pick cards, HUD, levelup overlay, result screen.
-- Resize handler (contain scaling, 4:3 ratio).
-- Language selector (EN/KO).
+React component orchestrating the game loop and UI overlays. Strictly compliant with P0/P1 constraints:
+- Manages phase state machine (title → skillpick → playing → paused/levelup → result).
+- Orchestrates `requestAnimationFrame` and coordinates the game rendering canvas lifecycle.
+- Handles responsive scaling with forced mobile landscape rotate transforms.
 
 ## MapleStory Skill Assets
 
