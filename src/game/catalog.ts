@@ -39,9 +39,8 @@ export interface CosmeticDef {
   };
 }
 
-export const ENHANCE_MAX_LEVEL = 10;
+export const ENHANCE_MAX_LEVEL = 50;
 export const ENHANCE_BASE_COST = 50;
-export const ENHANCE_COST_SCALE = 1.55;
 export const WEAPON_ATK_MUL_PER_LEVEL = 0.08;
 export const ARMOR_HP_PER_LEVEL = 20;
 export const SHOES_SPD_MUL_PER_LEVEL = 0.03;
@@ -224,7 +223,7 @@ export const COSMETICS: CosmeticDef[] = [
 ];
 
 export function enhanceCost(level: number): number {
-  return Math.round(ENHANCE_BASE_COST * Math.pow(ENHANCE_COST_SCALE, level));
+  return Math.round(ENHANCE_BASE_COST * Math.pow(level + 1, 1.6));
 }
 
 function clampLevel(level: number): number {
