@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getCosmetic } from '../game/catalog';
 import * as spriteCache from '../game/spriteCache';
 
@@ -127,6 +127,15 @@ function drawMapleCharacter(ctx: CanvasRenderingContext2D, anchorX: number, anch
 
 export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, className = '' }: CharacterPreviewProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [, setTick] = useState(0);
+
+  useEffect(() => {
+    if (spriteCache.isMapleLoaded) return;
+    const id = setInterval(() => {
+      if (spriteCache.isMapleLoaded) setTick(t => t + 1);
+    }, 100);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
