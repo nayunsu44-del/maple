@@ -172,11 +172,11 @@ function drawMapleCape(assetKey: string): CosmeticDef['draw'] {
   };
 }
 
-const drawMage   = drawMapleCap('cap_1001128', -62);
-const drawKnight = drawMapleCap('cap_1002357', -60);
-const drawNinja  = drawMapleCap('cap_1002083', -58);
+const drawMage   = drawMapleCap('cap_1001128', -70);
+const drawKnight = drawMapleCap('cap_1002357', -68);
+const drawNinja  = drawMapleCap('cap_1002083', -66);
 const drawAngel  = drawMapleCape('cape_1102005');
-const drawKing   = drawMapleCap('cap_1003084', -64);
+const drawKing   = drawMapleCap('cap_1003084', -72);
 
 export const COSMETICS: CosmeticDef[] = [
   {
