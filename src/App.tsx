@@ -35,6 +35,7 @@ export default function App() {
   const joyRef = useRef({ on: false, bx: 0, by: 0, dx: 0, dy: 0, id: -1 });
   const resultRecordedRef = useRef(false);
   const activeChapterRef = useRef('ch1');
+  const lastPhaseRef = useRef<string>('title');
   const rotatedRef = useRef(false);
   const [rotated, setRotated] = useState(false);
 
@@ -241,6 +242,14 @@ export default function App() {
 
       // Local synced phases
       const currentPhase = engine.phase;
+
+      if (currentPhase !== 'playing' && lastPhaseRef.current === 'playing') {
+        keysRef.current.clear();
+        joyRef.current.on = false;
+        joyRef.current.dx = 0;
+        joyRef.current.dy = 0;
+      }
+      lastPhaseRef.current = currentPhase;
 
       if (menuViewRef.current) {
         lastT = ts;

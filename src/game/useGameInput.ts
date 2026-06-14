@@ -169,10 +169,22 @@ export function useGameInput(
     cv.addEventListener('touchmove', handleTouchMove, { passive: false });
     cv.addEventListener('touchend', handleTouchEnd, { passive: false });
 
+    // window blur handler to reset keys/joystick when focus is lost (e.g. alt-tab)
+    const handleBlur = () => {
+      keysRef.current?.clear();
+      if (joyRef.current) {
+        joyRef.current.on = false;
+        joyRef.current.dx = 0;
+        joyRef.current.dy = 0;
+      }
+    };
+    window.addEventListener('blur', handleBlur);
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
       window.removeEventListener('keydown', handleDebugKey);
+      window.removeEventListener('blur', handleBlur);
       cv.removeEventListener('mousemove', handleMouseMove);
       cv.removeEventListener('click', handleMouseClick);
       cv.removeEventListener('touchstart', handleTouchStart);
