@@ -135,17 +135,34 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
   useEffect(() => {
     const id = setInterval(() => {
       if (spriteCache.isMapleLoaded) {
-        const bodyAsset = spriteCache.mapleAssets['body_2000'];
-        if (!bodyAsset) return;
-        const frames = bodyAsset.planByState['stand1'];
-        if (!frames?.length) return;
-        const frame = frames[0];
-        const imgKey = `body_2000_${frame.state}_${frame.frame}_${frame.part}`;
-        if (spriteCache.mapleImages[imgKey]) { setTick(t => t + 1); clearInterval(id); }
+        const keys = [
+          'body_2000', 'head_12000', 'face_50247', 'hair_60000',
+          'weapon_GAISER', 'coat_DRAKAZ', 'shoes_DRAKAZ', 'acc_1012626'
+        ];
+        const cos = getCosmetic(cosmeticId);
+        if (cos?.maple) keys.push(cos.maple.assetKey);
+
+        const allLoaded = keys.every(key => {
+          const asset = spriteCache.mapleAssets[key];
+          if (!asset) return false;
+          const targetState = asset.type === 'face' ? 'default' : 'stand1';
+          const stateFrames = asset.planByState[targetState] || [];
+          const frames = stateFrames.filter(f => f.frame === '0');
+          if (!frames.length) return false;
+          return frames.every(frame => {
+            const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
+            return !!spriteCache.mapleImages[imgKey];
+          });
+        });
+
+        if (allLoaded) {
+          setTick(t => t + 1);
+          clearInterval(id);
+        }
       }
     }, 100);
     return () => clearInterval(id);
-  }, []);
+  }, [cosmeticId]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
