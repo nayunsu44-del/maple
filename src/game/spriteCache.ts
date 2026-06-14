@@ -1,4 +1,4 @@
-import { ED, TILE } from './constants';
+import { ED, TILE, LW, LH } from './constants';
 
 export interface MapleRenderFrame {
   state: string;
@@ -38,6 +38,21 @@ export let xpSprite: HTMLCanvasElement;
 export let bgPattern: CanvasPattern | null = null;
 export const bgPatterns: Record<string, CanvasPattern | null> = {};
 export let hurtVignette: HTMLCanvasElement;
+
+export function buildHurtVignette(w: number, h: number) {
+  hurtVignette = document.createElement('canvas');
+  hurtVignette.width = w;
+  hurtVignette.height = h;
+  const hg = hurtVignette.getContext('2d')!;
+  const cx = w / 2;
+  const cy = h / 2;
+  const radiusBase = Math.min(w, h);
+  const hgr = hg.createRadialGradient(cx, cy, radiusBase * 0.32, cx, cy, radiusBase * 0.78);
+  hgr.addColorStop(0, 'rgba(244,67,54,0)');
+  hgr.addColorStop(1, 'rgba(183,28,28,0.55)');
+  hg.fillStyle = hgr;
+  hg.fillRect(0, 0, w, h);
+}
 
 type FloorThemeId = 'lith' | 'henesys' | 'ellinia' | 'perion' | 'kerning';
 
@@ -300,15 +315,7 @@ export function buildSprites(ctxForPattern: CanvasRenderingContext2D) {
   }
   bgPattern = bgPatterns.lith ?? null;
 
-
-  hurtVignette = document.createElement('canvas');
-  hurtVignette.width = 800;
-  hurtVignette.height = 600;
-  const hg = hurtVignette.getContext('2d')!;
-  const hgr = hg.createRadialGradient(400, 300, 600 * 0.32, 400, 300, 600 * 0.78);
-  hgr.addColorStop(0, 'rgba(244,67,54,0)');
-  hgr.addColorStop(1, 'rgba(183,28,28,0.55)');
-  hg.fillStyle = hgr; hg.fillRect(0, 0, 800, 600);
+  buildHurtVignette(LW, LH);
 }
 
 function makeGlowSprite(size: number, stops: [number, string][], coreR: number, coreCol: string): HTMLCanvasElement {

@@ -83,8 +83,13 @@ let currentLoadout: LoadoutBonus = { atkMulAdd: 0, hpAdd: 0, spdMulAdd: 0 };
 let worldW = WW;
 let worldH = WH;
 let worldInfinite = false;
-const CULL_DIST = Math.hypot(LW, LH) * 1.8;
-const CULL_DIST2 = CULL_DIST * CULL_DIST;
+let CULL_DIST = Math.hypot(LW, LH) * 1.8;
+let CULL_DIST2 = CULL_DIST * CULL_DIST;
+
+export function recomputeViewport() {
+  CULL_DIST = Math.hypot(LW, LH) * 1.8;
+  CULL_DIST2 = CULL_DIST * CULL_DIST;
+}
 
 export const P: PlayerState = {
   x: WW / 2, y: WH / 2,

@@ -5,8 +5,14 @@ export const WW = 2800;
 export const WH = 2800;
 export const TILE = 80;
 export const BOSS_AT = 480; // 8분에 보스 등장
-export const LW = 800;
-export const LH = 600;
+export const BASE_LW = 800;
+export const BASE_LH = 600;
+export let LW = BASE_LW;
+export let LH = BASE_LH;
+export function setViewport(w: number, h: number) {
+  LW = w;
+  LH = h;
+}
 export const JR = 55;
 export const MESO_TRASH_DROP_CHANCE = 0.30;
 export const MESO_TRASH_MIN = 5;

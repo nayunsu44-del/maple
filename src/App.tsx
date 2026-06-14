@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { WW, WH, BOSS_AT, LW, LH, JR, SD, RC, calcScore, calcGrade } from './game/constants';
+import { BOSS_AT, LW, LH, BASE_LW, BASE_LH, setViewport, JR, SD, RC, calcScore, calcGrade } from './game/constants';
 import { initAudio, sfx, isSoundOn, toggleSound } from './game/audio';
 import * as spriteCache from './game/spriteCache';
 import * as engine from './game/engine';
@@ -152,20 +152,38 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Set up resize handler for responsive scaling
+  // Set up dynamic logical resolution.
   useEffect(() => {
     const handleResize = () => {
       const cv = canvasRef.current;
       if (!cv) return;
-      const s = Math.min(window.innerWidth / LW, window.innerHeight / LH);
-      const w = LW * s;
-      const h = LH * s;
-      cv.style.width = `${w}px`;
-      cv.style.height = `${h}px`;
-      if (containerRef.current) {
-        containerRef.current.style.width = `${w}px`;
-        containerRef.current.style.height = `${h}px`;
+      const viewportW = Math.max(1, window.innerWidth);
+      const viewportH = Math.max(1, window.innerHeight);
+      const aspect = viewportW / viewportH;
+      const BASE_ASPECT = BASE_LW / BASE_LH;
+      const MAX_ASPECT = 2.4;
+      const MIN_ASPECT = 1 / 2.4;
+      const a = Math.max(MIN_ASPECT, Math.min(MAX_ASPECT, aspect));
+      let lw: number;
+      let lh: number;
+      if (a >= BASE_ASPECT) {
+        lh = BASE_LH;
+        lw = Math.round(BASE_LH * a);
+      } else {
+        lw = BASE_LW;
+        lh = Math.round(BASE_LW / a);
       }
+      setViewport(lw, lh);
+      cv.width = lw;
+      cv.height = lh;
+      cv.style.width = '100%';
+      cv.style.height = '100%';
+      if (containerRef.current) {
+        containerRef.current.style.width = '100%';
+        containerRef.current.style.height = '100%';
+      }
+      engine.recomputeViewport();
+      spriteCache.buildHurtVignette(lw, lh);
     };
 
     window.addEventListener('resize', handleResize);
@@ -1079,8 +1097,8 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full bg-[#0d0d1a] text-white font-sans overflow-hidden select-none" style={{ position: 'fixed', inset: 0 }}>
-      <div ref={containerRef} className="relative shadow-2xl border-4 border-[#1a1a3a] rounded-lg bg-[#0d0d1a] overflow-hidden">
+    <div className="fixed inset-0 h-full w-full bg-[#0d0d1a] text-white font-sans overflow-hidden select-none">
+      <div ref={containerRef} className="relative h-full w-full bg-[#0d0d1a] overflow-hidden">
         {/* 로딩 진행 상황을 표시하는 Absolute 오버레이 레이어 */}
         {!mapleLoaded && (
           <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 p-8 bg-[#14142a]/95 z-50">
@@ -1105,7 +1123,7 @@ export default function App() {
           id="c"
           width={LW}
           height={LH}
-          className="block touch-none"
+          className="block h-full w-full touch-none"
         />
 
         {menuView === 'home' && (
