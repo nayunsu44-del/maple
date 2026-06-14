@@ -37,12 +37,20 @@ function EquipPreview({ slot, size = 64 }: { slot: EnhanceSlotId; size?: number 
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    if (spriteCache.isMapleLoaded) return;
     const id = setInterval(() => {
-      if (spriteCache.isMapleLoaded) { setTick(t => t + 1); clearInterval(id); }
+      if (spriteCache.isMapleLoaded) {
+        const assetKey = EQUIP_ASSETS[slot];
+        const asset = spriteCache.mapleAssets[assetKey];
+        if (!asset) return;
+        const frames = asset.planByState['stand1'];
+        if (!frames?.length) return;
+        const frame = frames[0];
+        const imgKey = `${asset.type}_${asset.id}_${frame.state}_${frame.frame}_${frame.part}`;
+        if (spriteCache.mapleImages[imgKey]) { setTick(t => t + 1); clearInterval(id); }
+      }
     }, 100);
     return () => clearInterval(id);
-  }, []);
+  }, [slot]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

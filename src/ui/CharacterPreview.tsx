@@ -130,9 +130,16 @@ export default function CharacterPreview({ cosmeticId, size = 88, facing = 1, cl
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    if (spriteCache.isMapleLoaded) return;
     const id = setInterval(() => {
-      if (spriteCache.isMapleLoaded) { setTick(t => t + 1); clearInterval(id); }
+      if (spriteCache.isMapleLoaded) {
+        const bodyAsset = spriteCache.mapleAssets['body_2000'];
+        if (!bodyAsset) return;
+        const frames = bodyAsset.planByState['stand1'];
+        if (!frames?.length) return;
+        const frame = frames[0];
+        const imgKey = `body_2000_${frame.state}_${frame.frame}_${frame.part}`;
+        if (spriteCache.mapleImages[imgKey]) { setTick(t => t + 1); clearInterval(id); }
+      }
     }, 100);
     return () => clearInterval(id);
   }, []);
