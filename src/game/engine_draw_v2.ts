@@ -8,7 +8,7 @@ import {
 import * as spriteCache from './spriteCache';
 import * as i18n from './i18n';
 import { clp } from './physics';
-import { toSX, toSY, P, enemies, projs, novas, clouds, hawks, meteors, lightnings, drops, parts, ftexts, gTimer, camX, camY, shakeX, shakeY, awakenT, awakenName, hurtT, cosmeticCapAssetKey, cosmeticCapVslot, currentDifficultyMult, currentBgTheme, drawCosmeticOverlay, orbEnts } from './engine';
+import { toSX, toSY, P, enemies, projs, novas, clouds, hawks, meteors, lightnings, drops, parts, ftexts, gTimer, camX, camY, shakeX, shakeY, awakenT, awakenName, hurtT, cosmeticCapAssetKey, cosmeticCapVslot, currentDifficultyMult, currentBgTheme, drawCosmeticOverlay, orbEnts } from './state';
 
 const BG_FALLBACK_COLORS: Record<string, string> = {
   lith: '#3d7a38',

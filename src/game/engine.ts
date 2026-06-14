@@ -831,5 +831,5 @@ export function setPickHover(newHover: number) {
 
 
 // ── DRAW CHANNELS & PHYSICS (RE-EXPORTED) ────────────────────────────
-export { drawBG, drawDrops, drawEnemies, drawPlayer, drawProjs, drawOrbs, drawNovas, drawClouds, drawHawks, drawMeteors, drawLightnings, drawParts, drawFTexts, drawJuiceOverlays, drawSkillSprite } from "./engine_draw";
+export { drawBG, drawDrops, drawEnemies, drawPlayer, drawProjs, drawOrbs, drawNovas, drawClouds, drawHawks, drawMeteors, drawLightnings, drawParts, drawFTexts, drawJuiceOverlays, drawSkillSprite } from "./engine_draw_v2";
 export { clp, rnd, ri, dst, dst2, ang } from "./physics";
