@@ -1,5 +1,5 @@
 {
-  "id": "40722",
+  "id": "40720",
   "type": "hair",
   "cdnBase": "https://resource-static.msu.io/data",
   "availableStates": [
@@ -44,7 +44,7 @@
       "state": "stand1",
       "frame": "0",
       "part": "hair",
-      "path": "Character/Hair/00040722/default/hair.png",
+      "path": "Character/Hair/00040720/default/hair.png",
       "origin": {
         "x": 15,
         "y": 12
@@ -62,7 +62,7 @@
       "state": "stand1",
       "frame": "0",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/default/hairBelowBody.png",
+      "path": "Character/Hair/00040720/default/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -80,7 +80,7 @@
       "state": "stand1",
       "frame": "0",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/default/hairOverHead.png",
+      "path": "Character/Hair/00040720/default/hairOverHead.png",
       "origin": {
         "x": 24,
         "y": 20
@@ -98,7 +98,7 @@
       "state": "stand1",
       "frame": "1",
       "part": "hair",
-      "path": "Character/Hair/00040722/walk1/1/hair.png",
+      "path": "Character/Hair/00040720/walk1/1/hair.png",
       "origin": {
         "x": 16,
         "y": 12
@@ -116,7 +116,7 @@
       "state": "stand1",
       "frame": "1",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/default/hairBelowBody.png",
+      "path": "Character/Hair/00040720/default/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -134,7 +134,7 @@
       "state": "stand1",
       "frame": "1",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
       "origin": {
         "x": 23,
         "y": 20
@@ -152,7 +152,7 @@
       "state": "stand1",
       "frame": "2",
       "part": "hair",
-      "path": "Character/Hair/00040722/stand1/2/hair.png",
+      "path": "Character/Hair/00040720/stand1/2/hair.png",
       "origin": {
         "x": 16,
         "y": 13
@@ -170,7 +170,7 @@
       "state": "stand1",
       "frame": "2",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/default/hairBelowBody.png",
+      "path": "Character/Hair/00040720/default/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -188,7 +188,7 @@
       "state": "stand1",
       "frame": "2",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/stand1/2/hairOverHead.png",
+      "path": "Character/Hair/00040720/stand1/2/hairOverHead.png",
       "origin": {
         "x": 22,
         "y": 20
@@ -206,7 +206,7 @@
       "state": "stand1",
       "frame": "3",
       "part": "hair",
-      "path": "Character/Hair/00040722/walk1/1/hair.png",
+      "path": "Character/Hair/00040720/walk1/1/hair.png",
       "origin": {
         "x": 16,
         "y": 12
@@ -224,7 +224,7 @@
       "state": "stand1",
       "frame": "3",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/default/hairBelowBody.png",
+      "path": "Character/Hair/00040720/default/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -242,7 +242,7 @@
       "state": "stand1",
       "frame": "3",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
       "origin": {
         "x": 23,
         "y": 20
@@ -260,7 +260,7 @@
       "state": "walk1",
       "frame": "0",
       "part": "hair",
-      "path": "Character/Hair/00040722/walk1/0/hair.png",
+      "path": "Character/Hair/00040720/walk1/0/hair.png",
       "origin": {
         "x": 16,
         "y": 13
@@ -278,7 +278,7 @@
       "state": "walk1",
       "frame": "0",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/walk1/0/hairBelowBody.png",
+      "path": "Character/Hair/00040720/walk1/0/hairBelowBody.png",
       "origin": {
         "x": 22,
         "y": 20
@@ -296,7 +296,7 @@
       "state": "walk1",
       "frame": "0",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/walk1/0/hairOverHead.png",
+      "path": "Character/Hair/00040720/walk1/0/hairOverHead.png",
       "origin": {
         "x": 22,
         "y": 20
@@ -314,7 +314,7 @@
       "state": "walk1",
       "frame": "1",
       "part": "hair",
-      "path": "Character/Hair/00040722/walk1/1/hair.png",
+      "path": "Character/Hair/00040720/walk1/1/hair.png",
       "origin": {
         "x": 16,
         "y": 12
@@ -332,7 +332,7 @@
       "state": "walk1",
       "frame": "1",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/walk1/1/hairBelowBody.png",
+      "path": "Character/Hair/00040720/walk1/1/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -350,7 +350,7 @@
       "state": "walk1",
       "frame": "1",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
       "origin": {
         "x": 23,
         "y": 20
@@ -368,7 +368,7 @@
       "state": "walk1",
       "frame": "2",
       "part": "hair",
-      "path": "Character/Hair/00040722/walk1/2/hair.png",
+      "path": "Character/Hair/00040720/walk1/2/hair.png",
       "origin": {
         "x": 15,
         "y": 12
@@ -386,7 +386,7 @@
       "state": "walk1",
       "frame": "2",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/walk1/2/hairBelowBody.png",
+      "path": "Character/Hair/00040720/walk1/2/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -404,7 +404,7 @@
       "state": "walk1",
       "frame": "2",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/walk1/2/hairOverHead.png",
+      "path": "Character/Hair/00040720/walk1/2/hairOverHead.png",
       "origin": {
         "x": 24,
         "y": 20
@@ -422,7 +422,7 @@
       "state": "walk1",
       "frame": "3",
       "part": "hair",
-      "path": "Character/Hair/00040722/walk1/1/hair.png",
+      "path": "Character/Hair/00040720/walk1/1/hair.png",
       "origin": {
         "x": 16,
         "y": 12
@@ -440,7 +440,7 @@
       "state": "walk1",
       "frame": "3",
       "part": "hairBelowBody",
-      "path": "Character/Hair/00040722/walk1/3/hairBelowBody.png",
+      "path": "Character/Hair/00040720/walk1/3/hairBelowBody.png",
       "origin": {
         "x": 15,
         "y": 11
@@ -458,7 +458,7 @@
       "state": "walk1",
       "frame": "3",
       "part": "hairOverHead",
-      "path": "Character/Hair/00040722/walk1/1/hairOverHead.png",
+      "path": "Character/Hair/00040720/walk1/1/hairOverHead.png",
       "origin": {
         "x": 23,
         "y": 20
