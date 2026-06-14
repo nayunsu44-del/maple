@@ -963,7 +963,7 @@ function getMobAssetKey(e: Enemy): string {
   if (e.isMid) {
     if (e.type === 'BS') return 'mob_100101';
     if (e.type === 'RS') return 'mob_REDSNAIL';
-    return e.type === 'MU' ? 'mob_MUSHMOM' : 'mob_ZMUSHMOM';
+    return `mob_${e.type}`;
   }
   if (e.type === 'SN') return 'mob_100100';
   if (e.type === 'BS') return 'mob_100101';
