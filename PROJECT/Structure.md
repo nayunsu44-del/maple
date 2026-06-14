@@ -43,7 +43,11 @@
 │           ├── cape_1102005.json         # Baby Angel Wings cape
 │           ├── skill_HOLYSYMBOL.json     # Holy Symbol orb sprites
 │           ├── mob_DYLE.json             # Dyle boss
-│           └── mob_FAUST.json          # Faust boss
+│           ├── mob_FAUST.json          # Faust boss
+│           ├── mob_WB.json              # Wild Boar
+│           ├── mob_FB.json              # Fire Boar
+│           ├── mob_SG.json              # Stone Golem
+│           └── mob_DS.json              # Dark Stump
 ├── src/
 │   ├── game/
 │   │   ├── types.ts          # Type declarations (PlayerState, Enemy, Projectile, etc.)
@@ -125,7 +129,19 @@ React component orchestrating game loop via `requestAnimationFrame`. Manages:
 | `data/maple/mob_MUSHMOM.json` | Mushmom | mid-boss | stand, move, hit1, die1 |
 | `data/maple/mob_ZMUSHMOM.json` | Zombie Mushmom | mid-boss | stand, move, hit1, die1 |
 | `data/maple/mob_FAUST.json` | Faust | 5220002 | stand, move, hit1, die1, attack1, skill1 |
+| `data/maple/mob_SL.json` | Slime | 210100 | stand, move, hit1, die1 |
+| `data/maple/mob_ST.json` | Stump | 130100 | stand, move, hit1, die1 |
+| `data/maple/mob_GM.json` | Green Mushroom | 1110100 | stand, move, hit1, die1 |
+| `data/maple/mob_PG.json` | Pig | 1210100 | stand, move, hit1, die1 |
 | `data/maple/mob_DYLE.json` | Dyle | 6220000 | stand, move, hit1, die1, skill1 |
+| `data/maple/mob_WB.json` | Wild Boar | 2230102 | stand, move, hit1, die1 |
+| `data/maple/mob_FB.json` | Fire Boar | 3210100 | stand, move, hit1, die1 |
+| `data/maple/mob_SG.json` | Stone Golem | 5130101 | stand, move, hit1, die1 |
+| `data/maple/mob_DS.json` | Dark Stump | 1110101 | stand, move, hit1, die1 |
+| `data/maple/mob_OC.json` | Octopus | 1120100 | stand, move, hit1, die1 |
+| `data/maple/mob_BB.json` | Bubbling | 1210103 | stand, move, hit1, die1 |
+| `data/maple/mob_LG.json` | Ligator | 3110100 | stand, move, hit1, die1 |
+| `data/maple/mob_WK.json` | Wild Cargo | 2600226 (sprite: 6230100) | stand, move, hit1, die1 |
 
 ## MapleStory Character Assets
 

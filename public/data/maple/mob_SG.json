@@ -1,0 +1,386 @@
+{
+  "id": "5130101",
+  "type": "mob",
+  "cdnBase": "https://resource-static.msu.io/data",
+  "availableStates": [
+    "die1",
+    "hit1",
+    "move",
+    "skill1",
+    "stand"
+  ],
+  "render_plan": [
+    {
+      "state": "stand",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/5130101/stand/0.png",
+      "origin": {
+        "x": 90,
+        "y": 156
+      },
+      "texture_key": "maple_mob_stand_0_mob",
+      "delay": 300
+    },
+    {
+      "state": "stand",
+      "frame": "1",
+      "part": "mob",
+      "path": "Mob/5130101/stand/1.png",
+      "origin": {
+        "x": 91,
+        "y": 157
+      },
+      "texture_key": "maple_mob_stand_1_mob",
+      "delay": 150
+    },
+    {
+      "state": "stand",
+      "frame": "2",
+      "part": "mob",
+      "path": "Mob/5130101/stand/2.png",
+      "origin": {
+        "x": 92,
+        "y": 158
+      },
+      "texture_key": "maple_mob_stand_2_mob",
+      "delay": 300
+    },
+    {
+      "state": "move",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/5130101/move/0.png",
+      "origin": {
+        "x": 90,
+        "y": 158
+      },
+      "texture_key": "maple_mob_move_0_mob",
+      "delay": 350
+    },
+    {
+      "state": "move",
+      "frame": "1",
+      "part": "mob",
+      "path": "Mob/5130101/move/1.png",
+      "origin": {
+        "x": 90,
+        "y": 154
+      },
+      "texture_key": "maple_mob_move_1_mob",
+      "delay": 350
+    },
+    {
+      "state": "move",
+      "frame": "2",
+      "part": "mob",
+      "path": "Mob/5130101/move/2.png",
+      "origin": {
+        "x": 90,
+        "y": 158
+      },
+      "texture_key": "maple_mob_move_2_mob",
+      "delay": 350
+    },
+    {
+      "state": "move",
+      "frame": "3",
+      "part": "mob",
+      "path": "Mob/5130101/move/3.png",
+      "origin": {
+        "x": 90,
+        "y": 154
+      },
+      "texture_key": "maple_mob_move_3_mob",
+      "delay": 350
+    },
+    {
+      "state": "hit1",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/5130101/hit1/0.png",
+      "origin": {
+        "x": 134,
+        "y": 172
+      },
+      "texture_key": "maple_mob_hit1_0_mob",
+      "delay": 300
+    },
+    {
+      "state": "die1",
+      "frame": "0",
+      "part": "mob",
+      "path": "Mob/5130101/die1/0.png",
+      "origin": {
+        "x": 86,
+        "y": 178
+      },
+      "texture_key": "maple_mob_die1_0_mob",
+      "delay": 250
+    },
+    {
+      "state": "die1",
+      "frame": "1",
+      "part": "mob",
+      "path": "Mob/5130101/die1/1.png",
+      "origin": {
+        "x": 93,
+        "y": 169
+      },
+      "texture_key": "maple_mob_die1_1_mob",
+      "delay": 250
+    },
+    {
+      "state": "die1",
+      "frame": "2",
+      "part": "mob",
+      "path": "Mob/5130101/die1/2.png",
+      "origin": {
+        "x": 93,
+        "y": 160
+      },
+      "texture_key": "maple_mob_die1_2_mob",
+      "delay": 250
+    },
+    {
+      "state": "die1",
+      "frame": "3",
+      "part": "mob",
+      "path": "Mob/5130101/die1/3.png",
+      "origin": {
+        "x": 93,
+        "y": 146
+      },
+      "texture_key": "maple_mob_die1_3_mob",
+      "delay": 250
+    },
+    {
+      "state": "die1",
+      "frame": "4",
+      "part": "mob",
+      "path": "Mob/5130101/die1/4.png",
+      "origin": {
+        "x": 93,
+        "y": 133
+      },
+      "texture_key": "maple_mob_die1_4_mob",
+      "delay": 250
+    },
+    {
+      "state": "die1",
+      "frame": "5",
+      "part": "mob",
+      "path": "Mob/5130101/die1/5.png",
+      "origin": {
+        "x": 93,
+        "y": 74
+      },
+      "texture_key": "maple_mob_die1_5_mob",
+      "delay": 250
+    },
+    {
+      "state": "die1",
+      "frame": "6",
+      "part": "mob",
+      "path": "Mob/5130101/die1/6.png",
+      "origin": {
+        "x": 93,
+        "y": 74
+      },
+      "texture_key": "maple_mob_die1_6_mob",
+      "delay": 300
+    }
+  ],
+  "zmap": [
+    "Bd",
+    "Hd",
+    "Hr",
+    "Fc",
+    "At",
+    "Af",
+    "Am",
+    "Ae",
+    "As",
+    "Ay",
+    "Cp",
+    "Ri",
+    "Gv",
+    "Wp",
+    "Si",
+    "So",
+    "Pn",
+    "Ws",
+    "Ma",
+    "Wg",
+    "Sr",
+    "Tm",
+    "Sd",
+    "backTamingMobMid",
+    "backMobEquipUnderSaddle",
+    "backSaddle",
+    "backMobEquipMid",
+    "backTamingMobFront",
+    "backMobEquipFront",
+    "mobEquipRear",
+    "tamingMobRear",
+    "saddleRear",
+    "characterEnd",
+    "backWeapon",
+    "backHairBelowHead",
+    "backShieldBelowBody",
+    "backMailChestAccessory",
+    "backCapAccessory",
+    "backAccessoryFace",
+    "backAccessoryEar",
+    "backBody",
+    "backGlove",
+    "backGloveWrist",
+    "backWeaponOverGlove",
+    "backMailChestBelowPants",
+    "backPantsBelowShoes",
+    "backShoesBelowPants",
+    "backPants",
+    "backShoes",
+    "backPantsOverShoesBelowMailChest",
+    "backMailChest",
+    "backPantsOverMailChest",
+    "backMailChestOverPants",
+    "backHead",
+    "backAccessoryFaceOverHead",
+    "backAccessoryOverHead",
+    "backCape",
+    "backHairBelowCap",
+    "backHairBelowCapNarrow",
+    "backHairBelowCapWide",
+    "backWeaponOverHead",
+    "backCap",
+    "backHair",
+    "backCapOverHair",
+    "backShield",
+    "backWeaponOverShield",
+    "backWing",
+    "backHairOverCape",
+    "weaponBelowBody",
+    "hairBelowBody",
+    "capeBelowBody",
+    "shieldBelowBody",
+    "capAccessoryBelowBody",
+    "gloveBelowBody",
+    "gloveWristBelowBody",
+    "body",
+    "gloveOverBody",
+    "mailChestBelowPants",
+    "pantsBelowShoes",
+    "shoes",
+    "pants",
+    "mailChestOverPants",
+    "shoesOverPants",
+    "pantsOverShoesBelowMailChest",
+    "shoesTop",
+    "mailChest",
+    "pantsOverMailChest",
+    "mailChestOverHighest",
+    "gloveWristOverBody",
+    "mailChestTop",
+    "weaponOverBody",
+    "armBelowHead",
+    "mailArmBelowHead",
+    "armBelowHeadOverMailChest",
+    "gloveBelowHead",
+    "mailArmBelowHeadOverMailChest",
+    "gloveWristBelowHead",
+    "weaponOverArmBelowHead",
+    "shield",
+    "weapon",
+    "arm",
+    "hand",
+    "glove",
+    "mailArm",
+    "gloveWrist",
+    "cape",
+    "head",
+    "hairShade",
+    "accessoryFaceBelowFace",
+    "accessoryEyeBelowFace",
+    "face",
+    "accessoryFaceOverFaceBelowCap",
+    "capBelowAccessory",
+    "accessoryEar",
+    "capAccessoryBelowAccFace",
+    "accessoryFace",
+    "accessoryEyeShadow",
+    "accessoryEye",
+    "hair",
+    "cap",
+    "capAccessory",
+    "accessoryEyeOverCap",
+    "hairOverHead",
+    "accessoryOverHair",
+    "accessoryEarOverHair",
+    "capOverHair",
+    "weaponBelowArm",
+    "armOverHairBelowWeapon",
+    "mailArmOverHairBelowWeapon",
+    "armOverHair",
+    "gloveBelowMailArm",
+    "mailArmOverHair",
+    "gloveWristBelowMailArm",
+    "weaponOverArm",
+    "handBelowWeapon",
+    "gloveBelowWeapon",
+    "gloveWristBelowWeapon",
+    "shieldOverHair",
+    "weaponOverHand",
+    "handOverHair",
+    "gloveOverHair",
+    "gloveWristOverHair",
+    "weaponOverGlove",
+    "capeOverHead",
+    "weaponWristOverGlove",
+    "emotionOverBody",
+    "characterStart",
+    "tamingMobMid",
+    "mobEquipUnderSaddle",
+    "saddleFront",
+    "mobEquipMid",
+    "tamingMobFront",
+    "mobEquipFront"
+  ],
+  "info": {
+    "MADamage": 59,
+    "MDDamage": 100,
+    "MDRate": 10,
+    "PADamage": 64,
+    "PDDamage": 130,
+    "PDRate": 10,
+    "acc": 23,
+    "bodyAttack": 1,
+    "category": 2,
+    "eva": 1,
+    "exp": 26,
+    "fs": "10",
+    "hpRecovery": 100,
+    "level": 15,
+    "maxHP": 250,
+    "maxMP": 20,
+    "mobType": "1N",
+    "mpRecovery": 5,
+    "pushed": 20,
+    "skill": {
+      "0": {
+        "action": 1,
+        "effectAfter": 0,
+        "level": 1,
+        "skill": 100
+      },
+      "1": {
+        "action": 1,
+        "effectAfter": 0,
+        "level": 1,
+        "skill": 102
+      }
+    },
+    "speed": -20,
+    "summonType": 1
+  }
+}
